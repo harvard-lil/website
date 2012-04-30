@@ -1,0 +1,40 @@
+{
+  "people": [
+  {
+    "name": "Annie Cain",
+    "image": "http://librarylab.law.harvard.edu/about/images/annie.png",
+    "description": "Annie Jo is a comic book reading, sneaker-collecting librarian and developer who excels at repetitive tasks. Trust us, you haven't met anyone like her. ",
+    "email": "acain@law.harvard.edu"
+  },
+  {
+    "name": "Paul Deschner",
+    "image": "http://librarylab.law.harvard.edu/about/images/paul.png",
+    "description": "Paul is a developer and ShelfLife project lead. He swims, he speaks multiple languages, he likes Finnish literature. Paul has worked at Harvard libraries since 1990.",
+    "email": "deschner@law.harvard.edu"
+  },
+  {
+    "name": "Kim Dulin",
+    "image": "http://librarylab.law.harvard.edu/about/images/kim.png",
+    "description": "Kim (co-dir) is a librarian and a former Legal Services lawyer. She likes cooking, golf and beaches. And dreaming up new ways to share what libraries know. ",
+    "email": "kdulin@law.harvard.edu"
+  },
+  {
+    "name": "Jeff Goldenson",
+    "image": "http://librarylab.law.harvard.edu/about/images/jeff.png",
+    "description": "Jeff loves solving problems with <a href=\"http://www.buildingways.com/\">design</a>. Personal keywords include: Libraries, Bucky Fuller, Koolhaas, Wabi-Sabi, The Whole Earth Catalog, New Mexico.",
+    "email": "jgoldenson@law.harvard.edu"
+  },
+  {
+    "name": "Matt Phillips",
+    "image": "http://librarylab.law.harvard.edu/about/images/matt.png",
+    "description": "Matt is a developer in the Lab. He bike races (as in bicycle) when he can. He eats vegetables and enjoys the more technical articles that come up on <a href=\"http://news.ycombinator.com/\">Hacker News</a>.",
+    "email": "mphillips@law.harvard.edu"
+  },
+  {
+    "name": "David Weinberger",
+    "image": "http://librarylab.law.harvard.edu/about/images/david.png",
+    "description": "David (co-dir) <a href=\"http://www.hyperorg.com/blogger/\">writes</a> about the effect of tech on ideas, has worked at sw startups, and is a researcher at the <a href=\"http://cyber.law.harvard.edu/\">Berkman Center</a>. He likes his Internets open.",
+    "email": "self@evident.com"
+  }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "projects": {
+    "big": [
+      {
+        "name": "ShelfLife",
+        "image": "http://www.librarylab.law.harvard.edu/projects/images/screenShot-preview.png",
+        "link": "http://www.librarylab.law.harvard.edu/dpla/demo/",
+        "description": "",
+        "contributors":
+        [
+          "Innovation Team"
+        ]
+      },
+      {
+        "name": "StackView",
+        "image": "http://www.librarylab.law.harvard.edu/projects/images/stackview.png",
+        "link": "http://www.librarylab.law.harvard.edu/projects/stackview/index.php",
+        "description": "",
+        "contributors":
+        [
+          "Annie Cain",
+          "Jeff Goldenson"
+        ]
+      },
+      {
+        "name": "LibraryCloud",
+        "image": "http://www.librarylab.law.harvard.edu/projects/images/librarycloud-preview.png",
+        "link": "http://www.librarycloud.org/",
+        "description": "",
+        "contributors":
+        [
+          "Matt Phillips"
+        ]
+      }
+    ],
+    "small": [
+    {
+      "name": "Library News",
+      "image": "http://www.librarylab.law.harvard.edu/projects/images/newspaper.png",
+      "link": "http://news.librarycloud.org/",
+      "description": "",
+      "contributors":
+      [
+        "Matt Phillips"
+      ]
+    }
+      ],
+      "small": [
+    {
+      "name": "Library License",
+      "image": "http://www.librarylab.law.harvard.edu/projects/images/librarylicense.png",
+      "link": "http://librarylicense.org/",
+      "description": "",
+      "contributors": 
+      [
+        "Jeff Goldenson"
+      ]
+    },
+    {
+      "name": "ShelfRank jQuery Plugin",
+      "image": "http://www.librarylab.law.harvard.edu/images/plugin.png",
+      "link": "http://librarylab.law.harvard.edu/projects/librarycloud-plugin/",
+      "description": "",
+      "contributors": 
+      [
+        "Jeff Goldenson",
+        "Matt Phillips"
+      ]
+    },
+    {
+      "name": "Checkouts",
+      "image": "http://www.librarylab.law.harvard.edu/projects/images/CheckOutsLogo_Investigations.png",
+      "link": "http://www.librarylab.law.harvard.edu/checkout/",
+      "description": "",
+      "contributors": 
+      [
+        "Annie Cain",
+        "Jeff Goldenson"
+      ]
+    },
+    {
+      "name": "Library Hose",
+      "image": "http://www.librarylab.law.harvard.edu/projects/images/twitter3.png",
+      "link": "http://www.librarylab.law.harvard.edu/twitter/",
+      "description": "",
+      "contributors": 
+      [
+        "Annie Cain",
+        "Jeff Goldenson"
+      ]
+    }
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>The Harvard Library Innovation Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Le fav and touch icons -->
+  </head>
+
+  <body>
+
+	<div class="container-fluid">
+     <div class="row-fluid">
+        <div class="span2">
+        	<div class="navbar-inner">
+          		<ul class="nav">
+            		<li class="active"><a href="index.html">Home</a></li>
+              		<li><a href="taking-stock.html">Projects</a></li>
+              		<li><a href="overview.html">About Us</a></li>
+              		<li><a href="overview.html">Blog</a></li>
+            	</ul>
+            </div><!--navbar-inner -->
+        </div>
+        <div class="span3 offset2 blog" id="blog1">
+
+        </div>
+        <div class="span5 cyan-block" id="bigProject1">
+        </div> 
+  	</div>
+    <div class="row-fluid">
+        <div class="span6 negative">
+    		<h1>The Harvard Library<br /> Innovation Lab</h1>
+    	</div>
+    	<div class="span4 offset2 cyan-block" id="people1">
+      </div> 
+    </div><!--row-fluid-->
+    <div class="row-fluid">
+    	<div class="span5 cyan-block" id="bigProject2">
+      </div>
+      <div class="span3 blog" id="blog2">
+      </div>
+  	</div>
+      <footer>
+      	 <div class="row-fluid">
+      		<div class="span12">
+      		<hr>
+        		<p>Copyright &copy; 2012 The President and Fellows of Harvard College</p>
+      		</div>
+      	</div>
+      </footer>
+
+    </div><!--/.fluid-container-->
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="js/handlebars.js"></script>
+    <script src="js/home.js"></script>
+    <script id="people-template" type="text/x-handlebars-template"> 
+      <img src="{{image}}">
+      <h4>{{name}}</h4>
+      <div class="description">{{description}}</div>
+      <p>{{email}}</p>
+    </script> 
+    <script id="big-template" type="text/x-handlebars-template"> 
+      <img width="330" src="{{image}}">
+    </script> 
+  </body>
+</html>
