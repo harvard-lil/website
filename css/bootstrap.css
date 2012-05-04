@@ -3603,24 +3603,52 @@ footer p {
 	float:right;
 }
 
+.project {
+  height:322px;
+}
+
+.people img {
+  float:left;
+  margin-right:8px;
+  height:140px;
+}
+
+.bio {
+	color:#fff;
+	margin-bottom: 10px;
+	line-height: 18px;
+	height:90px;
+	overflow:hidden;
+	text-overflow: ellipsis; 
+	-o-text-overflow: ellipsis;  
+	-moz-text-overflow: ellipsis; 
+	-webkit-text-overflow: ellipsis; 
+}
+
+.blog {
+  background:#09f;
+  height:110px;
+  margin-bottom:15px;
+  padding:8px;
+  cursor:pointer;
+}
+
 .description {
 	color:#fff;
 	margin-bottom: 10px;
 	line-height: 18px;
+	height:80px;
+	overflow:hidden;
+	text-overflow: ellipsis; 
+	-o-text-overflow: ellipsis;  
+	-moz-text-overflow: ellipsis; 
+	-webkit-text-overflow: ellipsis; 
 }
 
 .cyan-block {
 	background:#09f;
 	margin-bottom:15px;
 	padding:8px;
-}
-
-.blog {
-  background:#09f;
-  height:118px;
-  overflow:hidden;
-  margin-bottom:15px;
-  padding:8px;
 }
 
 .negative {
