@@ -1,0 +1,129 @@
+
+
+footer p {
+	color:#ccc;
+	text-shadow: 1px 1px 0px #fff;
+	float:right;
+}
+
+.project {
+	position: relative;
+	height:322px; 
+	width:300px;
+	border:1px solid red;
+}
+
+.project img {
+	max-width: 100%; 
+
+}
+.people {
+	margin-top: 20px;
+	border:1px solid red;
+	background:black;
+}
+.people img {
+  position:relative;
+  margin-right:8px;
+  width:122px;
+  float:left;
+}
+
+
+.bio {
+	color:#09f;
+	float:right;
+	margin-bottom: 10px;
+	line-height: 16px;
+	height:112px;
+	font-size:11px;
+	width:100px;
+	border:1px solid red;
+	text-overflow: ellipsis; 
+	-o-text-overflow: ellipsis;  
+	-moz-text-overflow: ellipsis; 
+	-webkit-text-overflow: ellipsis; 
+	
+}
+
+h4 {
+	color:#09f;
+}
+.blog {
+  color:#09f;
+  padding:18px 15px 10px 15px;
+  cursor:pointer;
+  border:1px dashed #ccc;
+}
+
+.description {
+	font-weight: bold;
+	color:#09f;
+	margin-bottom: 10px;
+	line-height: 20px;
+	font-size: 15px;
+	height:80px;
+	overflow:hidden;
+	text-overflow: ellipsis; 
+	-o-text-overflow: ellipsis;  
+	-moz-text-overflow: ellipsis; 
+	-webkit-text-overflow: ellipsis; 
+}
+
+.cyan-block {
+	border:0px solid #09f;
+	margin-bottom:15px;
+	padding:0px;
+}
+
+
+.nav > li > a {
+	-webkit-transition:background 80ms linear;  
+   	-moz-transition:background 80ms linear;  
+   	-o-transition:background 80ms linear;  
+   	transition:background 80ms linear;  
+  	text-align:center;
+	margin: 0 auto 10px;
+	padding: 10px 0;
+	background:#090;
+	display:block;
+	font-weight: bold;
+	font-size:18px;
+	border:1px solid #080;
+
+}
+
+.nav > li > a:hover {
+  text-decoration: none;
+  color:#fff;
+  background-color: #09f;
+  border:1px solid #0085dd;
+}
+.negative {
+	margin-top:-110px;
+}
+/*/
+.fadeIn	{
+	-webkit-animation:fadeIn ease-in 1;
+	-moz-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+  	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+.fadeIn-3s {
+	-webkit-animation-duration:.5s;
+	-moz-animation-duration:.5s;
+	animation-duration:.5s;
+}
+
+.fadeIn-Delay-3s {
+	-webkit-animation-delay:1.2s;
+	-moz-animation-delay:1.2s;
+	animation-delay:1.2s;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+/*/

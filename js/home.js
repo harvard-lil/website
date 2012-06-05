@@ -37,7 +37,7 @@ $(function () {
 	});
 	
 	  $.ajax({
-    url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=2&callback=?&q=' + encodeURIComponent('http://librarylab.law.harvard.edu/blog/feed/'),
+    url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&callback=?&q=' + encodeURIComponent('http://librarylab.law.harvard.edu/blog/feed/'),
     dataType: 'json',
     success: function(data) {
       $.each(data.responseData.feed.entries, function(){
