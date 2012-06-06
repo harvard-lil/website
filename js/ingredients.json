@@ -3,7 +3,7 @@
     "big": [
       {
         "name": "ShelfLife",
-        "image": "http://www.librarylab.law.harvard.edu/projects/images/dpla-small.png",
+         "image": "http://hlsl7.law.harvard.edu/dev/jeff/site/img/dpla-small.png",
         "link": "http://www.librarylab.law.harvard.edu/dpla/demo/",
         "description": "",
         "contributors":
@@ -13,7 +13,7 @@
       },
       {
         "name": "StackView",
-        "image": "http://www.librarylab.law.harvard.edu/jeff_testing/site/img/stackview.png",
+        "image": "http://hlsl7.law.harvard.edu/dev/jeff/site/img/stackview-small.png",
         "link": "http://www.librarylab.law.harvard.edu/projects/stackview/index.php",
         "description": "",
         "contributors":
@@ -24,7 +24,7 @@
       },
       {
         "name": "LibraryCloud",
-        "image": "http://www.librarylab.law.harvard.edu/jeff_testing/site/img/librarycloudEdit2.png",
+        "image": "http://hlsl7.law.harvard.edu/dev/jeff/site/img/librarycloud-small.png",
         "link": "http://www.librarycloud.org/",
         "description": "",
         "contributors":
