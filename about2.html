@@ -1,0 +1,174 @@
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>The Harvard Library Innovation Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <!-- this is a way broken down bootstrap, mostly grid, nav and responsive -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Le fav and touch icons -->
+    	<script type="text/javascript">
+	$(document).ready(function(){
+		var src = '';
+		$('img.mug').hover(function() {
+			src = $(this).attr("id");
+			$(this).attr("src","img/" + src + "-hover.png");
+		}, function() {
+			$(this).attr("src","img/" + src + ".png");
+		});
+		
+	});
+	</script>
+  </head>
+
+  <body>
+
+	<div class="container">
+     <div class="row">
+        <div class="span2">
+        	<div class="navbar-inner">
+          		<ul class="nav">
+            		<li><a href="index.html">Home</a></li>
+              		<li><a href="projects.html">Projects</a></li>
+              		<li class="active"><a href="about.html">About Us</a></li>
+              		<li><a href="overview.html">Blog</a></li>
+            	</ul>
+            </div><!--navbar-inner -->
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        </div>
+        <div class="offset1 span3 description">
+    		<h3>Annie Cain</h3>
+    		<img src="img/annie.png" alt="Annie" id="annie" class="mug" />
+    		<p>Annie is a comic book reading, sneaker-collecting librarian and developer who excels at repetitive tasks. Trust us, you haven't met anyone like her.
+			acain (@) law.harvard.edu</p>
+      	</div>
+      	<div class="span3 description">
+      	    <h3>Paul Deschner</h3>
+      		<img src="img/paul.png" alt="Paul" id="paul" class="mug" />
+    		<p>Paul is a developer and ShelfLife project lead. He swims, he speaks multiple languages, he likes Finnish literature. Paul has worked at Harvard libraries since 1990.
+deschner (@) law.harvard.edu</p>
+      	</div>
+
+      	
+    	<div class="span3 description">
+    		<h3>Kim Dulin</h3>
+    		<img src="img/kim.png" alt="Kim" class="mug" />
+    		<p>Kim (co-dir) is a librarian and a former Legal Services lawyer. She likes cooking, golf and beaches. And dreaming up new ways to share what libraries know.
+kdulin (@) law.harvard.edu</p>
+      	</div>
+      </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="row">
+        	<div class="offset3 span9 about">
+        		<div class="text-block"><!--this is a device to keep a little text padding inside the adjustable grid -->
+					<h1>We're trying things in libraries.</h1>
+					<h3>You got a problem with that?</h3>
+					<p>Come on by, we'd love to talk.  We've got stuff that makes it up to the site, and other stuff that doesn't</p>
+				</div>	<!--end text-block-->
+        	</div>
+  		
+    	</div><!--row-fluid-->
+        
+  		
+ 
+    <div class="row">
+      	<div class="span2">
+      		<h2>Friends &amp; Collaborators</h2>
+    		<ul class="nav">
+    			<li class="description"><h3>Antonio Fernandez</h3></li>
+    			<li class="description"><h3>Jessica Yurkofsky</h3></li>
+    			<li class="description"><h3>Rosten Woo</h3></li>
+    			<li class="description"><h3>Sha Hwang</h3></li>
+    			<li class="description"><h3>Caleb Stoughton</h3></li>
+    		</ul>
+      	</div>  	
+
+    	<div class="offset1 span3 description">
+    		<h3>Jeff Goldenson</h3>
+    		<img src="img/jeff.png" alt="Jeff" class="mug" />
+    		<p>Jeff loves solving problems with design. Personal keywords include: Libraries, Bucky Fuller, Koolhaas, Wabi-Sabi, The Whole Earth Catalog, New Mexico.
+jgoldenson(@)law.harvard.edu</p>
+      	</div>
+      	<div class="span3 description">
+      		<h3>Matt Phillips</h3>
+    		<img src="img/matt.png" alt="Matt" class="mug" />
+    		<p>Matt is a developer in the Lab. He bike races (as in bicycle) when he can. He eats vegetables and enjoys the more technical articles that come up on Hacker News.
+mphillips (@) law.harvard.edu</p>
+      	</div>
+      	
+    	<div class="span3 description">
+    	<h3>David Weinberger</h3>
+    		<img src="img/david.png" alt="David" class="mug" />
+    		<p>David (co-dir) writes about the effect of tech on ideas, has worked at sw startups, and is a researcher at the Berkman Center. He likes his Internets open.
+self (@) evident.com</p>
+    		
+      	</div>  	
+  	</div>
+
+ 	
+      <footer>
+      	 <div class="row">
+      		<div class="span12">
+      		<hr>
+        		<p>Copyright &copy; 2012 The President and Fellows of Harvard College</p>
+      		</div>
+      	</div>
+      </footer>
+
+    </div><!--/.fluid-container-->
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dotdotdot-1.4.0-packed.js"></script>
+    <script src="js/handlebars.js"></script>
+    <script src="js/home.js"></script>
+    <script id="blog-template" type="text/x-handlebars-template">
+      <a href="{{link}}" style="display:none;" class="blogLink">{{title}}</a>
+      <h4>{{title}}</h4>
+      <div class="description">{{content}}</div>
+    </script> 
+    <script id="people-template" type="text/x-handlebars-template"> 
+      <img src="{{image}}">
+      <h4>{{name}}</h4>
+      <div class="bio">{{{description}}}</div>
+    </script> 
+    <script id="big-template" type="text/x-handlebars-template"> 
+      <img width="100%" src="{{image}}">
+    </script> 
+  </body>
+</html>
