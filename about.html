@@ -16,7 +16,7 @@
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!-- Le fav and touch icons -->
-    	<script type="text/javascript">
+	<script type="text/javascript">
 	$(document).ready(function(){
 		var src = '';
 		$('img.mug').hover(function() {
@@ -52,6 +52,7 @@
 				<hr>
 				
 				<iframe class="map" width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=Harvard+Law+School,+Cambridge,+MA&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=53.961216,74.882813&amp;oq=harvard+law+scho&amp;hq=Harvard+Law+School,+Cambridge,+MA&amp;t=m&amp;ie=UTF8&amp;ll=42.379063,-71.119858&amp;spn=0.016485,0.032015&amp;output=embed"></iframe><br /><small><a class="" href="https://maps.google.com/maps?q=Harvard+Law+School,+Cambridge,+MA&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=53.961216,74.882813&amp;oq=harvard+law+scho&amp;hq=Harvard+Law+School,+Cambridge,+MA&amp;t=m&amp;ie=UTF8&amp;ll=42.379063,-71.119858&amp;spn=0.016485,0.032015&amp;source=embed" style="color:#999;text-align:left"><span class="logotype-small">+</span></a></small>
+
 				
 					<hr>				
 				<a href="https://github.com/harvard-lil"><img class="octocat" src="img/octocat-small.png"/></a>
@@ -62,21 +63,10 @@
 
         	<div class="offset1 span9">
         		<div class="row">
-        			<div class="span3 description">
-    					<h3>Annie Cain</h3>
-    					<img src="img/annie.png" alt="Annie" id="annie" class="mug" />
-    					<p>Annie is a comic book reading, sneaker-collecting librarian and developer who excels at repetitive tasks. Trust us, you haven't met anyone like her.<br/><span class="highlight">acain(@)law.harvard.edu</span></p>
-      				</div>
-      				<div class="span3 description">
-      	    			<h3>Paul Deschner</h3>
-      					<img src="img/paul.png" alt="Paul" id="paul" class="mug" />
-    					<p>Paul is a developer and ShelfLife project lead. He swims, he speaks multiple languages, he likes Finnish literature. Paul has worked at Harvard libraries since 1990.<br/><span class="highlight">deschner(@)law.harvard.edu</span></p>
-      				</div>
-    				<div class="span3 description">
-    					<h3>Kim Dulin</h3>
-    					<img src="img/kim.png" alt="Kim" class="mug" />
-    					<p>Kim (co-dir) is a librarian and a former Legal Services lawyer. She likes cooking, golf and beaches. And dreaming up new ways to share what libraries know.<br/><span class="highlight">kdulin(@)law.harvard.edu</span></p>
-      				</div>
+        			<div class="span3 description" id="people1"></div>
+      				<div class="span3 description" id="people2"></div>
+    				<div class="span3 description" id="people3"></div>
+
       			</div>
 
         		<div class="row">
@@ -93,22 +83,11 @@
     			</div><!--row-->
         
     			<div class="row">
-    				<div class="span3 description">
-    					<h3>Jeff Goldenson</h3>
-    					<img src="img/jeff.png" alt="Jeff" class="mug" />
-    					<p>Jeff loves solving problems with design. Personal keywords include: Libraries, Bucky Fuller, Koolhaas, Wabi-Sabi, The Whole Earth Catalog, New Mexico.<br/><span class="highlight">jgoldenson(@)law.harvard.edu</span></p>
-      				</div>
-      				<div class="span3 description">
-      					<h3>Matt Phillips</h3>
-    					<img src="img/matt.png" alt="Matt" class="mug" />
-    					<p>Matt is a developer in the Lab. He bike races (as in bicycle) when he can. He eats vegetables and enjoys the more technical articles that come up on Hacker News.<br/><span class="highlight">mphillips(@)law.harvard.edu</span></p>
-      				</div>
-					<div class="span3 description">
-    					<h3>David Weinberger</h3>
-    					<img src="img/david.png" alt="David" class="mug" />
-    					<p>David (co-dir) writes about the effect of tech on ideas, has worked at sw startups, and is a researcher at the Berkman Center. He likes his Internets open.<br/><span class="highlight">self(@)evident.com</span></p>
-      				</div>  	
-  				</div><!--row-->
+
+    				<div class="span3 description" id="people4"></div>
+      				<div class="span3 description" id="people5"></div>
+					<div class="span3 description" id="people6"></div>
+				</div><!--row-->
 				
 				<div class="row">
 					<div class="span9 about">
@@ -152,21 +131,14 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.dotdotdot-1.4.0-packed.js"></script>
     <script src="js/handlebars.js"></script>
-    <script src="js/home.js"></script>
-    <script id="blog-template" type="text/x-handlebars-template">
-      <a href="{{link}}" style="display:none;" class="blogLink">{{title}}</a>
-      <h4>{{title}}</h4>
-      <div class="description">{{content}}</div>
-    </script> 
+    <script src="js/about.js"></script>
     <script id="people-template" type="text/x-handlebars-template"> 
-      <img src="{{image}}">
-      <h4>{{name}}</h4>
-      <div class="bio">{{{description}}}</div>
-    </script> 
-    <script id="big-template" type="text/x-handlebars-template"> 
-      <img width="100%" src="{{image}}">
+      <h3>{{name}}</h3>
+      <img src="{{image}}" class="mug">
+      <p>{{{description}}}<br/>
+      	<span class="highlight">{{email}}</span>
+      </p>
     </script> 
   </body>
 </html>

@@ -60,7 +60,11 @@
 
 .description {
 	color:#09f;
+<<<<<<< HEAD
 
+=======
+	background:#f4f4f4;
+>>>>>>> b1c6a2a3ef0309c889a24b19a2412148655b96f1
 	margin-bottom: 10px;
 	line-height: 17px;
 	padding: 12px;
@@ -184,6 +188,7 @@ h4 {
 	margin:-394px 0 0 265px;
 	opacity:.6;
 	z-index: -1;
+<<<<<<< HEAD
 }
 
 .stamp-about {
@@ -193,11 +198,23 @@ h4 {
 	z-index: -1;
 }
 
+=======
+}
+
+.stamp-about {
+	float:left;
+	margin-top:20px;
+	opacity:.6;
+	z-index: -1;
+}
+
+>>>>>>> b1c6a2a3ef0309c889a24b19a2412148655b96f1
 footer p {
 	color:#ccc;
 	text-shadow: 1px 1px 0px #fff;
 	float:right;
 	margin-bottom:20px;
+<<<<<<< HEAD
 }
 
 h3 a {
@@ -251,15 +268,77 @@ h3 a:hover {
 	padding:3px 4px 3px;
 }
 
+=======
+}
+
+h3 a {
+	
+	-webkit-transition-property:color; 
+	-webkit-transition-duration: 80ms;
+	-webkit-transition-timing-function: linear;  
+   	-moz-transition-property:color;
+   	-moz-transition-duration: 80ms;
+   	-moz-transition-timing-function: linear;    
+   	transition-property:color; 
+	transition-duration: 80ms;
+	transition-timing-function: linear;  
+	color:#333;
+}
+
+h3 a:hover {
+	color:#09f;
+	text-decoration:none;
+}
+
+/*/ about us page/*/
+
+.text-block {
+	font-weight: bold;
+	color:#09f;
+	line-height: 20px;
+	font-size: 15px;
+	padding: 5px 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.text-block h1 {
+	font-size:48px;
+	line-height:48px;
+}
+
+.text-block p {
+	font-size:18px;
+	line-height:24px;
+}
+
+.row {
+	margin-bottom:20px;
+}
+
+.highlight {
+	background:#FF0;
+	padding:3px 4px 3px;
+}
+
+>>>>>>> b1c6a2a3ef0309c889a24b19a2412148655b96f1
 .map {
 	margin-top:10px;
 }
 
+<<<<<<< HEAD
 a img.octocat {
 	display: block;
     margin-left: auto;
     margin-right: auto;
     text-align:center;
+=======
+img.octocat{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+>>>>>>> b1c6a2a3ef0309c889a24b19a2412148655b96f1
 }
 
 .underline {
