@@ -60,11 +60,7 @@
 
 .description {
 	color:#09f;
-<<<<<<< HEAD
-
-=======
 	background:#f4f4f4;
->>>>>>> b1c6a2a3ef0309c889a24b19a2412148655b96f1
 	margin-bottom: 10px;
 	line-height: 17px;
 	padding: 12px;
@@ -188,7 +184,6 @@ h4 {
 	margin:-394px 0 0 265px;
 	opacity:.6;
 	z-index: -1;
-<<<<<<< HEAD
 }
 
 .stamp-about {
@@ -198,23 +193,12 @@ h4 {
 	z-index: -1;
 }
 
-=======
-}
 
-.stamp-about {
-	float:left;
-	margin-top:20px;
-	opacity:.6;
-	z-index: -1;
-}
-
->>>>>>> b1c6a2a3ef0309c889a24b19a2412148655b96f1
 footer p {
 	color:#ccc;
 	text-shadow: 1px 1px 0px #fff;
 	float:right;
 	margin-bottom:20px;
-<<<<<<< HEAD
 }
 
 h3 a {
@@ -268,8 +252,7 @@ h3 a:hover {
 	padding:3px 4px 3px;
 }
 
-=======
-}
+
 
 h3 a {
 	
@@ -322,23 +305,16 @@ h3 a:hover {
 	padding:3px 4px 3px;
 }
 
->>>>>>> b1c6a2a3ef0309c889a24b19a2412148655b96f1
+
 .map {
 	margin-top:10px;
 }
 
-<<<<<<< HEAD
 a img.octocat {
 	display: block;
     margin-left: auto;
     margin-right: auto;
     text-align:center;
-=======
-img.octocat{
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
->>>>>>> b1c6a2a3ef0309c889a24b19a2412148655b96f1
 }
 
 .underline {
