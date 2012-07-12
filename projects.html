@@ -8,60 +8,136 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    
+    <!-- this is a way broken down bootstrap, mostly grid, nav and responsive -->
     <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!-- Le fav and touch icons -->
+    	<script type="text/javascript">
+	$(document).ready(function(){
+		var src = '';
+		$('img.mug').hover(function() {
+			src = $(this).attr("id");
+			$(this).attr("src","img/" + src + "-hover.png");
+		}, function() {
+			$(this).attr("src","img/" + src + ".png");
+		});
+		
+	});
+	</script>
   </head>
 
   <body>
+	<div class="container">
+     	<div class="row">
+        	<div class="span2">
+        		<div class="navbar-inner">
+          			<ul class="nav">
+            			<li><a href="index.html">Home</a></li>
+              			<li><a href="projects.html">Projects</a></li>
+              			<li class="active"><a href="about.html">About</a></li>
+              			<li><a href="overview.html">Blog</a></li>
+            		</ul>
+            	</div><!--navbar-inner -->
+				
+				<hr>
+				<hr>
+				
+				<p class="address"><span class="logotype-small">Harvard<br/>Library<br/>Innovation<br/> Lab</span>
+				</div>
+				
+				
 
-	<div class="container-fluid">
-     <div class="row-fluid">
-        <div class="span2">
-        	<div class="navbar-inner">
-          		<ul class="nav">
-            		<li class="active"><a href="index.html">Home</a></li>
-              		<li><a href="taking-stock.html">Projects</a></li>
-              		<li><a href="overview.html">About Us</a></li>
-              		<li><a href="overview.html">Blog</a></li>
-            	</ul>
-            </div><!--navbar-inner -->
-        </div>
-        <div class="span3 offset2 blog" id="blog1">
+        	<div class="offset1 span9">
+        		<div class="row">
+        			<div class="span3 description">
+    					<h3>Annie Cain</h3>
+    					<img src="img/annie.png" alt="Annie" id="annie" class="mug" />
+    					<p>Annie is a comic book reading, sneaker-collecting librarian and developer who excels at repetitive tasks. Trust us, you haven't met anyone like her.<br/><span class="highlight">acain(@)law.harvard.edu</span></p>
+      				</div>
+      				<div class="span3 description">
+      	    			<h3>Paul Deschner</h3>
+      					<img src="img/paul.png" alt="Paul" id="paul" class="mug" />
+    					<p>Paul is a developer and ShelfLife project lead. He swims, he speaks multiple languages, he likes Finnish literature. Paul has worked at Harvard libraries since 1990.<br/><span class="highlight">deschner(@)law.harvard.edu</span></p>
+      				</div>
+    				<div class="span3 description">
+    					<h3>Kim Dulin</h3>
+    					<img src="img/kim.png" alt="Kim" class="mug" />
+    					<p>Kim (co-dir) is a librarian and a former Legal Services lawyer. She likes cooking, golf and beaches. And dreaming up new ways to share what libraries know.<br/><span class="highlight">kdulin(@)law.harvard.edu</span></p>
+      				</div>
+      			</div>
 
-        </div>
-        <div class="span5 cyan-block project" id="bigProject1">
-        </div> 
-  	</div>
-    <div class="row-fluid">
-        <div class="span6 negative">
-    		<h1>The Harvard Library<br /> Innovation Lab</h1>
-    	</div>
-    	<div class="span4 offset2 cyan-block people" id="people1">
-      </div> 
-    </div><!--row-fluid-->
-    <div class="row-fluid">
-    	<div class="span5 cyan-block project" id="bigProject2">
-      </div>
-      <div class="span3 blog" id="blog2">
-      </div>
-  	</div>
-      <footer>
-      	 <div class="row-fluid">
-      		<div class="span12">
-      		<hr>
-        		<p>Copyright &copy; 2012 The President and Fellows of Harvard College</p>
-      		</div>
-      	</div>
-      </footer>
-
-    </div><!--/.fluid-container-->
+        		<div class="row">
+        			<div class="span9">
+        			<img class="stamp-about" src="img/liblabstampmed.png"/>
+        				<div class="text-block offset1"><!--this is a device to keep a little text padding inside the adjustable grid -->	
+							<h1>We're trying things in libraries.</h1>
+							
+							<p>Come on by, we'd love to talk!</p>  
+						</div>
+					</div>
+					
+        		
+    			</div><!--row-->
+        
+    			<div class="row">
+    				<div class="span3 description">
+    					<h3>Jeff Goldenson</h3>
+    					<img src="img/jeff.png" alt="Jeff" class="mug" />
+    					<p>Jeff loves solving problems with design. Personal keywords include: Libraries, Bucky Fuller, Koolhaas, Wabi-Sabi, The Whole Earth Catalog, New Mexico.<br/><span class="highlight">jgoldenson(@)law.harvard.edu</span></p>
+      				</div>
+      				<div class="span3 description">
+      					<h3>Matt Phillips</h3>
+    					<img src="img/matt.png" alt="Matt" class="mug" />
+    					<p>Matt is a developer in the Lab. He bike races (as in bicycle) when he can. He eats vegetables and enjoys the more technical articles that come up on Hacker News.<br/><span class="highlight">mphillips(@)law.harvard.edu</span></p>
+      				</div>
+					<div class="span3 description">
+    					<h3>David Weinberger</h3>
+    					<img src="img/david.png" alt="David" class="mug" />
+    					<p>David (co-dir) writes about the effect of tech on ideas, has worked at sw startups, and is a researcher at the Berkman Center. He likes his Internets open.<br/><span class="highlight">self(@)evident.com</span></p>
+      				</div>  	
+  				</div><!--row-->
+				
+				<div class="row">
+					<div class="span9 about">
+        				<div class="text-block"><!--this is a device to keep a little text padding inside the adjustable grid -->
+							<h1>Friends &amp; Collaborators</h1>
+							<p>Folks we've worked with, groups we're friendly with...</p>
+						</div><!--end text-block-->
+					</div><!--end text-block-->
+				</div><!--row-->
+    			
+    			<div class="row">
+  					<div class="span4 list">
+  						<h3><a href="http://www.jessyurko.com/">Jessica Yurkofsky</a></h3>
+    					<h3><a href="http://imakewebthings.com/">Caleb Troughton</a></h3>
+    					<h3><a href="http://dp.la/">Digital Public Library of America</a></h3>
+    					<h3><a href="http://www.jessyurko.com/">Berkman Center for Internet &amp; Society</a></h3>
+      				</div>  	
+    				<div class="offset1 span4 list">
+    					<h3><a href="http://www.wehavenoart.net/">Rosten Woo</a></h3>
+    					<h3><a href="http://postarchitectural.com/">Sha Hwang</a></h3>	
+    					<h3><a href="http://metalab.harvard.edu/">metaLAB</a></h3>
+    					<h3><a href="http://osc.hul.harvard.edu/liblab">Harvard Library Lab</a></h3>
+      				</div>
+      				
+      
+      			</div><!--row-->
+      		</div><!--end span9 block, which sides beside the nav span2 block-->
+    	</div><!--row-->  
+      
+    	<footer>
+      		<div class="row">
+      			<div class="span12">
+      				<hr>
+        			<p>Copyright &copy; 2012 The President and Fellows of Harvard College</p>
+      			</div>
+      		</div><!--row-->
+      	</footer>
+    </div><!--container-->
     
     <!-- Le javascript
     ================================================== -->
