@@ -1,23 +1,11 @@
 {
   "projects": {
     "big": [
-
-      {
-        "name": "StackView",
-        "image": "http://hlsl7.law.harvard.edu/dev/jeff/site/img/stackview-small.png",
-        "link": "http://www.librarylab.law.harvard.edu/projects/stackview/index.php",
-        "description": "",
-        "contributors":
-        [
-          "Annie Cain",
-          "Jeff Goldenson"
-        ]
-      },
-      {
+			{
         "name": "LibraryCloud",
-        "image": "http://hlsl7.law.harvard.edu/dev/jeff/site/img/librarycloud-small.png",
+        "image": "img/librarycloud-small.png",
         "link": "http://www.librarycloud.org/",
-        "description": "",
+        "description": "Cloud based infrastructure to share what libraries know",
         "contributors":
         [
           "Matt Phillips", 
@@ -25,17 +13,62 @@
         ]
       },
       {
-        "name": "Library Test Kitchen",
-        "image": "http://hlsl7.law.harvard.edu/dev/jeff/site/img/ltk-logo-smaller-export.png",
-        "link": "http://www.librarytestkitchen.org/",
-        "description": "",
+        "name": "StackView",
+        "image": "img/stackview-small.png",
+        "link": "http://www.librarylab.law.harvard.edu/projects/stackview/index.php",
+        "description": "A browsing & visualization interface",
+        "contributors":
+        [
+          "Annie Cain",
+          "Jeff Goldenson"
+        ]
+      },
+      {
+        "name": "dpla",
+        "image": "img/dpla-small.png",
+        "link": "http://www.librarylab.law.harvard.edu/dpla/demo/app",
+        "description": "We're helping build the Digital Public Library of America platform as well as doing some UI prototypes",
         "contributors":
         [
           "Jeff Goldenson", 
           "Jeffrey Schnapp from metaLAB",
           "Ann Whiteside from Loeb Design Library"
         ]
-      }	
+      },
+      {
+        "name": "Library Test Kitchen",
+        "image": "img/ltk-logo-smaller-export.png",
+        "link": "http://www.librarytestkitchen.org/",
+        "description": "Our academic collaboration with metaLAB and the GSD exploring the future of libraries",
+        "contributors":
+        [
+          "Jeff Goldenson", 
+          "Jeffrey Schnapp from metaLAB",
+          "Ann Whiteside from Loeb Design Library"
+        ]
+      },
+      {
+        "name": "Shlv.me",
+        "image": "img/stackview-small.png",
+        "link": "http://www.shlv.me",
+        "description": "Build and share shelves of books, movies, albums, and most anything on the web",
+        "contributors":
+        [
+          "Annie Cain",
+          "Jeff Goldenson"
+        ]
+      },
+      {
+        "name": "ShelfLife",
+        "image": "img/librarycloud-small.png",
+        "link": "http://www.librarycloud.org/",
+        "description": "Shelflife is a community-based wayfinding tool for navigating the vast resources of the combined Harvard Library System.",
+        "contributors":
+        [
+          "Matt Phillips", 
+          "Paul Deschner"
+        ]
+      }
     ],
     "small": [
     {
@@ -54,7 +87,7 @@
       "name": "Library License",
       "image": "http://www.librarylab.law.harvard.edu/projects/images/librarylicense.png",
       "link": "http://librarylicense.org/",
-      "description": "",
+      "description": "Library License is a thing",
       "contributors": 
       [
         "Jeff Goldenson"

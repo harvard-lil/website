@@ -16,160 +16,99 @@
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!-- Le fav and touch icons -->
-    	<script type="text/javascript">
-	$(document).ready(function(){
-		var src = '';
-		$('img.mug').hover(function() {
-			src = $(this).attr("id");
-			$(this).attr("src","img/" + src + "-hover.png");
-		}, function() {
-			$(this).attr("src","img/" + src + ".png");
-		});
-		
-	});
-	</script>
   </head>
 
   <body>
 	<div class="container">
-     	<div class="row">
-        	<div class="span2">
-        		<div class="navbar-inner">
-          			<ul class="nav">
-            			<li><a href="index.html">Home</a></li>
-              			<li><a href="projects.html">Projects</a></li>
-              			<li class="active"><a href="about.html">About</a></li>
-              			<li><a href="overview.html">Blog</a></li>
-            		</ul>
-            	</div><!--navbar-inner -->
+  	<div class="row">
+			<div class="span2">
+				<div class="navbar-inner">
+					<ul class="nav">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="projects.html">Projects</a></li>
+						<li class="active"><a href="about.html">About</a></li>
+						<li><a href="overview.html">Blog</a></li>
+					</ul>
+				</div><!--navbar-inner -->
 				
 				<hr>
 				<hr>
 				
 				<p class="address"><span class="logotype-small">Harvard<br/>Library<br/>Innovation<br/> Lab</span>
 			</div>
-				
 	
-        	<div class="offset1 span9">
-        		<div class="row">
-        			<div class="span9 text-block">
-        			
-							<h1>Bigger Projects</h1>
-							
+      <div class="offset1 span9">
+        <div class="row">
+					<div class="span9 text-block">	
+						<h1>Bigger Projects</h1>
 							<p>The stuff we tend to spend more of our time on.</p>  
 					</div>
 				</div>
-        		<div class="row">
-        			<div class="span3 description">
-    					<h3>Librarycloud</h3>
-    					<img src="img/librarycloud-small.png" alt="Librarycloud" id="annie" class="mug" />
-    					<p>Cloud based infrastructure to share what libraries know</p>
-      				</div>
-      				<div class="span3 description">
-      	    			<h3>Stackview</h3>
-      					<img src="img/stackview-small.png" alt="Stackview" id="paul" class="mug" />
-    					<p>A browsing &amp; visualization interface</p>
-      				</div>
-    				<div class="span3 description">
-    					<h3>dpla</h3>
-    					<img src="img/dpla-small.png" alt="Digital Public Library of America" class="mug" />
-    					<p>We're helping build the Digital Public Library of America platform as well as doing some UI prototypes</p>
-      				</div>
-      			</div>
+        <div class="row">
+        	<div class="span3 description" id="biggerProject1"></div>
+      		<div class="span3 description" id="biggerProject2"></div>
+    			<div class="span3 description" id="biggerProject3"></div>
+      	</div>
 				<div class="row">
-					<div class="span3 description">
-    					<h3>Library Test Kitchen</h3>
-    					<img src="img/ltk-small.png" alt="Library Test Kitchen" id="annie" class="mug" />
-    					<p>Our academic collaboration with metaLAB and the GSD exploring the future of libraries</p>
-      				</div>
-      				<div class="span3 description">
-    					<h3>shlv.me</h3>
-    					<img src="img/ltk-small.png" alt="Library Test Kitchen" id="annie" class="mug" />
-    					<p>Annie is a comic book reading, sneaker-collecting librarian and developer who excels at repetitive tasks. Trust us, you haven't met anyone like her.<br/><span class="highlight">acain(@)law.harvard.edu</span></p>
-      				</div>
-      				<div class="span3 description">
-    					<h3>ShelfLife</h3>
-    					<img src="img/ltk-small.png" alt="Library Test Kitchen" id="annie" class="mug" />
-    					<p>Annie is a comic book reading, sneaker-collecting librarian and developer who excels at repetitive tasks. Trust us, you haven't met anyone like her.<br/><span class="highlight">acain(@)law.harvard.edu</span></p>
-      				</div>
+					<div class="span3 description" id="biggerProject4"></div>
+      		<div class="span3 description" id="biggerProject5"></div>
+      		<div class="span3 description" id="biggerProject6"></div>
 				</div>
-        		<div class="row">
-        			<div class="span9 text-block">
+        <div class="row">
+					<div class="span9 text-block">
 						<h1>We're trying things in libraries.</h1>	
 						<p>Come on by, we'd love to talk!</p>  
 					</div>	
-    			</div><!--row-->
+    		</div><!--row-->
         
-    			
-        		<div class="row-fluid">
-        			<div class="span3 description">
-    					<h3>Annie Cain</h3>
-    					<img src="img/annie.png" alt="Annie" id="annie" class="mug" />
-    					<p>Annie is a comic book reading, sneaker-collecting librarian and developer who excels at repetitive tasks. Trust us, you haven't met anyone like her.<br/><span class="highlight">acain(@)law.harvard.edu</span></p>
-      				</div>
-      				<div class="span3 description">
-      	    			<h3>Paul Deschner</h3>
-      					<img src="img/paul.png" alt="Paul" id="paul" class="mug" />
-    					<p>Paul is a developer and ShelfLife project lead. He swims, he speaks multiple languages, he likes Finnish literature. Paul has worked at Harvard libraries since 1990.<br/><span class="highlight">deschner(@)law.harvard.edu</span></p>
-      				</div>
-    				<div class="span3 description">
-    					<h3>Kim Dulin</h3>
-    					<img src="img/kim.png" alt="Kim" class="mug" />
-    					<p>Kim (co-dir) is a librarian and a former Legal Services lawyer. She likes cooking, golf and beaches. And dreaming up new ways to share what libraries know.<br/><span class="highlight">kdulin(@)law.harvard.edu</span></p>
-      				</div>
-      				<div class="span3 description">
-    					<h3>Kim Dulin</h3>
-    					<img src="img/kim.png" alt="Kim" class="mug" />
-    					<p>Kim (co-dir) is a librarian and a former Legal Services lawyer. She likes cooking, golf and beaches. And dreaming up new ways to share what libraries know.<br/><span class="highlight">kdulin(@)law.harvard.edu</span></p>
-      				</div>
-      			</div>
+        <div class="row-fluid">
+					<div class="span3 description" id="smallerProject1"></div>
+      		<div class="span3 description" id="smallerProject2"></div>
+    			<div class="span3 description" id="smallerProject3"></div>
+      		<div class="span3 description" id="smallerProject4"></div>
+      	</div>
 
-        		<div class="row">
-        			<div class="span9">
-        			<img class="stamp-about" src="img/liblabstampmed.png"/>
-        				<div class="text-block offset1"><!--this is a device to keep a little text padding inside the adjustable grid -->	
-							<h1>We're trying things in libraries.</h1>
+        <div class="row">
+					<div class="span9">
+						<img class="stamp-about" src="img/liblabstampmed.png"/>
+							<div class="text-block offset1"><!--this is a device to keep a little text padding inside the adjustable grid -->	
+								<h1>We're trying things in libraries.</h1>
 							
-							<p>Come on by, we'd love to talk!</p>  
-						</div>
-					</div>
-					
-        		
-    			</div><!--row-->
+								<p>Come on by, we'd love to talk!</p>  
+							</div>
+					</div>		
+    		</div><!--row-->
         
 
-      		</div><!--end span9 block, which sides beside the nav span2 block-->
-    	</div><!--row-->  
+      </div><!--end span9 block, which sides beside the nav span2 block-->
+    </div><!--row-->  
       
-    	<footer>
-      		<div class="row">
-      			<div class="span12">
-      				<hr>
-        			<p>Copyright &copy; 2012 The President and Fellows of Harvard College</p>
-      			</div>
-      		</div><!--row-->
-      	</footer>
-    </div><!--container-->
+    <footer>
+      <div class="row">
+				<div class="span12">
+					<hr>
+					<p>Copyright &copy; 2012 The President and Fellows of Harvard College</p>
+				</div>
+      </div><!--row-->
+    </footer>
+  </div><!--container-->
     
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.dotdotdot-1.4.0-packed.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
     <script src="js/handlebars.js"></script>
-    <script src="js/home.js"></script>
-    <script id="blog-template" type="text/x-handlebars-template">
-      <a href="{{link}}" style="display:none;" class="blogLink">{{title}}</a>
-      <h4>{{title}}</h4>
-      <div class="description">{{content}}</div>
-    </script> 
-    <script id="people-template" type="text/x-handlebars-template"> 
-      <img src="{{image}}">
-      <h4>{{name}}</h4>
-      <div class="bio">{{{description}}}</div>
-    </script> 
+    <script src="js/projects.js"></script>
     <script id="big-template" type="text/x-handlebars-template"> 
-      <img width="100%" src="{{image}}">
+      <a href="{{link}}"></a>
+      <h3>{{name}}</h3>
+    	<img src="{{image}}" alt="{{name}}" />
+    	<p>{{{description}}}</p>
+    </script> 
+    <script id="small-template" type="text/x-handlebars-template">
+      <h3>{{name}}</h3>
+    	<img src="{{image}}" alt="{{name}}" />
+    	<p>{{{description}}}</p>
     </script> 
   </body>
 </html>
