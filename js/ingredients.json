@@ -1,16 +1,7 @@
 {
   "projects": {
     "big": [
-      {
-        "name": "ShelfLife",
-         "image": "http://hlsl7.law.harvard.edu/dev/jeff/site/img/dpla-small.png",
-        "link": "http://www.librarylab.law.harvard.edu/dpla/demo/",
-        "description": "",
-        "contributors":
-        [
-          "Innovation Team"
-        ]
-      },
+
       {
         "name": "StackView",
         "image": "http://hlsl7.law.harvard.edu/dev/jeff/site/img/stackview-small.png",
@@ -29,9 +20,22 @@
         "description": "",
         "contributors":
         [
-          "Matt Phillips"
+          "Matt Phillips", 
+          "Paul Deschner"
         ]
-      }
+      },
+      {
+        "name": "Library Test Kitchen",
+        "image": "http://hlsl7.law.harvard.edu/dev/jeff/site/img/ltk-logo-smaller-export.png",
+        "link": "http://www.librarytestkitchen.org/",
+        "description": "",
+        "contributors":
+        [
+          "Jeff Goldenson", 
+          "Jeffrey Schnapp from metaLAB",
+          "Ann Whiteside from Loeb Design Library"
+        ]
+      }	
     ],
     "small": [
     {

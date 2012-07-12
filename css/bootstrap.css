@@ -1,6 +1,6 @@
 /*!
  * Bootstrap v2.0.4
- *
+------And this was then BootStripped to suit -----
  * Copyright 2012 Twitter, Inc
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -474,12 +474,7 @@ dd {
 .dl-horizontal dd {
   margin-left: 130px;
 }
-hr {
-  margin: 18px 0;
-  border: 0;
-  border-top: 1px solid #eeeeee;
-  border-bottom: 1px solid #ffffff;
-}
+
 strong {
   font-weight: bold;
 }
