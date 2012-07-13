@@ -21,81 +21,70 @@
   <body>
 
 	<div class="container">
-    	<div class="row">
-        	<div class="span2">
-        		<div class="navbar-inner">
-          			<ul class="nav">
-            			<li class="active"><a href="index.html">Home</a></li>
-              			<li><a href="projects.html">Projects</a></li>
-              			<li><a href="about.html">About</a></li>
-              			<li><a href="overview.html">Blog</a></li>
-            		</ul>
-            	</div><!--navbar-inner -->
-        	</div>
-        	<div class="span3 offset2 blog item" id="blog1">
-        	</div>
-        	<div class="span5 project" id="bigProject1">
-        	</div> 
-        </div><!--row-->
+    <div class="row">
+      <div class="span2">
+        <div class="navbar-inner">
+          <ul class="nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="overview.html">Blog</a></li>
+          </ul>
+        </div><!--navbar-inner -->
+      </div>
+      <div class="span3 offset2 blog item" id="blog1"></div>
+      <div class="span5 project" id="bigProject1"></div> 
+    </div><!--row-->
     	
-    	<div class="row">
-        	<div class="span6 title">
-    			<h1>Harvard<br /> Library<br /> Innovation<br /> Lab</h1>
-    			<img class="stamp" src="img/liblabstampmed.png"/>
-    		</div>
-    		<div class="span3 description" id="people1">
-      		</div> 
-    	</div><!--row-->
+    <div class="row">
+      <div class="span6 title">
+        <h1>Harvard<br /> Library<br /> Innovation<br /> Lab</h1>
+    		<img class="stamp" src="img/liblabstampmed.png"/>
+    	</div>
+    	<div class="span3 description" id="people1"></div> 
+    </div><!--row-->
     
-    	<div class="row">
-    		<div class="offset1 span5 project" id="bigProject2">
-      		</div>
-      		<div class="offset1 span3 blog item" id="blog2">
-      		</div>
-  		</div><!--row-->
+    <div class="row">
+    	<div class="offset1 span5 project" id="bigProject2"></div>
+      <div class="offset1 span3 blog item" id="blog2"></div>
+  	</div><!--row-->
   	
-  		<div class="row">
-  	  		<div class="span3 blog item" id="blog3">
-      		</div>
-    		<div class="offset3 span5 project" id="bigProject3">
-      		</div>
-  		</div><!--row-->
+  	<div class="row">
+      <div class="span3 blog item" id="blog3"></div>
+    	<div class="offset3 span5 project" id="bigProject3"></div>
+  	</div><!--row-->
   
-  		<div class="row">
-
-    		<div class="offset1 span9 project">
-    			<iframe width="100%" height="400" src="http://shlv.me/jeffgoldenson/embed/misc/" frameborder="0" allowfullscreen></iframe>
-      		</div>
-  		</div><!--row-->
+  	<div class="row">
+    	<div class="offset1 span9 project">
+    		<iframe width="100%" height="400" src="http://shlv.me/jeffgoldenson/embed/misc/" frameborder="0" allowfullscreen></iframe>
+      </div>
+  	</div><!--row-->
   		
-    	<footer>
-      		<div class="row">
-      			<div class="span12">
-      				<hr>
-        			<p>Copyright &copy; 2012 The President and Fellows of Harvard College</p>
-      			</div>
-      		</div><!--row-->
-    	</footer>
+    <footer>
+      <div class="row">
+      	<div class="span12">
+      		<hr>
+        	<p>Copyright &copy; 2012 The President and Fellows of Harvard College</p>
+      	</div>
+      </div><!--row-->
+    </footer>
 	</div><!--container-->
     
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.dotdotdot-1.4.0-packed.js"></script>
-    <script src="js/handlebars.js"></script>
-    <script src="js/home.js"></script>
-    <script id="blog-template" type="text/x-handlebars-template">
-      <a href="{{link}}" style="display:none;" class="blogLink">{{title}}</a>
-      <h4>{{title}}</h4>
-    </script> 
-    <script id="people-template" type="text/x-handlebars-template"> 
-      <img class="mug" src="{{image}}">
-      <h4>{{name}}</h4>
-      <div class="bio">{{{description}}}</div>
-    </script> 
-    <script id="big-template" type="text/x-handlebars-template"> 
-      <img width="100%" src="{{image}}">
-    </script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.dotdotdot-1.4.0-packed.js"></script>
+  <script src="js/handlebars.js"></script>
+  <script src="js/home.js"></script>
+  <script id="blog-template" type="text/x-handlebars-template">
+    <a href="{{link}}" style="display:none;" class="blogLink">{{title}}</a>
+    <h4>{{title}}</h4>
+  </script> 
+  <script id="people-template" type="text/x-handlebars-template"> 
+    <img class="mug" src="{{image}}">
+    <h4>{{name}}</h4>
+    <div class="bio">{{{description}}}</div>
+  </script> 
+  <script id="big-template" type="text/x-handlebars-template"> 
+    <img width="100%" src="{{image}}" data-image="{{image}}" {{#if image-hover}}data-image-hover="{{image-hover}}" class="hover"{{/if}}>
+  </script>
   </body>
 </html>

@@ -4,11 +4,11 @@ $(function () {
 	
 	var src = '',
 	hoverSrc = '';
-	$("body").on("mouseenter", ".mug", function(event) {
+	$("body").on("mouseenter", ".hover", function(event) {
     src = $(this).attr("src");
 		hoverSrc = src.replace(".png", "-hover.png");
 		$(this).attr("src",hoverSrc);
-  }).on("mouseleave", ".mug", function(event) {
+  }).on("mouseleave", ".hover", function(event) {
     $(this).attr("src",src);
   });
   
