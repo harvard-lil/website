@@ -4,6 +4,7 @@
 			{
         "name": "LibraryCloud",
         "image": "img/librarycloud-small.png",
+        "image-hover": "img/librarycloud-small-hover.gif",
         "link": "http://www.librarycloud.org/",
         "description": "Cloud based infrastructure to share what libraries know",
         "contributors":
@@ -15,6 +16,7 @@
       {
         "name": "StackView",
         "image": "img/stackview-small.png",
+        "image-hover": "img/stackview-small-hover.gif",
         "link": "http://www.librarylab.law.harvard.edu/projects/stackview/index.php",
         "description": "A browsing & visualization interface",
         "contributors":
