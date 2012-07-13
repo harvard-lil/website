@@ -58,7 +58,7 @@
 
 
 
-.description {
+.description, .project-description {
 	color:#09f;
 	background:#f4f4f4;
 	margin-bottom: 10px;
@@ -70,6 +70,10 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	max-width:270px;
+}
+
+.project-description {
+	background:none;
 }
 
 .list {
