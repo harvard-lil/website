@@ -1,9 +1,13 @@
 /*/Overwriting bootstripped navigation/*/
+body {
+	margin:0;
+}
+
 .container {
 	margin-top:20px	
 }
 .nav {
-	margin-top:36px;
+	margin-top:0px;
 }
 
 .nav > li > a {
@@ -26,16 +30,27 @@
   	color:#fff;
   	background-color: #0085dd;
 }
+
+.nav > li.active a {
+  	text-decoration: none;
+  	color:#ff0;
+  	background-color: #0085dd;
+}
+
 #blog1 {
 	margin-top:-10px;
 }
 
+.blog, .home {
+	margin:0;
+	height:0;
+}
 #blog2 {
 	margin-top:55px; 
 }
 
 #blog3 {
-
+	margin-top:50px;
 }
 .project {
 	position: relative;
@@ -49,6 +64,7 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	min-height:320px;
 }
 
 .project img {
@@ -58,34 +74,37 @@
 
 
 
-.description, .project-description {
+.description {
 	color:#09f;
-	background:#f4f4f4;
-	margin-bottom: 10px;
+	margin: 0;
 	line-height: 17px;
-	padding: 12px;
+	padding: 0 12px 0px;
 	font-size: 13px;
 	text-shadow: 0px 1px 0px #fff;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	max-width:270px;
+	max-width:250px;
+	text-align:center;
+
+	
 }
 
-.project-description {
-	background:none;
+.description p {
+	padding:0px 0px 0;
+	color:#333;
+	text-align: left;
 }
 
-.list {
-	padding: 12px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+.description p a, .description p a:hover{
+	text-decoration: none;
+	color: #09f;
 }
 
 .description img {
-	width:100%;
+	text-align:left;
 	height:auto;
+	margin:0px 0 0px;
 }
 
 .description p {
@@ -110,9 +129,12 @@
   height:auto;
 }
 
+#people2 {
+
+}
+
 .mug {
 	width:100%;
-
 }
 
 .bio {
@@ -127,7 +149,7 @@
 }
 
 #bigProject2 {
-	margin-top:-80px;
+	margin-top:-50px;
 }
 
 /*/.item {
@@ -138,9 +160,9 @@
 
 
 
-.blog {
+.blog-post {
   	color:#09f;
-  	padding:15px 15px 00px 15px;
+  	padding:3px 15px 00px 15px;
   	height:135px;
   	cursor:pointer;
 	background:#ff0;
@@ -152,29 +174,33 @@
 	-moz-text-overflow: ellipsis; 
 	-webkit-text-overflow: ellipsis; 
 	-webkit-transition-property:color, background; 
-	-webkit-transition-duration: 40ms, 40ms;
+	-webkit-transition-duration: 60ms;
 	-webkit-transition-timing-function: linear;  
    	-moz-transition-property:color, background;
-   	-moz-transition-duration: 40ms, 40ms;
+   	-moz-transition-duration: 60ms;
    	-moz-transition-timing-function: linear;    
    	transition-property:color, background; 
-	transition-duration: 40ms, 40ms;
+	transition-duration: 60ms;
 	transition-timing-function: linear;  
 }
 
-.blog:hover {
+.blog-post:hover {
 	background:#f76f44;
-	color:#fff;
 }
 
-h4 {
-	font-size:18px;
-	line-height:20px;
+.blog-post:hover h3 { 
+	color:#ff0;
 }
+
+h4 a, h4{
+	text-align:left;
+	font-size:14px;
+	line-height:16px;
+}
+
 
 
 .title {
-	height:300px;
 	margin-top:-60px;
 }
 
@@ -183,9 +209,27 @@ h4 {
 	line-height:72px;
 }
 
+.title2 {
+	height:300px;
+	margin-top:0px;
+}
+
+.title2 h1 {
+	font-size:68px;
+	line-height:72px;
+}
+
+
 .stamp {
 	position:relative;
 	margin:-394px 0 0 265px;
+	opacity:.6;
+	z-index: -1;
+}
+
+.stamp2 {
+	position:absolute;
+	margin:-244px 0 0 265px;
 	opacity:.6;
 	z-index: -1;
 }
@@ -205,23 +249,31 @@ footer p {
 	margin-bottom:20px;
 }
 
-h3 a {
-	
+h3 a, h3 {
 	-webkit-transition-property:color; 
-	-webkit-transition-duration: 80ms;
+	-webkit-transition-duration: 60ms;
 	-webkit-transition-timing-function: linear;  
    	-moz-transition-property:color;
-   	-moz-transition-duration: 80ms;
+   	-moz-transition-duration: 60ms;
    	-moz-transition-timing-function: linear;    
    	transition-property:color; 
-	transition-duration: 80ms;
+	transition-duration: 60ms;
 	transition-timing-function: linear;  
-	color:#333;
+	color:#09f;
+	text-align:left;
+	margin:8px 0;
+	padding:0;
+	line-height:24px;
 }
 
 h3 a:hover {
-	color:#09f;
 	text-decoration:none;
+}
+
+
+
+h3.type-leading{
+	line-height:12px;
 }
 
 /*/ about us page/*/
@@ -231,15 +283,17 @@ h3 a:hover {
 	color:#09f;
 	line-height: 20px;
 	font-size: 15px;
-
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	margin-left:0;
 }
 
 .text-block h1 {
 	font-size:48px;
 	line-height:48px;
+	color:#111; 
+	margin-top:-14px;
 }
 
 .text-block p {
@@ -247,34 +301,30 @@ h3 a:hover {
 	line-height:24px;
 }
 
-.row {
-	margin-bottom:20px;
-}
 
 .highlight {
-	background:#FF0;
+	background:#ff0;
+	color:#09f;
 	padding:3px 4px 3px;
 }
 
-
-
 h3 a {
-	
 	-webkit-transition-property:color; 
-	-webkit-transition-duration: 80ms;
+	-webkit-transition-duration: 60ms;
 	-webkit-transition-timing-function: linear;  
    	-moz-transition-property:color;
-   	-moz-transition-duration: 80ms;
+   	-moz-transition-duration: 60ms;
    	-moz-transition-timing-function: linear;    
    	transition-property:color; 
-	transition-duration: 80ms;
+	transition-duration: 60ms;
 	transition-timing-function: linear;  
 	color:#333;
+	text-decoration:none;
 }
 
 h3 a:hover {
 	color:#09f;
-	text-decoration:none;
+	
 }
 
 /*/ about us page/*/
@@ -304,12 +354,6 @@ h3 a:hover {
 	margin-bottom:20px;
 }
 
-.highlight {
-	background:#FF0;
-	padding:3px 4px 3px;
-}
-
-
 .map {
 	margin-top:10px;
 }
@@ -332,13 +376,79 @@ a img.octocat {
 .logotype-small {
 	font-weight:bold;
 	color:#111;
-	font-size:24px
+	font-size:28px
 }
 
 hr {
   height:5px;
   border:0;
 }
+
+#smallProject1 {
+	margin-top:160px;
+	max-width:160px;
+	border:1px solid red;
+}
+
+#smallProject {
+	margin-top:50px;
+	
+}
+
+.small-project {
+	max-width:160px;
+	cursor:pointer;
+}
+
+.small-project h3 {
+	color:#333;
+	font-size:14px;
+}
+
+.center {
+	text-align:center;	
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.github {
+	margin-top:40px;	
+}
+
+#sidebar1 li {
+	line-height: 18px;
+}
+
+.border {
+	border:1px solid red;
+}
+
+.page-header h1, .page-header h1 a {
+	color:#09f;
+	text-shadow: 0px 1px 0px #fff;
+}
+
+.title:hover {
+}
+
+
+h3.text-decoration a, h3.text-decoration a:hover {
+	text-decoration:none;
+}
+/*/
+.map {
+	border-radius:60%;
+-moz-border-radius:60%;
+-webkit-border-radius:60%;
+-khtml-border-radius:60%;
+font-size:20px;
+color:#fff;
+line-height:100px;
+text-align:center;
+background:#000}
+	margin:0;
+}
+/*/
 /*/
 .fadeIn	{
 	-webkit-animation:fadeIn ease-in 1;

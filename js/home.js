@@ -22,6 +22,12 @@ $(function () {
     $(this).attr("src",src);
   });
   
+  	$("body").on("mouseenter", ".hover", function(event) {
+		$(this).attr("src", $(this).attr('data-image-hover'));
+  }).on("mouseleave", ".hover", function(event) {
+    $(this).attr("src", $(this).attr('data-image'));
+  });
+  
 	$.getJSON('js/ingredients.json', function(data) {
 	  data.projects.big.sort(function (a, b) {return Math.random() - 0.5;});
 	  data.projects.small.sort(function (a, b) {return Math.random() - 0.5;});

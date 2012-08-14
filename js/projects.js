@@ -22,7 +22,7 @@ $(function () {
       bigProjectCount++;
     });
     $.each(data.projects.small, function(){
-      var source = $("#big-template").html();
+      var source = $("#small-template").html();
 		  var template = Handlebars.compile(source);
       $('#smallerProject' + smallProjectCount).html(template(this));
       smallProjectCount++;

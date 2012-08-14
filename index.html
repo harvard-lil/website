@@ -22,17 +22,16 @@
 
 	<div class="container">
     	<div class="row">
-        	<div class="span2">
-        		<div class="navbar-inner">
-          			<ul class="nav">
-            			<li class="active"><a href="index.html">Home</a></li>
-              			<li><a href="about.html">About</a></li>
-              			<li><a href="projects.html">Projects</a></li>
-              			<li><a href="overview.html">Blog</a></li>
-            		</ul>
-            	</div><!--navbar-inner -->
-        	</div>
-        	<div class="span3 offset2 blog item" id="blog1">
+        	<div class="span2 sidebar">
+          		<ul class="nav">
+            		<li class="active"><a href="index.html">Home</a></li>
+              		<li><a href="about.html">About</a></li>
+              		<li><a href="projects.html">Projects</a></li>
+              		<li><a href="../../blog/">Blog</a></li>
+            	</ul>
+            </div><!--nav-->
+        
+        	<div class="span3 offset2 blog-post item" id="blog1">
         	</div>
         	<div class="span5 project" id="bigProject1">
         	</div> 
@@ -43,31 +42,48 @@
     			<h1>Harvard<br /> Library<br /> Innovation<br /> Lab</h1>
     			<img class="stamp" src="img/liblabstampmed.png"/>
     		</div>
-    		<div class="span3 description" id="people1">
+    		<div class="span3 description" id="people1"><a href="about.html"></a>
       		</div> 
+      		<div class="offset1 span2 small-project center" id="smallProject1">
+      		</div>
     	</div><!--row-->
     
     	<div class="row">
     		<div class="offset1 span5 project" id="bigProject2">
       		</div>
-      		<div class="offset1 span3 blog item" id="blog2">
+      		
+      		<div class="offset2 span2 small-project center" id="smallProject2">
       		</div>
+      		
   		</div><!--row-->
   	
   		<div class="row">
-  	  		<div class="span3 blog item" id="blog3">
+  	  		<div class="span3 blog-post item" id="blog3">
       		</div>
     		<div class="offset3 span5 project" id="bigProject3">
       		</div>
   		</div><!--row-->
   
   		<div class="row">
+			<div class="span2 small-project center" id="smallProject3">
+      		</div>
+			<div class="offset1 span3 description" id="people2">
+      		</div> 
 
-    		<div class="offset1 span9 project">
-    			<iframe width="100%" height="400" src="http://shlv.me/jeffgoldenson/embed/misc/" frameborder="0" allowfullscreen></iframe>
+    		<div class="offset1 span5 project" id="bigProject4">
       		</div>
   		</div><!--row-->
   		
+  		<div class="row">
+  			<div class="span2 " id=""><p></p></div>
+    		<div class="span2 small-project center" id="smallProject4">
+      		</div>
+  		</div><!--row-->
+  		<div class="row">
+  			<div class="span2 " id=""><p></p></div>
+    		<div class=" offset1 span5 project" id="bigProject5">
+      		</div>
+  		</div><!--row-->
     	<footer>
       		<div class="row">
       			<div class="span12">
@@ -87,15 +103,19 @@
     <script src="js/home.js"></script>
     <script id="blog-template" type="text/x-handlebars-template">
       <a href="{{link}}" style="display:none;" class="blogLink">{{title}}</a>
-      <h4>{{title}}</h4>
+      <h3>{{title}}</h3>
     </script> 
+    
     <script id="people-template" type="text/x-handlebars-template"> 
-      <img class="mug" src="{{image}}">
-      <h4>{{name}}</h4>
-      <div class="bio">{{{description}}}</div>
+      <a href="about.html"><img class="mug" src="{{image}}"/>
+      <h3 class="text-decoration">{{name}}</h3></a>
+      <!--<div class="bio">{{{description}}}</div>-->
+      <div class="bio"></div>
     </script> 
     <script id="big-template" type="text/x-handlebars-template"> 
-      <img width="100%" src="{{image}}">
+   
+    	<a href="{{link}}"><img src="{{image}}" data-image="{{image}}" {{#if image-hover}}data-image-hover="{{image-hover}}" class="hover"{{/if}} alt="{{name}}" /> </a>
+   
     </script>
   </body>
 </html>

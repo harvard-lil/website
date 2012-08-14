@@ -9,8 +9,9 @@
         "description": "Cloud based infrastructure to share what libraries know",
         "contributors":
         [
-          "Matt Phillips", 
-          "Paul Deschner"
+          "Paul Deschner",
+          "Matt Phillips" 
+          
         ]
       },
       {
@@ -29,12 +30,23 @@
         "name": "dpla",
         "image": "img/dpla-small.png",
         "link": "http://www.librarylab.law.harvard.edu/dpla/demo/app",
-        "description": "We're helping build the Digital Public Library of America platform as well as doing some UI prototypes",
+        "description": "We're helping imagine the Digital Public Library of America",
         "contributors":
         [
-          "Jeff Goldenson", 
-          "Jeffrey Schnapp from metaLAB",
-          "Ann Whiteside from Loeb Design Library"
+          "Paul Deschner", 
+          "Matt Phillips"
+        ]
+      },
+      {
+        "name": "Awesome Box",
+        "image": "img/awesome.png",
+        "image-hover": "img/awesome-animation.gif",
+        "link": "http://librarycloud.org/awesome/",
+        "description": "That book you just read is awesome?  Put it in the box!",
+        "contributors":
+        [
+          "Annie Cain", 
+          "Matt Phillips"
         ]
       },
       {
@@ -50,9 +62,9 @@
         ]
       },
       {
-        "name": "Shlv.me",
-        "image": "img/stackview-small.png",
-        "link": "http://www.shlv.me",
+        "name": "shelf.io",
+        "image": "img/shelf-io.png",
+        "link": "http://www.shelf.io",
         "description": "Build and share shelves of books, movies, albums, and most anything on the web",
         "contributors":
         [
@@ -75,11 +87,12 @@
     "small": [
     {
       "name": "Library News",
-      "image": "http://www.librarylab.law.harvard.edu/projects/images/newspaper.png",
+      "image": "http://www.librarylab.law.harvard.edu/projects/images/newsy.png",
       "link": "http://news.librarycloud.org/",
       "description": "",
       "contributors":
       [
+        "Jeff Goldenson", 
         "Matt Phillips"
       ]
     }
@@ -96,7 +109,7 @@
       ]
     },
     {
-      "name": "ShelfRank jQuery Plugin",
+      "name": "ShelfRank Plugin",
       "image": "http://www.librarylab.law.harvard.edu/images/plugin.png",
       "link": "http://librarylab.law.harvard.edu/projects/librarycloud-plugin/",
       "description": "",
