@@ -28,7 +28,8 @@
       },
       {
         "name": "dpla",
-        "image": "img/dpla-small.png",
+        "image": "img/dpla.png",
+        "image-hover": "img/dpla-hover.png",
         "link": "http://www.librarylab.law.harvard.edu/dpla/demo/app",
         "description": "We're helping imagine the Digital Public Library of America",
         "contributors":
@@ -76,7 +77,7 @@
         "name": "ShelfLife",
         "image": "img/shelflife.png",
         "image-hover": "img/shelflife-hover.png",
-        "link": "http://www.librarycloud.org/",
+        "link": "http://librarylab.law.harvard.edu/shelflife/",
         "description": "Shelflife is a community-based wayfinding tool for navigating the vast resources of the combined Harvard Library System.",
         "contributors":
         [
