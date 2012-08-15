@@ -22,7 +22,7 @@ $(function () {
     $(this).attr("src",src);
   });
   
-  	$("body").on("mouseenter", ".hover", function(event) {
+  $("body").on("mouseenter", ".hover", function(event) {
 		$(this).attr("src", $(this).attr('data-image-hover'));
   }).on("mouseleave", ".hover", function(event) {
     $(this).attr("src", $(this).attr('data-image'));
@@ -52,25 +52,12 @@ $(function () {
     });
 	});
 	
-	  $.ajax({
-    url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=3&callback=?&q=' + encodeURIComponent('http://librarylab.law.harvard.edu/blog/feed/'),
-    dataType: 'json',
-    success: function(data) {
-      $.each(data.responseData.feed.entries, function(){
-        var $html = $('<div>',{html:this.content}).hide().appendTo('body');
-        this.content = $html.text();
-        var source = $("#blog-template").html();
-		    var template = Handlebars.compile(source);
-        $('#blog' + blogCount).html(template(this));
-        blogCount++;
-            
-        /*if(this.content.match(/(<img.*?>)/gi)) {
-          var firstimage = this.content.match(/(<img.*?>)/gi)[0].match(/src="(.*?)"/)[1];
-          firstimage = firstimage.replace('s640', 's144');
-          $('#response').append('<p><a href="' + this.link + '">' + this.title + '</a><br /><img src="' + firstimage + '" /></p>');
-        }*/
-      });
-      $(".post").dotdotdot();
-    }
-  });
+	$.getJSON('feed.php', function(data) {
+	  $.each(data.items, function(){
+      var source = $("#blog-template").html();
+		  var template = Handlebars.compile(source);
+      $('#blog' + blogCount).html(template(this));
+      blogCount++;
+    });
+	});
 });
