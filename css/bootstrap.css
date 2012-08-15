@@ -146,7 +146,7 @@ a:hover {
   text-decoration: none;
 }
 .row {
-  margin-left: -20px;
+  margin-left: -10px;
   *zoom: 1;
 }
 .row:before,
