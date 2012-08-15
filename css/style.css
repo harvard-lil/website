@@ -105,7 +105,7 @@ body {
 .description img {
 	text-align:left;
 	height:auto;
-	margin:0px 0 0px;
+	width:100%;
 }
 
 .description p {
@@ -116,10 +116,6 @@ body {
 	margin-top:20px;
 }
 
-.people {
-	margin-top: 20px;
-	background:black;
-}
 
 .people img {
   position:relative;
@@ -435,42 +431,27 @@ hr {
 h3.text-decoration a, h3.text-decoration a:hover {
 	text-decoration:none;
 }
-/*/
-.map {
-	border-radius:60%;
--moz-border-radius:60%;
--webkit-border-radius:60%;
--khtml-border-radius:60%;
-font-size:20px;
-color:#fff;
-line-height:100px;
-text-align:center;
-background:#000}
-	margin:0;
-}
-/*/
-/*/
-.fadeIn	{
-	-webkit-animation:fadeIn ease-in 1;
-	-moz-animation:fadeIn ease-in 1;
-	animation:fadeIn ease-in 1;
-  	-webkit-animation-fill-mode:forwards;
-	-moz-animation-fill-mode:forwards;
-	animation-fill-mode:forwards;
-}
-.fadeIn-3s {
-	-webkit-animation-duration:.5s;
-	-moz-animation-duration:.5s;
-	animation-duration:.5s;
-}
+@media (max-width: 768px) {
 
-.fadeIn-Delay-3s {
-	-webkit-animation-delay:1.2s;
-	-moz-animation-delay:1.2s;
-	animation-delay:1.2s;
+	#smallProject1, #smallProject2, #smallProject3 {
+		margin-top:0px;
+		max-width:160px;
+	}
+	#blog1, #blog2, #blog3 {
+		margin:0px auto;
+	}
+	.title {
+		margin-top:0px;
+	}
+	#people1, #people2, #people3 {
+		position:relative;
+  		margin: 0 auto;
+  		height:auto;
+	}
+	
+	.small-project {
+	max-width:160px;
+	cursor:pointer;
+	margin:0 auto;
+	}
 }
-
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-/*/
