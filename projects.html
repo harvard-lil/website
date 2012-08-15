@@ -102,7 +102,7 @@
     	<p>{{{description}}}</p>
     </script> 
     <script id="small-template" type="text/x-handlebars-template">
-		 <a href="{{link}}"></a><img src="{{image}}" alt="{{name}}" />
+		 <a href="{{link}}"></a><img src="{{image}}" data-image="{{image}}" {{#if image-hover}}data-image-hover="{{image-hover}}" class="hover"{{/if}} alt="{{name}}" />
     	<h4>{{name}}</h4>
     	<p>{{{description}}}</p>
     </script> 

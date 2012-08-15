@@ -74,7 +74,8 @@
       },
       {
         "name": "ShelfLife",
-        "image": "img/librarycloud-small.png",
+        "image": "img/shelflife.png",
+        "image-hover": "img/shelflife-hover.png",
         "link": "http://www.librarycloud.org/",
         "description": "Shelflife is a community-based wayfinding tool for navigating the vast resources of the combined Harvard Library System.",
         "contributors":
@@ -84,33 +85,25 @@
         ]
       }
     ],
-    "small": [
-    {
-      "name": "Library News",
-      "image": "http://www.librarylab.law.harvard.edu/projects/images/newsy.png",
-      "link": "http://news.librarycloud.org/",
-      "description": "",
-      "contributors":
-      [
-        "Jeff Goldenson", 
-        "Matt Phillips"
-      ]
-    }
-      ],
+
+
       "small": [
     {
       "name": "Library License",
-      "image": "http://www.librarylab.law.harvard.edu/projects/images/librarylicense.png",
+      "image": "img/ll.png",
+      "image-hover": "img/ll-hover.png",
       "link": "http://librarylicense.org/",
-      "description": "Library License is a thing",
+      "description": "",
       "contributors": 
       [
         "Jeff Goldenson"
       ]
     },
+    
     {
       "name": "ShelfRank Plugin",
-      "image": "http://www.librarylab.law.harvard.edu/images/plugin.png",
+      "image": "img/plugin.png",
+      "image-hover": "img/plugin-hover.png",
       "link": "http://librarylab.law.harvard.edu/projects/librarycloud-plugin/",
       "description": "",
       "contributors": 
@@ -121,7 +114,8 @@
     },
     {
       "name": "Checkout the Checkouts",
-      "image": "http://www.librarylab.law.harvard.edu/projects/images/CheckOutsLogo_Investigations.png",
+      "image": "img/checkout.png",
+      "image-hover": "img/checkout-hover.png",
       "link": "http://www.librarylab.law.harvard.edu/checkout/",
       "description": "",
       "contributors": 
@@ -131,8 +125,20 @@
       ]
     },
     {
+      "name": "Library News",
+      "image": "img/newsy.png",
+      "link": "http://news.librarycloud.org/",
+      "description": "",
+      "contributors":
+      [
+        "Jeff Goldenson", 
+        "Matt Phillips"
+      ]
+    },
+    {
       "name": "Library Hose",
-      "image": "http://www.librarylab.law.harvard.edu/projects/images/twitter3.png",
+      "image": "img/twitter.png",
+      "image-hover": "img/twitter-hover.png",
       "link": "http://www.librarylab.law.harvard.edu/twitter/",
       "description": "",
       "contributors": 
