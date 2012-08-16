@@ -6,7 +6,7 @@ blogCount = 1;
 $(function () { 
   $.ajaxSetup({ cache: false });
   
-	$('.blog').live('click', function(event) {
+	$('.blog-post').live('click', function(event) {
 		var link = $(this).find('a').attr('href');
 		window.open(link);
 		event.preventDefault();
