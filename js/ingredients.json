@@ -15,10 +15,10 @@
         ]
       },
       {
-        "name": "StackView",
+        "name": "Stack View",
         "image": "img/stackview-small.png",
         "image-hover": "img/stackview-animation.gif",
-        "link": "http://www.librarylab.law.harvard.edu/projects/stackview/index.php",
+        "link": "http://www.librarylab.law.harvard.edu/blog/stack-view",
         "description": "A browsing & visualization interface",
         "contributors":
         [
@@ -79,12 +79,14 @@
         "name": "ShelfLife",
         "image": "img/shelflife.png",
         "image-hover": "img/shelflife-hover.png",
-        "link": "http://librarylab.law.harvard.edu/shelflife/",
+        "link": "http://librarylab.law.harvard.edu/blog/shelflife-alpha/",
         "description": "Shelflife is a community-based wayfinding tool for navigating the vast resources of the combined Harvard Library System.",
         "contributors":
         [
           "Matt Phillips", 
-          "Paul Deschner"
+          "Paul Deschner",
+          "Annie Cain",
+          "Jeff Goldenson"
         ]
       }
     ],
