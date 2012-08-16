@@ -65,6 +65,7 @@
       {
         "name": "shelf.io",
         "image": "img/shelf-io.png",
+        "image-hover": "img/shelf-io-hover.png",
         "link": "http://www.shelf.io",
         "description": "Build and share shelves of books, movies, albums, and most anything on the web",
         "contributors":
