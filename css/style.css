@@ -243,10 +243,19 @@ h4 a, h4{
 footer p {
 	color:#ccc;
 	text-shadow: 1px 1px 0px #fff;
-	float:right;
-	margin-bottom:20px;
+	text-align:right;
+	margin:0px -10px;
+	padding-top:10px;
+	font-size:12px;
 }
 
+footer p a {
+	color:#aaa;
+}
+
+.footer-class {
+
+}
 h3 a, h3 {
 	-webkit-transition-property:color; 
 	-webkit-transition-duration: 60ms;
@@ -299,6 +308,12 @@ h3.type-leading{
 	line-height:24px;
 }
 
+.text-block p a {
+	font-size:18px;
+	line-height:24px;
+	color:#09f;
+	text-decoration:underline;
+}
 
 .highlight {
 	background:#ff0;
