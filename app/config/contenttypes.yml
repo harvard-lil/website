@@ -1,0 +1,166 @@
+# This file defines the contenttypes on the website. See the documentation for
+# details: http://docs.bolt.cm/content#defining-contenttypes
+
+# Pages can be used for the more 'static' pages on your site. Things like
+# 'about us', 'contact' or a 'disclaimer'. This content-type has a 'templateselect'
+# field, which allows you to override the record_template setting for an
+# individual page.
+# The taxonomy for this contenttype is defined as 'chapters', which is a so-called
+# "grouping taxonomy". This way you can easily group sets of pages that logically
+# belong together. If your site has a 'services' section, in which you'd like to
+# list the different types of services a company provides, you can group these
+# together.
+
+pages:
+    name: Pages
+    singular_name: Page
+    fields:
+        title:
+            type: text
+            class: large
+            group: content
+        slug:
+            type: slug
+            uses: title
+        image:
+            type: image
+        teaser:
+            type: html
+            height: 150px
+        body:
+            type: html
+            height: 300px
+        template:
+            type: templateselect
+            filter: '*.twig'
+    taxonomy: [ chapters ]
+    recordsperpage: 100
+
+
+# Entries can be used for things like 'news' or 'blogpostings'. They have a 'teaser',
+# which can be used for a short blurb on listing-pages, allowing visitors to
+# click-through to the rest of the entry. It also has fields for an image and an
+# optional video.
+# A relation is defined to the pages contenttype. This way you can refer to a page
+# from your news-item.
+# This contenttype defines 'categories' and 'tags' as taxonomies, allowing the
+# editor to use both to categorize a specific entry.
+# The 'sort' is set to '-datepublish', which means that newer entries will be
+# shown above older entries.
+
+projects:
+    name: Projects
+    singular_name: Project
+    singular_slug: projects
+    fields:
+        title:
+            type: text
+            class: large
+            group: content
+        slug:
+            type: slug
+            uses: title
+        teaser:
+            type: text
+            group: content
+        description:
+            type: html
+            height: 300px
+        image:
+            type: image
+            group: media
+        video:
+            type: video
+        project_website:
+            type: text
+            pattern: "url"
+            label: Project website
+            group: content
+        github_repo:
+            type: text
+            pattern: "url"
+            label: GitHub link
+            group: content
+    record_template: project.twig
+    listing_template: project-listing.twig
+    listing_records: 20
+    default_status: publish
+    sort: -datepublish
+    recordsperpage: 10
+    
+    
+sketches:
+    name: Sketches
+    singular_name: Sketch
+    singular_slug: sketches
+    fields:
+        title:
+            type: text
+            class: large
+            group: content
+        slug:
+            type: slug
+            uses: title
+        teaser:
+            type: text
+            group: content
+        description:
+            type: html
+            height: 300px
+        image:
+            type: image
+            group: media
+        video:
+            type: video
+        project_website:
+            type: text
+            pattern: "url"
+            label: Project website
+            group: content
+        github_repo:
+            type: text
+            pattern: "url"
+            label: GitHub link
+            group: content
+    record_template: sketch.twig
+    listing_template: sketch-listing.twig
+    listing_records: 20
+    default_status: publish
+    sort: -datepublish
+    recordsperpage: 10
+    
+    
+people:
+    name: People
+    singular_name: Person
+    slug: about
+    fields:
+        name:
+            type: text
+            class: large
+            group: content
+        role:
+            type: text
+        description:
+            type: html
+            height: 300px
+        email:
+            type: text
+            height: 150px
+        image:
+            type: image
+            group: media
+    relations:
+        projects:
+          multiple: true
+          order: title
+          label: Select projects
+        sketches:
+          multiple: true
+          order: title
+          label: Select sketches
+    listing_template: about.twig
+    listing_records: 20
+    default_status: publish
+    sort: -datepublish
+    recordsperpage: 10
