@@ -60,7 +60,7 @@ projects:
         slug:
             type: slug
             uses: title
-        teaser:
+        logline:
             type: text
             group: content
         description:
@@ -74,13 +74,18 @@ projects:
         project_website:
             type: text
             pattern: "url"
-            label: Project website
+            label: "Project website"
             group: content
         github_repo:
             type: text
             pattern: "url"
-            label: GitHub link
+            label: "GitHub link"
             group: content
+        project_active:
+             type: checkbox
+             group: content
+             label: "Active"
+             default: 1
     record_template: project.twig
     listing_template: project-listing.twig
     listing_records: 20
@@ -101,7 +106,7 @@ sketches:
         slug:
             type: slug
             uses: title
-        teaser:
+        logline:
             type: text
             group: content
         description:
