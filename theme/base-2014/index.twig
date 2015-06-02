@@ -1,0 +1,13 @@
+{% include '_header.twig' %}
+
+{# the values in the 'app.config' object are taken directly from the file app/config/config.yml #}
+<h1>{{ app.config.get('general/sitename') }}
+{% if app.config.get('general/payoff') %}
+    <br><small>{{ app.config.get('general/payoff') }}</small>
+{% endif %}
+</h1>
+
+{{ menu('main', '_sub_menu.twig') }}
+
+
+{% include '_footer.twig' %}
