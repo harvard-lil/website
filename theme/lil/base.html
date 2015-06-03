@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta content="width=device-width" name="viewport">
+    <meta content="The Libary Innovation Lab at Harvard University" name="description">
+
+    <title>The Library Innovation Lab at Harvard University</title>
+    
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/homepage.css" rel="stylesheet">
+    <link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed">
+</head>
+
+<!-- 
+	- html is classed using a modified BEM (Block, Element, Modifier) method
+	- in general, the primary block class is listed first, with an element connected by a hyphen. modifier classes follow, each preceded by an underscore.
+	- multi-word blocks, elements, or modifiers are written in camelCase
+	- so, an active primary nav list element might look like "primaryNav-list-item _active" 
+-->
+{% block content %}
+<body class="home">
+    <header>
+    	<div class="home-splash">
+    		<figure>
+    			<!-- this will probably be an animated gif -->
+	    		<img src="{{ assets.logo.splash }}" />
+    		</figure>
+    		<h1 class="home-title">We’re building things in libraries.</h1>
+    	</div>
+    	{% include 'lil-main-nav.html' %}
+	</header>
+
+
+	<!-- about section -->
+    <section class="container _about">
+	    <h2 class="container-title">About</h2>
+	    <div class="slice">
+		    <h3 class="slice-hook">What’s the Library Innovation Lab?</h3>
+		    <div class="slice-main">
+			    <p>The Library Innovation Lab at Harvard University aims to bring the best of technology to the world of libraries and the best of libraries to the world of technology — to make the stable unstable and the unstable stable. And vice versa.</p>
+			</div>
+		</div>
+		<a href="{{ categories.about.url }}" role="button" aria-label="Learn more about who we are">Learn more about who we are</a>
+    </section>
+
+
+	<!-- projects section -->
+    <section class="container _projects">
+	    <h2 class="container-title">Projects</h2>
+	    
+		{% include 'lil-hero-slider.html' %}
+	    
+	    <div class="gallery">
+	    	{% for activeProject in category.projects|active %}
+		    	<a class="gallery-item" href="{{ activeProject.url }}">
+		    		<figure class="gallery-item-primaryImage">
+	
+		    			<!-- using srcset for reponsive density -->
+			    		<img src="{{ activeProject.galleryImage.1x }}" srcset="{{ activeProject.galleryImage.1x }}, {{ activeProject.galleryImage.2x }} 2x, {{ activeProject.galleryImage.3x }} 3x" />
+		    		</figure>
+		    		<strong class="gallery-item-title"><a href="{{activeProject.url }}">{{ activeProject.name }}</a></strong>
+		    		<span class="gallery-item-logline">{{ activeProject.logline }}</span>
+		    	</a>
+	    	{% endfor %}
+	    </div>
+		<a href="{{ category.projects.url }}" role="button" aria-label="Browse all our active projects">Browse all our active projects</a>
+    </section>
+
+
+	<!-- sketches section -->
+    <section class="container _sketches">
+		<h2 class="container-title">Sketches</h2>
+	    <div class="slice">
+		    <h3 class="slice-hook">question</h3>
+		    <div class="slice-main">
+			    <p>answer</p>
+			</div>
+		</div>
+
+		<!-- div.gallery can get an '_alt' modifier that puts it into circular mode --> 
+	    <div class="gallery _alt">
+	    	{% for thisSketch in category.sketches %}
+	    		{% set thisStatusFlag = '' %}
+	    		{% if thisSketch.status|length set thisStatus = 'active' else thisStatus = 'inactive' and  thisStatusFlag = '_inactive' endif %}
+
+				<!-- a.gallery-item can get an '_inactive' modifier that puts it into inactive mode --> 
+		    	<a class="gallery-item {{ thisStausFlag }}" href="{{ thisSketch.url }}">
+		    		<figure class="gallery-item-primaryImage">
+	
+		    			<!-- using srcset for reponsive density -->
+			    		<img src="{{ thisSketch.galleryImage.1x }}" srcset="{{ thisSketch.galleryImage.1x }}, {{ thisSketch.galleryImage.2x }} 2x, {{ thisSketch.galleryImage.3x }} 3x" />
+		    		</figure>
+		    		<strong class="item-title"><a href="{{ thisSketch.url }}">{{ thisSketch.name }}</a></strong>
+		    		<ul class="item-specs">
+			    		<li class="item-specs-logline">{{ thisSketch.logline }}</li>
+			    		<li class="item-specs-date">{{ thisSketch.date }}</li>
+			    		<li class="item-specs-status">{{ thisStatus }}</li>
+		    		</ul>
+		    	</a>
+	    	{% endfor %}
+		<a href="{{ categories.sketches }}" role="button" aria-label="See everything we’re sketching">See everything we’re sketching</a>
+	</section>
+
+
+	<!-- roundup section -->
+	<section class="container _roundup">
+		<h2 class="container-title">Roundup</h2>
+		<p class="container-subtitle">Interesting things from here and there.</p>
+		
+		<div class="roundup-posts">
+			{% for thisRoundupPost in objects.roundup.posts.reverse(date).limit(5) %}
+				<div class="roundup-post">
+					<div class="roundup-post-date">{{ thisRoundupPost.date|date(Month, dd YYYY) }}</div>
+					<div class="roundup-post-content">
+						<strong class="roundup-post-title"><a href="#">{{ thisRoundupPost.title }}</a></strong>
+						<span class="roundup-post-logline">{{ thisRoundupPost.description }}</span>
+					</div>
+					<div class="roundup-post-author">{{ thisRoundupPost.author }}</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+	{% endblock %}
+	{% include lil-newsletter.html  %}
+	{% include lil-footer.html  %}
+</body>
+</html>
+

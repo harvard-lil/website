@@ -1,0 +1,26 @@
+<div class="row">
+    <header>
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+                <li class="name"><h1><a href="{{ paths.root }}">{{ app.config.get('general/sitename') }}</a></h1></li>
+                <li class="toggle-topbar menu-icon"><a href="#">☰ menu</a></li>
+            </ul>
+
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul class="right">
+                    {# Include the menu, as defined in config/menu.yml. Note that this theme comes with it's own _sub_menu.twig. If this file wasn't included in the current theme, the default menu template in app/theme_defaults/_sub_menu.twig would be used. #}
+                    {{ menu('main', '_sub_menu.twig') }}
+                </ul>
+            </section>
+        </nav>
+
+        <!-- End header -->
+
+    </header>
+</div>
+
+
+
+<div class="row">
+    <div class="container large-12 columns">
