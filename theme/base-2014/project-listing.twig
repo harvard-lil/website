@@ -1,39 +1,53 @@
 {% include '_header.twig' %}
-{% include '_nav.twig' %}
 
-<!-- Main Page Content and Sidebar -->
+<body class="category _projects">
+    <header>
+		{% include '_nav.twig' %}
+    </header>
+    <section class="container _intro">
+	    <h1 class="intro-title">Projects</h1>
+	    <div class="slice">
+		    <h3 class="slice-hook">What’s a sketch?</h3>
+		    <div class="slice-main">
+			    <p>{{ category.sketches.description }}</p>
+			</div>
+		</div>
+    </section>
 
-    <!-- Main Blog Content -->
-    <div class="large-8 columns" role="content">
-
-        <h2>Projects</h2>
-        {% setcontent projects = 'projects' orderby 'name' %}
-        {% for project in projects %}
-            <article>
-
-                <h2><a href="{{ project.link }}">{{ project.name }}</a></h2>
-
-                {% if project.image!="" %}
-                    <div class="large-4 imageholder">
-                        <a href="{{ image(project.image) }}">
-                            <img src="{{ thumbnail(project.image, 400, 260) }}">
-                        </a>
-                    </div>
-                {% endif %}
-
-                <p>{{ project.logline }}</p>
-
-            </article>
-        {% endfor %}
-
-
-    </div>
-
-    <!-- End Main Content -->
-
-
-<!-- End Main Content and Sidebar -->
-
-
+    <section class="container">
+		{# {% include 'lil-hero-slider.html' %} #}
+		<h2 class="container-title">Active Projects</h2>
+		<p class="container-subtitle">What we’re doing now.</p>
+	    <div class="gallery _alt">
+	        {% setcontent projects = 'projects' orderby 'name' where {project_active: 1} %}
+	    	{% for activeProject in projects %}
+		    	<a class="gallery-item" href="{{ activeProject.link }}">
+		    		<figure class="gallery-item-primaryImage">
+	
+		    			<!-- using srcset for reponsive density -->
+			    		{# <img src="{{ activeProject.galleryImage.1x }}" srcset="{{ activeProject.galleryImage.1x }}, {{ activeProject.galleryImage.2x }} 2x, {{ activeProject.galleryImage.3x }} 3x" /> #}
+		    		</figure>
+		    		<strong class="gallery-item-title"><a href="{{activeProject.link }}">{{ activeProject.name }}</a></strong>
+		    		<span class="gallery-item-description">{{ activeProject.logline }}</span>
+		    	</a>
+	    	{% endfor %}
+	    </div>
+		<a href="{{ paths.root }}projects" role="button" aria-label="Browse all our active projects">Browse all our active projects</a>
+	</section>
+	
+	<section class="container _sunset">
+		<h2 class="container-title">Sunset Projects</h2>
+		<p class="container-subtitle">Farewell, sweet friends.</p>
+		
+		{% setcontent projects = 'projects' orderby 'name' where {project_active: 0} %}
+		{% for sunsetProject in projects %}
+			<div class="sunset-entry">
+				<div class="sunset-entry-date">{{ sunsetProject.daterange }}</div>
+				<div class="sunset-entry-content">
+					<strong class="sunset-entry-title">{{ sunsetProject.name }}</strong>
+					<span class="sunset-entry-logline">{{ sunsetProject.logline }}</span>
+				</div>
+			</div>
+		{% endfor %}
 
 {% include '_footer.twig' %}
