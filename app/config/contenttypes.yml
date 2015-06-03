@@ -53,13 +53,13 @@ projects:
     singular_name: Project
     singular_slug: projects
     fields:
-        title:
+        name:
             type: text
             class: large
             group: content
         slug:
             type: slug
-            uses: title
+            uses: name
         logline:
             type: text
             group: content
@@ -99,13 +99,13 @@ sketches:
     singular_name: Sketch
     singular_slug: sketches
     fields:
-        title:
+        name:
             type: text
             class: large
             group: content
         slug:
             type: slug
-            uses: title
+            uses: name
         logline:
             type: text
             group: content
@@ -127,6 +127,11 @@ sketches:
             pattern: "url"
             label: GitHub link
             group: content
+        project_active:
+             type: checkbox
+             group: content
+             label: "Active"
+             default: 1
     record_template: sketch.twig
     listing_template: sketch-listing.twig
     listing_records: 20

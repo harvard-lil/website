@@ -7,11 +7,11 @@
     <div class="large-8 columns" role="content">
 
         <h2>Projects</h2>
-        {% setcontent projects = 'projects' orderby 'title' %}
+        {% setcontent projects = 'projects' orderby 'name' %}
         {% for project in projects %}
             <article>
 
-                <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
+                <h2><a href="{{ project.link }}">{{ project.name }}</a></h2>
 
                 {% if project.image!="" %}
                     <div class="large-4 imageholder">

@@ -7,11 +7,11 @@
     <div class="large-8 columns" role="content">
 
         <h2>Sketches</h2>
-        {% setcontent sketches = 'sketches' orderby 'title' %}
+        {% setcontent sketches = 'sketches' orderby 'name' %}
         {% for sketch in sketches %}
             <article>
 
-                <h2><a href="{{ sketch.link }}">{{ sketch.title }}</a></h2>
+                <h2><a href="{{ sketch.link }}">{{ sketch.name }}</a></h2>
 
                 {% if sketch.image!="" %}
                     <div class="large-4 imageholder">

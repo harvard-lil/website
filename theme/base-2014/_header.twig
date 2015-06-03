@@ -1,29 +1,13 @@
 <!DOCTYPE html>
-<html class="no-js" lang="{{ htmllang() }}">
+<html>
 <head>
-    <meta charset="utf-8" />
+	<meta charset="utf-8">
+    <meta content="width=device-width" name="viewport">
+    <meta content="The Libary Innovation Lab at Harvard University" name="description">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {# make sure we always display a proper title: The record's title if there is one, appended with the
-       sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
-    <title>
-      {% if record.title is defined %}{{ record.title|striptags }} | {% endif %}
-      {{ app.config.get('general/sitename') }}
-      {% if record.title is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff') }}{% endif %}
-    </title>
-
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-
-    {# paths.theme is always a correct path to the current theme. Even if you rename the theme-folder,
-       this will keep working. See the documentation on paths: http://docs.bolt.cm/internals#paths #}
-    <link rel="stylesheet" href="{{ paths.theme }}css/foundation.css">
-    <link rel="stylesheet" href="{{ paths.theme }}css/app.css">
-    {# Bolt comes with Magnific Popup, as it's used in the backend. We can use it here, or you can
-      just swap it out for the image-viewing script of your choice. Or delete it altogether. #}
-    <link rel="stylesheet" href="{{ paths.theme }}css/magnific-popup.css">
-
-
-    {#<!-- A variable from the theme's config: {{ theme.foo }} -->#}
-
+    <title>The Library Innovation Lab at Harvard University</title>
+    
+    <link href="{{ paths.theme }}css/styles.css" rel="stylesheet">
+    <link href="{{ paths.theme }}css/homepage.css" rel="stylesheet">
+    <link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed">
 </head>
-<body>
