@@ -1,13 +1,9 @@
-{% include '_header.twig' %}
+{% extends "base.html" %}
 
-<!-- 
-	- html is classed using a modified BEM (Block, Element, Modifier) method
-	- in general, the primary block class is listed first, with an element connected by a hyphen. modifier classes follow, each preceded by an underscore.
-	- multi-word blocks, elements, or modifiers are written in camelCase
-	- so, an active primary nav list element might look like "primaryNav-list-item _active" 
--->
+{% block extra_styles %}<link href="{{ paths.theme }}css/homepage.css" rel="stylesheet">{% endblock %}
 
-<body class="home">
+{% block body_tag %}<body class="home">{% endblock %}
+{% block content %}
     <header>
     	<div class="home-splash">
     		<figure>
@@ -93,5 +89,6 @@
 	    	{% endfor %}
 		<a href="{{ paths.root }}sketches" role="button" aria-label="See everything we’re sketching">See everything we’re sketching</a>
 	</section>
-</body>
-</html>
+{% endblock %}
+
+{% block extra_scripts %}<script src="{{ paths.theme }}javascripts/extrajs.min.js"></script>{% endblock %}

@@ -1,6 +1,7 @@
-{% include '_header.twig' %}
+{% extends "base.html" %}
 
-<body class="category _sketches">
+{% block body_tag %}<body class="category _sketches">{% endblock %}
+{% block content %}
     <header>
     	{% include '_nav.twig' %}
     </header>
@@ -45,4 +46,4 @@
 	    </div>
 	</section>
 
-{% include '_footer.twig' %}
+{% endblock %}

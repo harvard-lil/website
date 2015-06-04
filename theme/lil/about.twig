@@ -1,6 +1,7 @@
-{% include '_header.twig' %}
+{% extends "base.html" %}
+
+{% block content %}
 {% include '_nav.twig' %}
-<body>
 <!-- Main Page Content and Sidebar -->
 
     <!-- Main Blog Content -->
@@ -39,3 +40,4 @@
         {% endfor %}
 
     </div>
+{% endblock %}
