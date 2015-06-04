@@ -2,7 +2,7 @@
 
 Check out the [website](http://librarylab.law.harvard.edu/) to see it in action.
 
-Built using [Bolt cms](https://bolt.cm/).
+Built using the [Bolt cms](https://bolt.cm/).
 
 ## License
 
