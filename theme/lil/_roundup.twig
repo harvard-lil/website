@@ -1,26 +1,18 @@
-<div class="row">
-    <header>
-        <nav class="top-bar" data-topbar>
-            <ul class="title-area">
-                <li class="name"><h1><a href="{{ paths.root }}">{{ app.config.get('general/sitename') }}</a></h1></li>
-                <li class="toggle-topbar menu-icon"><a href="#">☰ menu</a></li>
-            </ul>
-
-            <section class="top-bar-section">
-                <!-- Right Nav Section -->
-                <ul class="right">
-                    {# Include the menu, as defined in config/menu.yml. Note that this theme comes with it's own _sub_menu.twig. If this file wasn't included in the current theme, the default menu template in app/theme_defaults/_sub_menu.twig would be used. #}
-                    {{ menu('main', '_sub_menu.twig') }}
-                </ul>
-            </section>
-        </nav>
-
-        <!-- End header -->
-
-    </header>
-</div>
-
-
-
-<div class="row">
-    <div class="container large-12 columns">
+<!-- roundup section -->
+	<section class="container _roundup">
+		<h2 class="container-title">Roundup</h2>
+		<p class="container-subtitle">Interesting things from here and there.</p>
+		<div id="hopper"></div>
+		{# <div class="roundup-posts">
+			{% for thisRoundupPost in objects.roundup.posts.reverse(date).limit(5) %}
+				<div class="roundup-post">
+					<div class="roundup-post-date">{{ thisRoundupPost.date|date(Month, dd YYYY) }}</div>
+					<div class="roundup-post-content">
+						<strong class="roundup-post-title"><a href="#">{{ thisRoundupPost.title }}</a></strong>
+						<span class="roundup-post-logline">{{ thisRoundupPost.description }}</span>
+					</div>
+					<div class="roundup-post-author">{{ thisRoundupPost.author }}</div>
+				</div>
+			{% endfor %}
+		</div>#}
+	</section>
