@@ -92,6 +92,10 @@
 	    	{% endfor %}
 		<a href="{{ paths.root }}sketches" role="button" aria-label="See everything we’re sketching">See everything we’re sketching</a>
 	</section>
+	
+	{% include '_roundup.twig' %}
+	
+	
 {% endblock %}
 
-{% block extra_scripts %}{# <script src="{{ paths.theme }}javascripts/extrajs.min.js"></script> #}{% endblock %}
+{% block extra_scripts %}<script src="{{ paths.theme }}javascripts/roundup.js"></script>{% endblock %} 
