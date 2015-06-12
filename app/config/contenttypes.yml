@@ -66,9 +66,16 @@ projects:
         description:
             type: html
             height: 300px
-        image:
+        hero_image:
             type: image
             group: media
+            label: "Hero image"
+            attrib: title
+        thumbnail_image:
+            type: image
+            group: media
+            label: "Thumbnail image"
+            attrib: title
         video:
             type: video
         project_website:

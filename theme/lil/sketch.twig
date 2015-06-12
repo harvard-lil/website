@@ -44,7 +44,7 @@
 			    {% for contributor in relatedpeople %}
 			    	<a class="contributor" href="{{paths.root}}about#{{ contributor.slug }}">
 			    		<figure class="contributor-primaryImage">
-			    			{# <img src="{{ contributor.primaryImage.1x }}" srcset="{{ contributor.primaryImage.1x }}, {{ contributor.primaryImage.2x }} 2x, {{ contributor.primaryImage.3x }} 3x" alt="{{ contributor.name }}" /> #}
+			    			<img src="{{ contributor.image|thumbnail(216,216) }}" srcset="{{ contributor.image|thumbnail(216,216) }}, {{ contributor.image|thumbnail(432,432) }} 2x, {{ contributor.image|thumbnail(648,648) }} 3x" alt="{{ contributor.name }}" />
 			    		</figure>
 		    			<strong class="contributor-name"><a href="{{paths.root}}about#{{ contributor.slug }}">{{ contributor.name }}</strong>
 		    			<span class="contributor.role">{{ contributor.role }}</span>

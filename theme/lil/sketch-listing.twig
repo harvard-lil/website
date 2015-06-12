@@ -33,7 +33,7 @@
 		    		<figure class="gallery-item-primaryImage">
 	
 		    			<!-- using srcset for reponsive density -->
-			    		{# <img src="{{ thisSketch.galleryImage.1x }}" srcset="{{ thisSketch.galleryImage.1x }}, {{ thisSketch.galleryImage.2x }} 2x, {{ thisSketch.galleryImage.3x }} 3x" /> #}
+			    		<img src="{{ thisSketch.image|thumbnail(216, 216) }}" srcset="{{ thisSketch.image|thumbnail(216, 216) }}, {{ thisSketch.image|thumbnail(432, 432) }} 2x, {{ thisSketch.image|thumbnail(648, 648) }} 3x" />
 		    		</figure>
 		    		<strong class="item-title"><a href="{{ thisSketch.link }}">{{ thisSketch.name }}</a></strong>
 		    		<ul class="item-specs">

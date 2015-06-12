@@ -3,6 +3,7 @@
 {% block body_tag %}<body class="category _project">{% endblock %}
 {% block content %}
 
+{% set vars = {responde: {'tabletWidth': 350, 'wideWidth': 1400}} %}
 {% set project = record %}
     <header>
     	{% include '_nav.twig' %}
@@ -39,18 +40,18 @@
 	    <!-- using <picture> element to art direct for wide/narrow screens -->
 		<picture class="slider-slide-primaryImage">
 			<!-- wide crop -->
-			{# <source
+			<source
 				media="(min-width: {{ vars.respond.tabletWidth }}em)"
-				srcset="{{ project.primaryImage.wide.small }} {{ vars.respond.tabletWidth }}w,
-				        {{ project.primaryImage.wide.medium }} {{ vars.respond.wideWidth }}w,
-				        {{ project.primaryImage.wide.large }} {{ vars.respond.wideWidth * 2 }}w" />
+				srcset="{{ project.hero_image|thumbnail(350,174) }} {{ vars.respond.tabletWidth }}w,
+				        {{ project.hero_image|thumbnail(700,348) }} {{ vars.respond.wideWidth }}w,
+				        {{ project.hero_image|thumbnail(1400,696) }} {{ vars.respond.wideWidth * 2 }}w" />
 			<!-- narrow crop -->
 			<source
-				srcset="{{ project.primaryImage.mobile.1x 1x }},
-				        {{ project.primaryImage.mobile.2x 2x }}" />
+				srcset="{{ project.thumbnail_image|thumbnail(400,300) }} 1x,
+				        {{ project.thumbnail_image|thumbnail(800,600) }} 2x" />
 			<img
-				src="{{ project.primaryImage.mobile.1x }}"
-				alt="{{ project.image.alt }}" />#}
+				src="{{ project.thumbnail_image|thumbnail(400,300) }}"
+				alt="{{ project.image.title }}" />
 		</picture>
 		
 		<div class="slice">
@@ -60,7 +61,7 @@
 			    {% for contributor in relatedpeople %}
 			    	<a class="contributor" href="{{paths.root}}about#{{ contributor.slug }}">
 			    		<figure class="contributor-primaryImage">
-			    			{# <img src="{{ contributor.primaryImage.1x }}" srcset="{{ contributor.primaryImage.1x }}, {{ contributor.primaryImage.2x }} 2x, {{ contributor.primaryImage.3x }} 3x" alt="{{ contributor.name }}" /> #}
+			    			<img src="{{ contributor.image|thumbnail(216,216) }}" srcset="{{ contributor.image|thumbnail(216,216) }}, {{ contributor.image|thumbnail(432,432) }} 2x, {{ contributor.image|thumbnail(648,648) }} 3x" alt="{{ contributor.name }}" />
 			    		</figure>
 		    			<strong class="contributor-name"><a href="{{paths.root}}about#{{ contributor.slug }}">{{ contributor.name }}</strong>
 		    			<span class="contributor.role">{{ contributor.role }}</span>
