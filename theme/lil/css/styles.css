@@ -30,17 +30,17 @@ cite, em, i { font-style: italic; }
 
 cite cite, cite em, cite i, em cite, em em, em i, i cite, i em, i i { font-style: inherit; }
 
-html { background-color: #eee; }
-
-body { max-width: 320px; }
-
 body { font-family: "PostGrotesk", Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 300; line-height: 1.2; color: #333; margin: 0 auto; -webkit-font-smoothing: antialiased; background-color: white; }
+
+.home-splash { height: 320px; text-align: center; font-weight: 700; padding: 16px; }
+
+.home-title { position: relative; top: 50%; transform: translateY(-50%); }
 
 .header-nav { padding: 16px 0; overflow: auto; }
 
-.header-nav-item { display: block; float: left; font-size: 14px; }
+.header-nav-item { display: block; float: left; font-size: 17px; }
 
-.header-nav-item a { display: block; padding: 5px 16px; text-decoration: none; color: #333; height: 24px; }
+.header-nav-item a { display: block; padding: 3px 16px; text-decoration: none; color: #333; height: 24px; }
 
 .header-nav-item a:link { color: #333; }
 
@@ -49,6 +49,8 @@ body { font-family: "PostGrotesk", Helvetica, Arial, sans-serif; font-size: 17px
 .header-nav-item a:hover { color: #bd10e0; }
 
 .header-nav-item a:active { color: #333; }
+
+.header-nav-item:nth-child(n+4) { display: none; }
 
 .header-nav-logo { margin-right: 4px; }
 
@@ -60,7 +62,7 @@ body { font-family: "PostGrotesk", Helvetica, Arial, sans-serif; font-size: 17px
 
 .header-nav-item._home a { padding-top: 0; padding-bottom: 0; }
 
-.header-nav-item._home span { position: relative; bottom: 7px; }
+.header-nav-item._home span { position: relative; bottom: 6px; }
 
 section { padding: 16px; overflow: hidden; }
 
