@@ -36,6 +36,10 @@ body { max-width: 320px; background-color: white; }
 
 body { font-family: "PostGrotesk", Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 300; line-height: 1.2; color: #333; margin: 0 auto; -webkit-font-smoothing: antialiased; }
 
+.header-nav-item:hover .style1, .header-nav-item:hover .style2 { fill: #bd10e0 !important; }
+
+.header-nav-item:hover a { color: #bd10e0; }
+
 section { padding: 16px; overflow: hidden; }
 
 .container-title, .container-subtitle { font-size: 24px; line-height: 1.1; }
