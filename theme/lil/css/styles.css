@@ -32,13 +32,35 @@ cite cite, cite em, cite i, em cite, em em, em i, i cite, i em, i i { font-style
 
 html { background-color: #eee; }
 
-body { max-width: 320px; background-color: white; }
+body { max-width: 320px; }
 
-body { font-family: "PostGrotesk", Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 300; line-height: 1.2; color: #333; margin: 0 auto; -webkit-font-smoothing: antialiased; }
+body { font-family: "PostGrotesk", Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 300; line-height: 1.2; color: #333; margin: 0 auto; -webkit-font-smoothing: antialiased; background-color: white; }
 
-.header-nav-item:hover .style1, .header-nav-item:hover .style2 { fill: #bd10e0 !important; }
+.header-nav { padding: 16px 0; overflow: auto; }
+
+.header-nav-item { display: block; float: left; font-size: 14px; }
+
+.header-nav-item a { display: block; padding: 5px 16px; text-decoration: none; color: #333; height: 24px; }
+
+.header-nav-item a:link { color: #333; }
+
+.header-nav-item a:visited { color: #333; }
+
+.header-nav-item a:hover { color: #bd10e0; }
+
+.header-nav-item a:active { color: #333; }
+
+.header-nav-logo { margin-right: 4px; }
+
+.header-nav-item:hover .style1, .header-nav-item:hover .style2 { fill: #bd10e0; }
 
 .header-nav-item:hover a { color: #bd10e0; }
+
+.header-nav-item._home { font-weight: 700; }
+
+.header-nav-item._home a { padding-top: 0; padding-bottom: 0; }
+
+.header-nav-item._home span { position: relative; bottom: 7px; }
 
 section { padding: 16px; overflow: hidden; }
 
