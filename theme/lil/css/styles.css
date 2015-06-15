@@ -44,7 +44,7 @@ header { top: 0; bottom: 0; display: table; width: 100%; }
 
 .header-nav { padding: 16px 0 32px 0; overflow: auto; }
 
-nav[role="navigation"] { position: absolute; bottom: 0; left: 0; }
+nav[role="navigation"] { position: absolute; bottom: 0; left: 0; right: 0; }
 
 .header-nav-item { display: block; float: left; font-size: 17px; font-weight: 500; }
 
@@ -72,6 +72,14 @@ nav[role="navigation"] { position: absolute; bottom: 0; left: 0; }
 
 .header-nav-item._home span { position: relative; bottom: 6px; }
 
+body.home .header-nav { text-align: center; }
+
+body.home .header-nav-item { display: inline-block; float: none; }
+
+body.home .header-nav-item:nth-child(n+5) { display: none; }
+
+body.home .header-nav-item._home { display: none; }
+
 .container { padding: 24px 16px; overflow: hidden; }
 
 .container-title, .container-subtitle { font-size: 24px; line-height: 1.1; }
@@ -94,7 +102,7 @@ a[role='button']:active span::after { content: url("../images/ui-arrow-white.svg
 
 a[role='button'] span::after { content: url("../images/ui-arrow.svg"); margin-left: 4px; position: relative; }
 
-.container._about { border-top: 1px solid #333; }
+.container._about { background-color: rgba(0, 0, 0, 0.05); }
 
 .container._sketches { background-color: #EAEAE5; }
 
