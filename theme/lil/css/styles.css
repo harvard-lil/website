@@ -44,7 +44,7 @@ header { top: 0; bottom: 0; display: table; width: 100%; }
 
 .header-nav { padding: 16px 0 32px 0; overflow: auto; }
 
-nav[role="navigation"] { position: absolute; bottom: 0; left: 0; }
+nav[role="navigation"] { position: absolute; bottom: 0; left: 0; right: 0; }
 
 .header-nav-item { display: block; float: left; font-size: 17px; font-weight: 500; }
 
@@ -58,7 +58,7 @@ nav[role="navigation"] { position: absolute; bottom: 0; left: 0; }
 
 .header-nav-item a:active { color: #333; }
 
-.header-nav-item:nth-child(n+4) { display: none; }
+.header-nav-item:nth-child(n+5) { display: none; }
 
 .header-nav-logo { margin-right: 4px; }
 
@@ -72,7 +72,15 @@ nav[role="navigation"] { position: absolute; bottom: 0; left: 0; }
 
 .header-nav-item._home span { position: relative; bottom: 6px; }
 
-section { padding: 16px; overflow: hidden; }
+body.home .header-nav { text-align: center; }
+
+body.home .header-nav-item { display: inline-block; float: none; }
+
+body.home .header-nav-item:nth-child(n+5) { display: none; }
+
+body.home .header-nav-item._home { display: none; }
+
+.container { padding: 24px 16px; overflow: hidden; }
 
 .container-title, .container-subtitle { font-size: 24px; line-height: 1.1; }
 
@@ -94,11 +102,13 @@ a[role='button']:active span::after { content: url("../images/ui-arrow-white.svg
 
 a[role='button'] span::after { content: url("../images/ui-arrow.svg"); margin-left: 4px; position: relative; }
 
-._sketches { background-color: #EAEAE5; }
+.container._about { background-color: rgba(0, 0, 0, 0.05); }
 
-._roundup { background-color: #333; color: white; }
+.container._sketches { background-color: #EAEAE5; }
 
-._roundup .container-subtitle { color: #F8CC1C; }
+.container._roundup { background-color: #333; color: white; }
+
+.container._roundup .container-subtitle { color: #F8CC1C; }
 
 #hopper { margin-top: 16px; }
 
@@ -137,8 +147,6 @@ a[role='button'] span::after { content: url("../images/ui-arrow.svg"); margin-le
 .roundup-post-author { font-size: 12px; font-weight: 700; margin-top: 8px; color: rgba(254, 254, 254, 0.9); }
 
 .roundup-post-author:before { content: 'Posted by '; font-weight: 200; }
-
-/*# sourceMappingURL=styles.css.map */
 
 /**
  * Sample form styling, taken from Skeleton, adapted for Bolt.
@@ -261,3 +269,25 @@ p.simpleform-message {
     color: #468847;
     background-color: #DFF0D8;
 }
+
+footer { background: #FFCF04; color: white; font-weight: 700; text-align: right; padding: 24px 16px; overflow: auto; }
+
+.footer-logo { float: left; width: 50%; }
+
+.footer-nav { width: 50%; float: right; }
+
+.footer-nav-item a { color: white; text-decoration: none; display: inline-block; padding: 1px 0; }
+
+.footer-nav-item a:link { color: inherit; }
+
+.footer-nav-item a:visited { color: inherit; }
+
+.footer-nav-item a:hover { color: inherit; text-decoration: underline; }
+
+.footer-nav-item a:active { color: #333; }
+
+.footer-copyright { margin-top: 16px; font-size: 12px; clear: both; float: right; }
+
+.footer-copyright p { margin-top: 8px; }
+
+/*# sourceMappingURL=styles.css.map */
