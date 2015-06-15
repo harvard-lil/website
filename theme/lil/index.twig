@@ -37,7 +37,7 @@
     <section class="container _projects">
 	    <h2 class="container-title">Projects</h2>
 	    
-		{# {% include 'lil-hero-slider.html' %} #}
+		{% include '_lil-hero-slider.twig' %}
 	    
 	    <div class="gallery">
 	    	{% setcontent projects = 'projects' where {project_active: 1} %}
