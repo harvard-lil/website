@@ -9,6 +9,9 @@ phpunit.xml
 app/config/extensions*
 extensions*
 
+# ignore files generated from .scss
+theme/lil/css/styles.css
+
 # Unless you want to store vendor's "state" in your Git repo.
 composer.phar
 composer.lock
