@@ -44,9 +44,9 @@
 	    	{% for activeProject in projects %}
 		    	<a class="gallery-item" href="{{ activeProject.link }}">
 		    		<figure class="gallery-item-primaryImage">
-						<img 	src={{ activeProject.thumbnail_image|thumbnail(400,300) }}
-								srcset="{{ activeProject.thumbnail_image|thumbnail(400,300) }} 1x, 
-									{{ activeProject.thumbnail_image|thumbnail(800,600) }} 2x"
+						<img 	src={{ activeProject.thumbnail_image|thumbnail(400,300,"r") }}
+								srcset="{{ activeProject.thumbnail_image|thumbnail(400,300,"r") }} 1x, 
+									{{ activeProject.thumbnail_image|thumbnail(800,600,"r") }} 2x"
 								alt="{{ activeProject.image.title }}" />
 		    		</figure>
 		    		<strong class="gallery-item-title">{{ activeProject.name }}</strong>
@@ -81,18 +81,21 @@
 				<!-- a.gallery-item can get an '_inactive' modifier that puts it into inactive mode --> 
 		    	<a class="gallery-item {{ thisStausFlag }}" href="{{ thisSketch.link }}">
 		    		<figure class="gallery-item-primaryImage">
-	
-		    			<!-- using srcset for reponsive density -->
-			    		{# <img src="{{ thisSketch.image.1x }}" srcset="{{ thisSketch.image.1x }}, {{ thisSketch.image.2x }} 2x, {{ thisSketch.image.3x }} 3x" /> #}
+						<img 	src={{ thisSketch.image|thumbnail(216,216,"r") }}
+								srcset="{{ thisSketch.image|thumbnail(216,216,"r") }} 1x, 
+									{{ thisSketch.image|thumbnail(432,432,"r") }} 2x,
+									{{ thisSketch.image|thumbnail(648,648,"r") }} 3x"
+								alt="{{ thisSketch.image.title }}" />
 		    		</figure>
-		    		<strong class="item-title"><a href="{{ thisSketch.link }}">{{ thisSketch.name }}</a></strong>
-		    		<ul class="item-specs">
-			    		<li class="item-specs-logline">{{ thisSketch.logline }}</li>
-			    		<li class="item-specs-date">{{ thisSketch.datecreated|date("F j, Y") }}</li>
-			    		<li class="item-specs-status">{{ thisStatus }}</li>
+		    		<strong class="gallery-item-title">{{ thisSketch.name }}</strong>
+		    		<ul class="gallery-item-specs">
+			    		<li class="gallery-item-specs-logline">{{ thisSketch.logline }}</li>
+			    		<li class="gallery-item-specs-date">{{ thisSketch.datecreated|date("F j, Y") }}</li>
+			    		<li class="gallery-item-specs-status">{{ thisStatus }}</li>
 		    		</ul>
 		    	</a>
 	    	{% endfor %}
+	    </div>
 		<a href="{{ paths.root }}sketches" role="button" aria-label="See everything we’re sketching"><span>See everything we’re sketching</span></a>
 	</section>
 	
