@@ -38,9 +38,9 @@ body { font-family: "PostGrotesk", Helvetica, Arial, sans-serif; font-size: 17px
 
 .header-nav { padding: 16px 0; overflow: auto; }
 
-.header-nav-item { display: block; float: left; font-size: 17px; }
+.header-nav-item { display: block; float: left; font-size: 17px; font-weight: 500; }
 
-.header-nav-item a { display: block; padding: 3px 16px; text-decoration: none; color: #333; height: 24px; }
+.header-nav-item a { display: block; padding: 2px 16px; text-decoration: none; color: #333; height: 24px; }
 
 .header-nav-item a:link { color: #333; }
 
