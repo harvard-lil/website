@@ -1,0 +1,35 @@
+{% set vars = {respond: {'tabletWidth': 350, 'wideWidth': 1400}} %}
+<div class="hero-slider">
+    <nav class="slider-nav">
+	    <a class="slider-nav-previous" href="{{ javascript.previous }}">Previous</a>
+	    <a class="slider-nav-next" href="{{ javascript.next }}">Next</a>
+    </nav>
+
+    <!-- one project included here. there will be more than one in the final page -->
+	<div class="slider-frame">
+	    {% setcontent projects = 'projects' orderby 'name' where {project_active: 1} %}
+		{% for projectSlide in projects %}
+		    <div class="slider-slide" id="###">
+			    <strong class="slider-slide-title"><a href="{{ projectSlide.url }}">{{ projectSlide.name }}</a></strong>
+			    <span class="slider-slide-description">{{ projectSlide.logline }}</span>
+		
+			    <!-- using <picture> element to art direct for wide/narrow screens -->
+				<picture class="slider-slide-primaryImage">
+					<!-- wide crop -->
+					<source
+						media="(min-width: {{ vars.respond.tabletWidth }}em)"
+						srcset="{{ projectSlide.hero_image|thumbnail(350,174) }} {{ vars.respond.tabletWidth }}w,
+				        {{ projectSlide.hero_image|thumbnail(700,348) }} {{ vars.respond.wideWidth }}w,
+				        {{ projectSlide.hero_image|thumbnail(1400,696) }} {{ vars.respond.wideWidth * 2 }}w"" />
+					<!-- narrow crop -->
+					<source
+						srcset="{{ projectSlide.thumbnail_image|thumbnail(400,300) }} 1x,
+				        {{ projectSlide.thumbnail_image|thumbnail(800,600) }} 2x" />
+					<img
+						src="{{ projectSlide.thumbnail_image|thumbnail(400,300) }}"
+				alt="{{ projectSlide.image.title }}" />
+				</picture>
+		    </div>
+	    {% endfor %}
+	</div>
+</div>
