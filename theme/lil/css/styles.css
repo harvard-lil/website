@@ -138,4 +138,24 @@ a[role='button'] span::after { content: url("../images/ui-arrow.svg"); margin-le
 
 .roundup-post-author:before { content: 'Posted by '; font-weight: 200; }
 
+footer { background: #FFCF04; color: white; font-weight: 700; text-align: right; padding: 16px; overflow: auto; }
+
+.footer-logo { float: left; width: 50%; }
+
+.footer-nav { width: 50%; float: right; }
+
+.footer-nav-item a { color: white; text-decoration: none; display: inline-block; padding: 1px 0; }
+
+.footer-nav-item a:link { color: inherit; }
+
+.footer-nav-item a:visited { color: inherit; }
+
+.footer-nav-item a:hover { color: inherit; text-decoration: underline; }
+
+.footer-nav-item a:active { color: #333; }
+
+.footer-copyright { margin-top: 16px; font-size: 12px; clear: both; float: right; }
+
+.footer-copyright p { margin-top: 8px; }
+
 /*# sourceMappingURL=styles.css.map */
