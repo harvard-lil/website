@@ -1,0 +1,1 @@
+$(document).ready(function(){var e=$(window).height();$("header").height(e)});
