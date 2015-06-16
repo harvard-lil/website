@@ -41,16 +41,18 @@
 		<h2 class="container-title">Sunset Projects</h2>
 		<p class="container-subtitle">Farewell, sweet friends.</p>
 		
-		{% setcontent projects = 'projects' orderby 'name' where {project_active: 0} %}
-		{% for sunsetProject in projects %}
-			<div class="sunset-entry">
-				<div class="sunset-entry-date">{{ sunsetProject.daterange }}</div>
-				<div class="sunset-entry-content">
-					<strong class="sunset-entry-title">{{ sunsetProject.name }}</strong>
-					<span class="sunset-entry-logline">{{ sunsetProject.logline }}</span>
+		<div class="sunset-entries">
+			{% setcontent projects = 'projects' orderby 'name' where {project_active: 0} %}
+			{% for sunsetProject in projects %}
+				<div class="sunset-entry">
+					<div class="sunset-entry-date">{{ sunsetProject.daterange }}</div>
+					<div class="sunset-entry-content">
+						<strong class="sunset-entry-title">{{ sunsetProject.name }}</strong>
+						<span class="sunset-entry-logline">{{ sunsetProject.logline }}</span>
+					</div>
 				</div>
-			</div>
-		{% endfor %}
+			{% endfor %}
+		</div>
 	</section>
 
 {% endblock %}
