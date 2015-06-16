@@ -8,9 +8,9 @@
     <section class="container _intro">
 	    <h1 class="intro-title">Projects</h1>
 	    <div class="slice">
-		    <h3 class="slice-hook">What’s a sketch?</h3>
+		    <h3 class="slice-hook">What do we do?</h3>
 		    <div class="slice-main">
-			    <p>{{ category.sketches.description }}</p>
+			    <p>Projects are the heart of what we do. We build things in libraries. Our projects attempt to make something — big or small — better, simpler, more transparent, or more fun.</p>
 			</div>
 		</div>
     </section>
@@ -19,14 +19,14 @@
 		{% include '_lil-hero-slider.twig' %}
 		<h2 class="container-title">Active Projects</h2>
 		<p class="container-subtitle">What we’re doing now.</p>
-	    <div class="gallery _alt">
+	    <div class="gallery">
 	        {% setcontent projects = 'projects' orderby 'name' where {project_active: 1} %}
 	    	{% for activeProject in projects %}
 		    	<a class="gallery-item" href="{{ activeProject.link }}">
 		    		<figure class="gallery-item-primaryImage">
 	
 		    			<!-- using srcset for reponsive density -->
-			    		<img src="{{ activeProject.hero_image|thumbnail(350,174) }}" srcset="{{ activeProject.hero_image|thumbnail(350,174) }}, {{ activeProject.hero_image|thumbnail(700,348) }} 2x, {{ activeProject.hero_image|thumbnail(1400,696) }} 3x, {{ activeProject.hero_image|thumbnail(2800,1392) }} 4x" />
+			    		<img src="{{ activeProject.thumbnail_image|thumbnail(350,174) }}" srcset="{{ activeProject.thumbnail_image|thumbnail(350,174) }}, {{ activeProject.thumbnail_image|thumbnail(700,348) }} 2x, {{ activeProject.thumbnail_image|thumbnail(1400,696) }} 3x, {{ activeProject.thumbnail_image|thumbnail(2800,1392) }} 4x" />
 		    		</figure>
 		    		<strong class="gallery-item-title"><a href="{{activeProject.link }}">{{ activeProject.name }}</a></strong>
 		    		<span class="gallery-item-description">{{ activeProject.logline }}</span>
@@ -50,5 +50,6 @@
 				</div>
 			</div>
 		{% endfor %}
+	</section>
 
 {% endblock %}

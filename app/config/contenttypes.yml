@@ -69,7 +69,12 @@ projects:
         hero_image:
             type: image
             group: media
-            label: "Hero image"
+            label: "Wide hero image for desktop"
+            attrib: title
+        hero_image_square:
+            type: image
+            group: media
+            label: "Square hero image for desktop"
             attrib: title
         thumbnail_image:
             type: image

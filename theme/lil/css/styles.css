@@ -76,6 +76,8 @@ body.home .header-nav-item:nth-child(n+5) { display: none; }
 
 body.home .header-nav-item._home { display: none; }
 
+.intro-title { font-size: 32px; }
+
 .container { padding: 24px 16px; overflow: hidden; background-color: rgba(100, 100, 0, 0.02); }
 
 .container-title, .container-subtitle { font-size: 24px; line-height: 1.1; }
