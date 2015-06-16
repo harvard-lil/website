@@ -62,7 +62,9 @@ body { font-family: "PostGrotesk", Helvetica, Arial, sans-serif; font-size: 17px
 
 .header-nav-item._home { font-weight: 700; }
 
-.header-nav-item._home a { padding-top: 0; padding-bottom: 0; padding-left: 46px; }
+.header-nav-item._home span { display: block; text-indent: -10000px; }
+
+.header-nav-item._home a { padding-top: 0; padding-bottom: 0; padding-left: 46px; padding-right: 0; }
 
 body.home header { top: 0; bottom: 0; display: table; width: 100%; }
 
@@ -284,6 +286,9 @@ footer { background: #FFCF04; color: white; font-weight: 700; text-align: right;
 .footer-copyright { margin-top: 16px; font-size: 12px; clear: both; float: right; }
 
 .footer-copyright p { margin-top: 8px; }
+
+@media only screen and (min-width: 376px) { .header-nav-item._home a { padding-right: 16px; }
+  .header-nav-item._home span { display: inline; text-indent: 0; } }
 
 @media only screen and (min-width: 769px) { .home-title { font-size: 40px; margin-top: 80px; } }
 
