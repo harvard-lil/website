@@ -11,27 +11,29 @@
 	    {% setcontent projects = 'projects/latest/1' orderby 'name' where {project_active: 1} %}
 		{% for projectSlide in projects %}
 		    <div class="slider-slide" id="###">
-			    <strong class="slider-slide-title"><a href="{{ projectSlide.url }}">{{ projectSlide.name }}</a></strong>
+			    <strong class="slider-slide-title">{{ projectSlide.name }}</strong>
 			    <span class="slider-slide-description">{{ projectSlide.logline }}</span>
-
-			    <!-- using <picture> element to art direct for wide/narrow screens -->
-				<picture class="slider-slide-primaryImage">
-
-					<!-- 16:9 for wide widths -->
-					<source
-						media="(min-width: {{ vars.respond.tabletWidth }}px)"
-						srcset="{{ projectSlide.hero_image|thumbnail(800,450,'r') }} 800w,
-				        	{{ projectSlide.hero_image|thumbnail(1200,675,'r') }} 1200w,
-							{{ projectSlide.hero_image|thumbnail(1600,900,'r') }} 1600w" />
-
-					<!-- square for narrow widths -->
-					<source
-						srcset="{{ projectSlide.hero_image_square|thumbnail(400,400,'r') }} 1x,
-				        	{{ projectSlide.hero_image_square|thumbnail(800,800,'r') }} 2x" />
-					<img
-						src="{{ projectSlide.hero_image_square|thumbnail(400,400,'r') }}" 
-						alt="{{ projectSlide.image.title }}" />
-				</picture>
+				
+				<a href="{{ projectSlide.url }}">
+				    <!-- using <picture> element to art direct for wide/narrow screens -->
+					<picture class="slider-slide-primaryImage">
+	
+						<!-- 16:9 for wide widths -->
+						<source
+							media="(min-width: {{ vars.respond.tabletWidth }}px)"
+							srcset="{{ projectSlide.hero_image|thumbnail(800,450,'r') }} 800w,
+					        	{{ projectSlide.hero_image|thumbnail(1200,675,'r') }} 1200w,
+								{{ projectSlide.hero_image|thumbnail(1600,900,'r') }} 1600w" />
+	
+						<!-- square for narrow widths -->
+						<source
+							srcset="{{ projectSlide.hero_image_square|thumbnail(400,400,'r') }} 1x,
+					        	{{ projectSlide.hero_image_square|thumbnail(800,800,'r') }} 2x" />
+						<img
+							src="{{ projectSlide.hero_image_square|thumbnail(400,400,'r') }}" 
+							alt="{{ projectSlide.image.title }}" />
+					</picture>
+				</a>
 		    </div>
 	    {% endfor %}
 	</div>

@@ -15,6 +15,7 @@
 		</div>
     </section>
 
+
     <section class="container">
 		{% include '_lil-hero-slider.twig' %}
 		<h2 class="container-title">Active Projects</h2>
@@ -24,16 +25,16 @@
 	    	{% for activeProject in projects %}
 		    	<a class="gallery-item" href="{{ activeProject.link }}">
 		    		<figure class="gallery-item-primaryImage">
-	
-		    			<!-- using srcset for reponsive density -->
-			    		<img src="{{ activeProject.thumbnail_image|thumbnail(350,174) }}" srcset="{{ activeProject.thumbnail_image|thumbnail(350,174) }}, {{ activeProject.thumbnail_image|thumbnail(700,348) }} 2x, {{ activeProject.thumbnail_image|thumbnail(1400,696) }} 3x, {{ activeProject.thumbnail_image|thumbnail(2800,1392) }} 4x" />
+						<img 	src={{ activeProject.thumbnail_image|thumbnail(400,300,"r") }}
+								srcset="{{ activeProject.thumbnail_image|thumbnail(400,300,"r") }} 1x, 
+									{{ activeProject.thumbnail_image|thumbnail(800,600,"r") }} 2x"
+								alt="{{ activeProject.image.title }}" />
 		    		</figure>
-		    		<strong class="gallery-item-title"><a href="{{activeProject.link }}">{{ activeProject.name }}</a></strong>
-		    		<span class="gallery-item-description">{{ activeProject.logline }}</span>
+		    		<strong class="gallery-item-title">{{ activeProject.name }}</strong>
+		    		<span class="gallery-item-logline">{{ activeProject.logline }}</span>
 		    	</a>
 	    	{% endfor %}
 	    </div>
-		<a href="{{ paths.root }}projects" role="button" aria-label="Browse all our active projects">Browse all our active projects</a>
 	</section>
 	
 	<section class="container _sunset">
