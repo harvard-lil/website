@@ -1,8 +1,8 @@
 {% set vars = {respond: {'tabletWidth': 600, 'wideWidth': 1400}} %}
 <div class="hero-slider">
     <nav class="slider-nav">
-	    <a class="slider-nav-previous" href="{{ javascript.previous }}">Previous</a>
-	    <a class="slider-nav-next" href="{{ javascript.next }}">Next</a>
+	    <a class="slider-nav-previous" href="#">Previous</a>
+	    <a class="slider-nav-next" href="#">Next</a>
     </nav>
 
 	<div class="slider-frame">
@@ -14,7 +14,7 @@
 			    <strong class="slider-slide-title">{{ projectSlide.name }}</strong>
 			    <span class="slider-slide-description">{{ projectSlide.logline }}</span>
 				
-				<a href="{{ projectSlide.url }}">
+				<a class="block" href="{{ projectSlide.link }}">
 				    <!-- using <picture> element to art direct for wide/narrow screens -->
 					<picture class="slider-slide-primaryImage">
 	

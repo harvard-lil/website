@@ -22,7 +22,7 @@ blockquote:before, blockquote:after, q:before, q:after { content: ''; content: n
 
 table { border-collapse: collapse; border-spacing: 0; }
 
-.sunset-entry-title, .roundup-post-title, .sunset-entry-logline, .roundup-post-logline, .gallery-item-title, .gallery-item-logline, .contributor-role { display: block; }
+.sunset-entry-title, .roundup-post-title, .sunset-entry-logline, .roundup-post-logline, a.block, .gallery-item-title, .gallery-item-logline, .contributor-role { display: block; }
 
 .slice, .slice-main { overflow: visible; }
 
@@ -72,7 +72,33 @@ cite cite, cite em, cite i, em cite, em em, em i, i cite, i em, i i { font-style
 
 img { width: 100%; max-width: 100%; display: block; margin: 0 auto; }
 
+a { color: #333; text-decoration: none; }
+
+a:link { color: inherit; }
+
+a:visited { color: inherit; }
+
+a:hover { color: inherit; }
+
+a:active { color: inherit; }
+
+p a { border-bottom: 1px solid #bd10e0; padding-bottom: 1px; }
+
+p a:hover { color: #bd10e0; }
+
+p a:active { color: #333; border-color: #333; }
+
 body { font-family: "PostGrotesk", Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 500; line-height: 1.2; color: #333; margin: 0 auto; -webkit-font-smoothing: antialiased; background-color: white; }
+
+a[role='button'] { display: block; text-decoration: none; text-align: center; color: #bd10e0; font-weight: 700; font-size: 12px; padding: 21px; border: 1px solid #bd10e0; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; width: 232px; margin: 24px auto 16px auto; }
+
+a[role='button']:hover { border-width: 2px; padding: 20px; }
+
+a[role='button']:active { color: white; border-color: #bd10e0; background: #bd10e0; }
+
+a[role='button']:active span::after { background-position-x: -10px; }
+
+a[role='button'] span::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 1px; }
 
 .home-splash { text-align: center; font-weight: 700; padding: 16px; display: table-cell; vertical-align: middle; padding-bottom: 95px; }
 
@@ -118,9 +144,9 @@ body.home .header-nav-item._home { display: none; }
 
 .hero-slider { margin: 0 -16px 32px -16px; color: white; }
 
-.slider-nav { position: absolute; z-index: 1; top: 45%; left: 0; right: 0; overflow: visible; }
+.slider-nav { position: absolute; top: 45%; left: 0; right: 0; overflow: visible; }
 
-.slider-nav a { display: block; color: #333; text-decoration: none; width: 6em; padding: 8px 16px; font-size: 12px; overflow: visible; }
+.slider-nav a { display: block; color: #333; text-decoration: none; width: 6em; padding: 8px 16px; z-index: 1; font-size: 12px; overflow: visible; }
 
 .slider-nav a:link { color: #333; }
 
@@ -158,19 +184,9 @@ body.home .header-nav-item._home { display: none; }
 
 .slice-main { line-height: 1.4; }
 
-a[role='button'] { display: block; text-decoration: none; text-align: center; color: #bd10e0; font-weight: 700; font-size: 12px; padding: 21px; border: 1px solid #bd10e0; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; width: 232px; margin: 24px auto 16px auto; }
-
-a[role='button']:hover { border-width: 2px; padding: 20px; }
-
-a[role='button']:active { color: white; border-color: #bd10e0; background: #bd10e0; }
-
-a[role='button']:active span::after { background-position-x: -10px; }
-
-a[role='button'] span::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 1px; }
-
 a.link-project { color: #333; text-decoration: none; }
 
-a.link-project::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 2px; }
+a.link-project::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 1px; }
 
 a.link-project:link { color: #333; }
 
