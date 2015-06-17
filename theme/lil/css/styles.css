@@ -286,32 +286,40 @@ a.link-project:active { color: #333; }
 
 .contributor-role:before { content: ''; display: block; width: 56px; height: 1px; border-bottom: 1px solid rgba(0, 0, 0, 0.4); margin: 8px auto; }
 
+.slice._news { margin: 0 -16px; padding: 16px; padding-bottom: 16px; background-color: #EAEAE5; }
+
 .news-item { border-color: rgba(0, 0, 0, 0.1); }
 
 .news-item-title { font-weight: 700; }
 
-.news-item._blog .news-item-category { color: #FF19D2; }
+.news-item-title::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 1px; }
 
-.news-item._press .news-item-category { color: #17C5E3; }
+.news-item-title:active { color: #333; }
 
-.news-item._press .news-item-publication { color: #17C5E3; }
+.news-item._blog .news-item-category, .news-item._blog .news-item-title:hover { color: #FF19D2; }
+
+.news-item._press .news-item-category, .news-item._press .news-item-title:hover { color: #0075FF; }
+
+.news-item._press .news-item-publication { color: #0075FF; }
 
 .news-item._press .news-item-publication:before { content: 'in '; color: #333; }
+
+.slice._contact { background-color: #333; color: white; padding: 16px; margin: 0 -16px -24px -16px; }
 
 /** Sample form styling, taken from Skeleton, adapted for Bolt. @see http://www.getskeleton.com/?#forms */
 form.simpleform { margin: 20px 0; }
 
 form.simpleform fieldset { margin-bottom: 20px; }
 
-form.simpleform input[type="text"], form.simpleform input[type="password"], form.simpleform input[type="email"], form.simpleform textarea, form.simpleform select { border: 1px solid rgba(0, 0, 0, 0.1); padding: 16px; outline: none; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; color: #bd10e0; width: 100%; max-width: 100%; display: block; margin: 0 0 16px 0; font-family: "PostGrotesk", Helvetica, Arial, sans-serif; font-weight: 500; font-size: 17px; background-color: transparent; }
+form.simpleform input[type="text"], form.simpleform input[type="password"], form.simpleform input[type="email"], form.simpleform textarea, form.simpleform select { border: 1px solid rgba(254, 254, 254, 0.5); padding: 16px; outline: none; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; color: white; width: 100%; max-width: 100%; display: block; margin: 0 0 16px 0; font-family: "PostGrotesk", Helvetica, Arial, sans-serif; font-weight: 500; font-size: 17px; background-color: transparent; }
 
-form.simpleform input[type="text"]::-webkit-input-placeholder, form.simpleform input[type="password"]::-webkit-input-placeholder, form.simpleform input[type="email"]::-webkit-input-placeholder, form.simpleform textarea::-webkit-input-placeholder, form.simpleform select::-webkit-input-placeholder { color: rgba(0, 0, 0, 0.4); }
+form.simpleform input[type="text"]::-webkit-input-placeholder, form.simpleform input[type="password"]::-webkit-input-placeholder, form.simpleform input[type="email"]::-webkit-input-placeholder, form.simpleform textarea::-webkit-input-placeholder, form.simpleform select::-webkit-input-placeholder { color: rgba(254, 254, 254, 0.5); }
 
-form.simpleform input[type="text"]:-moz-placeholder, form.simpleform input[type="password"]:-moz-placeholder, form.simpleform input[type="email"]:-moz-placeholder, form.simpleform textarea:-moz-placeholder, form.simpleform select:-moz-placeholder { color: rgba(0, 0, 0, 0.4); }
+form.simpleform input[type="text"]:-moz-placeholder, form.simpleform input[type="password"]:-moz-placeholder, form.simpleform input[type="email"]:-moz-placeholder, form.simpleform textarea:-moz-placeholder, form.simpleform select:-moz-placeholder { color: rgba(254, 254, 254, 0.5); }
 
-form.simpleform input[type="text"]::-moz-placeholder, form.simpleform input[type="password"]::-moz-placeholder, form.simpleform input[type="email"]::-moz-placeholder, form.simpleform textarea::-moz-placeholder, form.simpleform select::-moz-placeholder { color: rgba(0, 0, 0, 0.4); }
+form.simpleform input[type="text"]::-moz-placeholder, form.simpleform input[type="password"]::-moz-placeholder, form.simpleform input[type="email"]::-moz-placeholder, form.simpleform textarea::-moz-placeholder, form.simpleform select::-moz-placeholder { color: rgba(254, 254, 254, 0.5); }
 
-form.simpleform input[type="text"]:-ms-input-placeholder, form.simpleform input[type="password"]:-ms-input-placeholder, form.simpleform input[type="email"]:-ms-input-placeholder, form.simpleform textarea:-ms-input-placeholder, form.simpleform select:-ms-input-placeholder { color: rgba(0, 0, 0, 0.4); }
+form.simpleform input[type="text"]:-ms-input-placeholder, form.simpleform input[type="password"]:-ms-input-placeholder, form.simpleform input[type="email"]:-ms-input-placeholder, form.simpleform textarea:-ms-input-placeholder, form.simpleform select:-ms-input-placeholder { color: rgba(254, 254, 254, 0.5); }
 
 form.simpleform input[type="text"]::-webkit-input-placeholder, form.simpleform input[type="password"]::-webkit-input-placeholder, form.simpleform input[type="email"]::-webkit-input-placeholder, form.simpleform textarea::-webkit-input-placeholder, form.simpleform select::-webkit-input-placeholder { font-weight: 300; }
 
@@ -329,15 +337,15 @@ form.simpleform input[type="submit"]:hover { border-width: 2px; padding: 11px; }
 
 form.simpleform input[type="submit"]:active { color: white; border-color: #bd10e0; background: #bd10e0; }
 
-form.simpleform input[type="text"]:focus, form.simpleform input[type="password"]:focus, form.simpleform input[type="email"]:focus, form.simpleform textarea:focus { border: 1px solid #0075FF; color: #0075FF; background-color: white; }
+form.simpleform input[type="text"]:focus, form.simpleform input[type="password"]:focus, form.simpleform input[type="email"]:focus, form.simpleform textarea:focus { border: 1px solid white; color: white; background-color: transparent; }
 
-form.simpleform input[type="text"]:focus::-webkit-input-placeholder, form.simpleform input[type="password"]:focus::-webkit-input-placeholder, form.simpleform input[type="email"]:focus::-webkit-input-placeholder, form.simpleform textarea:focus::-webkit-input-placeholder { color: #0075FF; }
+form.simpleform input[type="text"]:focus::-webkit-input-placeholder, form.simpleform input[type="password"]:focus::-webkit-input-placeholder, form.simpleform input[type="email"]:focus::-webkit-input-placeholder, form.simpleform textarea:focus::-webkit-input-placeholder { color: white; }
 
-form.simpleform input[type="text"]:focus:-moz-placeholder, form.simpleform input[type="password"]:focus:-moz-placeholder, form.simpleform input[type="email"]:focus:-moz-placeholder, form.simpleform textarea:focus:-moz-placeholder { color: #0075FF; }
+form.simpleform input[type="text"]:focus:-moz-placeholder, form.simpleform input[type="password"]:focus:-moz-placeholder, form.simpleform input[type="email"]:focus:-moz-placeholder, form.simpleform textarea:focus:-moz-placeholder { color: white; }
 
-form.simpleform input[type="text"]:focus::-moz-placeholder, form.simpleform input[type="password"]:focus::-moz-placeholder, form.simpleform input[type="email"]:focus::-moz-placeholder, form.simpleform textarea:focus::-moz-placeholder { color: #0075FF; }
+form.simpleform input[type="text"]:focus::-moz-placeholder, form.simpleform input[type="password"]:focus::-moz-placeholder, form.simpleform input[type="email"]:focus::-moz-placeholder, form.simpleform textarea:focus::-moz-placeholder { color: white; }
 
-form.simpleform input[type="text"]:focus:-ms-input-placeholder, form.simpleform input[type="password"]:focus:-ms-input-placeholder, form.simpleform input[type="email"]:focus:-ms-input-placeholder, form.simpleform textarea:focus:-ms-input-placeholder { color: #0075FF; }
+form.simpleform input[type="text"]:focus:-ms-input-placeholder, form.simpleform input[type="password"]:focus:-ms-input-placeholder, form.simpleform input[type="email"]:focus:-ms-input-placeholder, form.simpleform textarea:focus:-ms-input-placeholder { color: white; }
 
 form.simpleform textarea { min-height: 10em; }
 
