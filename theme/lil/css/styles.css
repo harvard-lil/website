@@ -26,6 +26,10 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .slice, .slice-main { overflow: visible; }
 
+.intro-title { font-size: 32px; line-height: 1.1; }
+
+.container-title, .container-subtitle { font-size: 24px; line-height: 1.1; }
+
 .sunset-entry-title, .roundup-post-title { font-size: 17px; line-height: 1.3; }
 
 .sunset-entry-logline, .roundup-post-logline { font-size: 17px; line-height: 1.3; font-weight: 300; }
@@ -38,11 +42,11 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .gallery-item-title, .contributor-name { display: block; font-weight: 300; margin-top: 16px; }
 
-.gallery-item-title::after, .contributor-name::after { content: url("../images/ui-arrow.svg"); margin-left: 4px; position: relative; bottom: 1px; }
+.gallery-item-title::after, .contributor-name::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 1px; }
 
 .gallery-item-title:active, .contributor-name:active { color: #333; }
 
-.gallery-item, .contributor { color: #333; text-decoration: none; display: block; margin: 32px 0 16px 0; text-align: center; }
+.gallery-item, .contributor { color: #333; text-decoration: none; display: block; margin: 0 0 32px 0; text-align: center; }
 
 .gallery-item:link, .contributor:link { color: #333; }
 
@@ -160,13 +164,13 @@ a[role='button']:hover { border-width: 2px; padding: 20px; }
 
 a[role='button']:active { color: white; border-color: #bd10e0; background: #bd10e0; }
 
-a[role='button']:active span::after { content: url("../images/ui-arrow-white.svg"); margin-left: 4px; position: relative; }
+a[role='button']:active span::after { background-position-x: -10px; }
 
-a[role='button'] span::after { content: url("../images/ui-arrow.svg"); margin-left: 4px; position: relative; bottom: 0px; }
+a[role='button'] span::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 1px; }
 
 a.link-project { color: #333; text-decoration: none; }
 
-a.link-project::after { content: url("../images/ui-arrow.svg"); margin-left: 4px; position: relative; bottom: 1px; }
+a.link-project::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 2px; }
 
 a.link-project:link { color: #333; }
 
@@ -176,13 +180,15 @@ a.link-project:hover { color: #bd10e0; }
 
 a.link-project:active { color: #333; }
 
+.github-label:before { content: ''; height: 32px; width: 33px; display: inline-block; background-image: url("../images/icon-github-sprite.svg"); background-position-x: 0; vertical-align: middle; bottom: 2px; margin-right: 8px; }
+
+.github-button:active .github-label:before { background-position-x: -34px; }
+
 .container._about { background-color: rgba(100, 100, 0, 0.02); }
 
 .container._sketches { background-color: #EAEAE5; }
 
-.container._roundup { background-color: #333; color: white; }
-
-.container._roundup .container-subtitle { color: #F8CC1C; }
+.container-subtitle + .gallery, .container-subtitle + .gallery { margin-top: 32px; }
 
 .gallery._alt { margin: 0 -10px; overflow: auto; }
 
@@ -204,6 +210,10 @@ a.link-project:active { color: #333; }
 
 .sunset-entry-content { margin-top: 4px; }
 
+.container._roundup { background-color: #333; color: white; }
+
+.container._roundup .container-subtitle { color: #F8CC1C; }
+
 #hopper { margin-top: 16px; }
 
 .roundup-post { border-top: 1px solid rgba(254, 254, 254, 0.25); padding: 16px 0; }
@@ -222,7 +232,7 @@ a.link-project:active { color: #333; }
 
 .roundup-post-title a:hover { text-decoration: underline; }
 
-.roundup-post-title a::after { content: url("../images/ui-arrow.svg"); margin-left: 4px; position: relative; bottom: 1px; }
+.roundup-post-title a::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 1px; }
 
 .roundup-post-title a:link { color: #bd10e0; }
 
@@ -232,7 +242,7 @@ a.link-project:active { color: #333; }
 
 .roundup-post-title a:active { color: white; }
 
-.roundup-post-title a:active::after { content: url("../images/ui-arrow-white.svg"); margin-left: 4px; position: relative; }
+.roundup-post-title a:active::after { background-position-x: -10px; }
 
 .roundup-post-author { margin-top: 8px; color: rgba(254, 254, 254, 0.9); }
 
@@ -258,7 +268,9 @@ a.link-project:active { color: #333; }
 
 .project-hero { margin: 40px -16px; }
 
-.contributor-role { font-size: 12px; margin-top: 16px; padding-top: 8px; }
+.contributor-role { font-size: 12px; }
+
+.contributor-role:before { content: ''; display: block; width: 56px; height: 1px; border-bottom: 1px solid rgba(0, 0, 0, 0.4); margin: 8px auto; }
 
 /** Sample form styling, taken from Skeleton, adapted for Bolt. @see http://www.getskeleton.com/?#forms */
 form.simpleform { margin: 20px 0; }
