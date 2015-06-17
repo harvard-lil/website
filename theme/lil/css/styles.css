@@ -297,6 +297,8 @@ footer { background: #FFCF04; color: white; font-weight: 700; text-align: right;
 
 .category._projects footer { background-color: #18F1C0; }
 
+.category._project footer { background-color: #bd10e0; }
+
 .footer-logo { float: left; width: 50%; }
 
 .footer-nav { width: 50%; float: right; }
