@@ -22,13 +22,13 @@
 			    <a class="link-project" href="{{ project.website }}">{{ project.name }}</a>
 			</div>
 		</div>
-	    <div class="slice">
+	    <div class="slice _what">
 		    <h3 class="slice-hook">What does it do?</h3>
 		    <div class="slice-main">
 			    <p>{{ project.logline }}</p>
 			</div>
 		</div>
-	    <div class="slice">
+	    <div class="slice _why">
 		    <h3 class="slice-hook">Why does it exist?</h3>
 		    <div class="slice-main">
 			    <p>{{ project.description }}</p>
@@ -57,7 +57,7 @@
 			</picture>
 	    </div>
 		
-		<div class="slice">
+		<div class="slice _contributors">
 		    <h3 class="slice-hook">Who contributed to this project?</h3>
 		    <div class="slice-main">
 		    	<div class="gallery _alt">
@@ -77,15 +77,15 @@
 		
 		{% set relatedrecords = record.related('news') %}
         {% if relatedrecords is not empty %}
-		    <div class="slice">
+		    <div class="slice _news">
 			    <h3 class="slice-hook">What’s been written about this project?</h3>
 			    <div class="slice-main">
 				    {% for newsItem in relatedrecords %}
-				    	<a class="news-item" href="{{ newsItem.news_link }}">
+				    	<a class="news-item _{{ newsItem.category|lower }}" href="{{ newsItem.news_link }}">
 				    		<div class="news-item-category">{{ newsItem.category }}</div>
 				    		<div class="news-item-content">
 				    			<strong class="news-item-title">{{ newsItem.title }}</strong>
-				    			<span class="news-item-date">{{ newsItem.date }}</span>
+				    			<span class="news-item-date">{{ newsItem.date|date("F d, Y") }}</span>
 				    			{% if newsItem.publication|length %}
 				    				<span class="news-item-publication">{{ newsItem.publication }}</span>
 				    			{% endif %}
@@ -96,7 +96,7 @@
 			</div>
 		{% endif %}
 		
-		<div class="slice">
+		<div class="slice _contact">
 			    <h3 class="slice-hook">How can I learn more?</h3>
 			    <div class="slice-main">
 			    	<p>If you’re interested in using {{ project.name }} or contributing to the project, check out the project’s <a href="{{ project.github.url }}">Github page</a> or contact us with this simple form.</p>
