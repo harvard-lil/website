@@ -9,18 +9,16 @@
     	{% include '_nav.twig' %}
     </header>
 
-    
+    <nav class="intro-nav">
+	    <a class="intro-nav-previous" href="#">Previous project</a>
+	    <a class="intro-nav-next" href="#">Next project</a>
+    </nav>
     <section class="container">
-	    <nav class="intro-nav">
-		    <a class="intro-nav-previous">Previous</a>
-		    <a class="intro-nav-next">Next</a>
-	    </nav>
-	    <div class="intro-category">category</div>
 	    <h1 class="intro-title">{{ project.name }}</h1>
 	    <div class="slice">
 		    <h3 class="slice-hook">What’s this project?</h3>
 		    <div class="slice-main">
-			    <p><a href="{{ project.website }}">{{ project.name }}</a></p>
+			    <p><a class="link-project" href="{{ project.website }}">{{ project.name }}</a></p>
 			</div>
 		</div>
 	    <div class="slice">
@@ -38,35 +36,41 @@
  		<a href="{{ project.github_repo }}" role="button" class="github" aria-label="{{ project.name }} on Github">{{ project.name }} on Github</a>
 
 	    <!-- using <picture> element to art direct for wide/narrow screens -->
-		<picture class="slider-slide-primaryImage">
-			<!-- wide crop -->
-			<source
-				media="(min-width: {{ vars.respond.tabletWidth }}em)"
-				srcset="{{ project.hero_image|thumbnail(350,174) }} {{ vars.respond.tabletWidth }}w,
-				        {{ project.hero_image|thumbnail(700,348) }} {{ vars.respond.wideWidth }}w,
-				        {{ project.hero_image|thumbnail(1400,696) }} {{ vars.respond.wideWidth * 2 }}w" />
-			<!-- narrow crop -->
-			<source
-				srcset="{{ project.thumbnail_image|thumbnail(400,300) }} 1x,
-				        {{ project.thumbnail_image|thumbnail(800,600) }} 2x" />
-			<img
-				src="{{ project.thumbnail_image|thumbnail(400,300) }}"
-				alt="{{ project.image.title }}" />
-		</picture>
+	    <div class="project-hero">
+			<picture class="slider-slide-primaryImage">
+	
+				<!-- 16:9 for wide widths -->
+				<source
+					media="(min-width: {{ vars.respond.tabletWidth }}px)"
+					srcset="{{ project.hero_image|thumbnail(800,450,'r') }} 800w,
+			        	{{ project.hero_image|thumbnail(1200,675,'r') }} 1200w,
+						{{ project.hero_image|thumbnail(1600,900,'r') }} 1600w" />
+	
+				<!-- square for narrow widths -->
+				<source
+					srcset="{{ project.hero_image_square|thumbnail(400,400,'r') }} 1x,
+			        	{{ project.hero_image_square|thumbnail(800,800,'r') }} 2x" />
+				<img
+					src="{{ project.hero_image_square|thumbnail(400,400,'r') }}" 
+					alt="{{ project.image.title }}" />
+			</picture>
+	    </div>
 		
 		<div class="slice">
 		    <h3 class="slice-hook">Who contributed to this project?</h3>
 		    <div class="slice-main">
-		        {% set relatedpeople = record.related('about') %}
-			    {% for contributor in relatedpeople %}
-			    	<a class="contributor" href="{{paths.root}}about#{{ contributor.slug }}">
-			    		<figure class="contributor-primaryImage">
-			    			<img src="{{ contributor.image|thumbnail(216,216) }}" srcset="{{ contributor.image|thumbnail(216,216) }}, {{ contributor.image|thumbnail(432,432) }} 2x, {{ contributor.image|thumbnail(648,648) }} 3x" alt="{{ contributor.name }}" />
-			    		</figure>
-		    			<strong class="contributor-name"><a href="{{paths.root}}about#{{ contributor.slug }}">{{ contributor.name }}</strong>
-		    			<span class="contributor.role">{{ contributor.role }}</span>
-			    	</a>
-			    {% endfor %}
+		    	<div class="gallery _alt">
+			        {% set relatedpeople = record.related('about') %}
+				    {% for contributor in relatedpeople %}
+				    	<a class="contributor" href="{{paths.root}}about#{{ contributor.slug }}">
+				    		<figure class="contributor-primaryImage">
+				    			<img src="{{ contributor.image|thumbnail(216,216) }}" srcset="{{ contributor.image|thumbnail(216,216) }}, {{ contributor.image|thumbnail(432,432) }} 2x, {{ contributor.image|thumbnail(648,648) }} 3x" alt="{{ contributor.name }}" />
+				    		</figure>
+			    			<strong class="contributor-name">{{ contributor.name }}</strong>
+			    			<span class="contributor-role">{{ contributor.role }}</span>
+				    	</a>
+				    {% endfor %}
+				</div>
 			</div>
 		</div>
 		
@@ -98,5 +102,6 @@
 			    	{{ simpleform('contact') }}
 			    </div>
 		    </div>
+		</section>
 
 {% endblock %}
