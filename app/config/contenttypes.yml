@@ -236,12 +236,35 @@ people:
             group: content
         role:
             type: text
+        active:
+            label: "Check if this person is an active employee."
+            type: checkbox
+            default: 1
         description:
             type: html
             height: 300px
         email:
             type: text
-            height: 150px
+            pattern: 'email'
+            class: narrow
+        website:
+            type: text
+            postfix: 'Personal website. Include http.... prefix.'
+            pattern: 'url'
+            class: narrow
+        twitter:
+            type: text
+            group: content
+            postfix: 'Use the format @username'
+            label: "Twitter username"
+            pattern: '^@[A-Za-z0-9_\-]+$'
+            class: narrow
+        github:
+            type: text
+            group: content
+            postfix: 'Just your username, not the complete Github URL'
+            label: "Github username"
+            class: narrow
         image:
             type: image
             group: media
