@@ -60,9 +60,9 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .gallery-item:active, .contributor:active { color: #333; }
 
-.gallery-item:hover strong, .contributor:hover strong { color: #bd10e0; }
+.gallery-item strong:hover, .contributor strong:hover { color: #bd10e0; }
 
-.gallery-item:active strong, .contributor:active strong { color: #333; }
+.gallery-item strong:active, .contributor strong:active { color: #333; }
 
 html { box-sizing: border-box; }
 
@@ -210,9 +210,9 @@ a.link-project:active { color: #333; }
 
 .container._sketches { background-color: #EAEAE5; }
 
-.container-subtitle + .gallery, .container-subtitle + .gallery { margin-top: 32px; }
+.gallery { margin-top: 32px; }
 
-.gallery._alt { margin: 0 -10px; overflow: auto; }
+.gallery._alt { margin-left: -10px; margin-right: -10px; overflow: auto; }
 
 .gallery-item-specs { margin-top: 8px; font-size: 12px; }
 
@@ -232,7 +232,7 @@ a.link-project:active { color: #333; }
 
 .container._roundup .container-subtitle { color: #F8CC1C; }
 
-#hopper { margin-top: 16px; }
+#hopper { margin-top: 32px; }
 
 .roundup-post-content { margin-top: 4px; }
 
