@@ -54,6 +54,11 @@ sketchlisting:
 sketchbinding:
   path: /sketch/{slug}
   defaults: { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'project', 'project_type': 'sketch' }
+
+aboutlisting:
+   path:     /about/
+   defaults: { _controller: 'Bolt\Controllers\Frontend::template', template: 'about.twig' }
+
 #  recordslug: page/about
 
 #
