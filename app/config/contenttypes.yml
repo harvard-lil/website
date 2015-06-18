@@ -84,15 +84,16 @@ pages:
             group: content
             postfix: 'Use the format @username'
             label: "Twitter username"
-            pattern: '^@[A-Za-z0-9_-]$'
+            pattern: '^@[A-Za-z0-9_\-]+$'
             class: narrow
         github:
             type: text
             group: content
             postfix: 'Just your username, not the complete Github URL'
             label: "Github username"
-            pattern: '^[0-9-]{12,12}'
             class: narrow
+    listing_template: about.twig
+    default_status: publish
 
 
 # Entries can be used for things like 'news' or 'blogpostings'. They have a 'teaser',

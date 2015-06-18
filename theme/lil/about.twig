@@ -1,12 +1,109 @@
 {% extends "base.html" %}
 {% set footerLogoName = 'tribal' %}
 
+{% setcontent about = 'page/about' %}
+
+
 {% block body_tag %}<body class="category _about">{% endblock %}
 {% block content %}
 
     <header>
     	{% include '_nav.twig' %}
-    </header>
+    </header>	
+	
+    <section class="container _intro">
+	    <h1 class="intro-title">{{ about.title }}</h1>
+	    <div class="slice">
+		    <h3 class="slice-hook">What does the Library Lab do?</h3>
+		    <div class="slice-main">
+			    {{ about.logline }}
+			</div>
+		</div>
+	    <div class="slice">
+		    <h3 class="slice-hook">How can I get in touch with the Lab?</h3>
+		    <div class="slice-main">
+		    	<ul class="about-address">
+		    		<li class="about-address-name">{{ about.addressname }}</li>
+		    		<li class="about-address-street">{{ about.addressstreet1 }}</li>
+		    		<li class="about-address-street">{{ about.addressstreet2 }}</li>
+		    		<li class="about-address-citystate">{{ about.addresscity }}, {{ about.addressstate }}</li>
+		    		<li class="about-address-zip">{{ about.addresszip }}</li>
+		    	</ul>
+		    	<ul class="about-specs">
+		    		<li class="about-specs-email">{{ about.email }}</li>
+		    		<li class="about-specs-phone">{{ about.phone }}</li>
+		    		<li class="about-specs-twitter"><a href="https://www.twitter.com/{{ about.twitter|replace({'@': ''})}}">{{ about.twitter }}</a></li>
+		    		<li class="about-specs-github"><a href="https://www.github.com/{{ about.github}}">{{ about.github }}</a></li>
+		    	</ul>
+			</div>
+		</div>
+	    <div class="slice">
+		    <h3 class="slice-hook">What’s our story?</h3>
+		    <div class="slice-main">
+			    {{ about.history }}
+			</div>
+		</div>
+    </section>
 
+    <section class="container _people">
+		<h2 class="container-title">Who we are</h2>
+		<p class="container-subtitle">The people at the Library Lab.</p>
+    	<div class="gallery _listing">
+	        {% setcontent activePeople = 'people' where {person_active: 1} %}
+		    {% for person in activePeople %}
+		    	<div class="contributor">
+		    		<figure class="contributor-primaryImage">
+		    			<img src="{{ person.image|thumbnail(216,216) }}" srcset="{{ person.image|thumbnail(216,216) }}, {{ person.image|thumbnail(432,432) }} 2x, {{ person.image|thumbnail(648,648) }} 3x" alt="{{ person.name }}" />
+		    		</figure>
+		    		<div class="contributor-info">
+		    			<strong class="contributor-name">{{ person.name }}</strong>
+		    			<span class="contributor-role">{{ person.role }}</span>
+		    			<div class="contributor-description">
+							{{person.description}}
+		    			</div>
+		    			<ul class="person-specs">
+		    				<li class="person-specs-email">{{ person.email }}</li>
+		    				<li class="person-specs-website"><a href="{{ person.website|replace({'http://': ''})}}">{{ person.website }}</a></li>
+		    				<li class="person-specs-twitter"><a href="https://www.twitter.com/{{ person.twitter|replace({'@': ''})}}">{{ person.twitter }}</a></li>
+		    				<li class="person-specs-github"><a href="https://www.github.com/{{ person.github}}">{{ person.github }}</a></li>
+		    			</ul>
+		    		</div>
+		    	</div>
+		    {% endfor %}
+		</div>
+    </section>
+
+	{#
+    <section class="container _collaborators">
+		<h2 class="container-title">Collaborators</h2>
+		<p class="container-subtitle">Friends and fellow travelers.</p>
+		<div class="collaborators">
+	        {% setcontent oldFriends = 'people' where {person_active: 0} %}
+		    {% for person in oldFriends %}
+		    	<div class="collaborator">
+	    			<strong class="collaborator-name">{{ person.name }}</strong>
+	    			<span class="collaborator-role">{{ person.role }}</span>
+	    			<ul class="collaborator-specs">
+	    				<li class="collaborator-specs-website"><a href="{{ person.website|replace('http://': '')}}">{{ person.website }}</a></li>
+	    				<li class="collaborator-specs-twitter"><a href="https://www.twitter.com/{{ person.twitter|replace('@': '')}}">{{ person.twitter }}</a></li>
+	    				<li class="collaborator-specs-github"><a href="https://www.github.com/{{ person.github}}">{{ person.github }}</a></li>
+	    			</ul>
+		    	</div>
+		    {% endfor %}
+	        {% setcontent collaborators = 'collaborators' %}
+		    {% for collaborator in collaborators %}
+		    	<div class="collaborator">
+	    			<strong class="collaborator-name">{{ collaborator.name }}</strong>
+	    			<span class="collaborator-role">{{ collaborator.role }}</span>
+	    			<ul class="collaborator-specs">
+	    				<li class="collaborator-specs-website"><a href="{{ collaborator.website|replace('http://': '')}}">{{ collaborator.website }}</a></li>
+	    				<li class="collaborator-specs-twitter"><a href="https://www.twitter.com/{{ collaborator.twitter|replace('@': '')}}">{{ collaborator.twitter }}</a></li>
+	    				<li class="collaborator-specs-github"><a href="https://www.github.com/{{ collaborator.github}}">{{ collaborator.github }}</a></li>
+	    			</ul>
+		    	</div>
+		    {% endfor %}
+		</div>
+    </section>
+    #}
 
 {% endblock %}
