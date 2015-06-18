@@ -12,8 +12,8 @@
 # together.
 
 pages:
-    name: Pages
-    singular_name: Page
+    name: pages
+    singular_name: page
     fields:
         title:
             type: text
@@ -22,19 +22,77 @@ pages:
         slug:
             type: slug
             uses: title
-        image:
-            type: image
-        teaser:
+        logline:
+            type: text
+            group: content
+            postfix: 'Keep this under 140 characters'
+        history:
             type: html
-            height: 150px
-        body:
-            type: html
-            height: 300px
-        template:
-            type: templateselect
-            filter: '*.twig'
-    taxonomy: [ chapters ]
-    recordsperpage: 100
+            group: content
+            options:
+                ckeditor:
+                    height: 400
+                    allowedContent: 'b i; a[!href]'
+        addressName:
+            type: text
+            group: content
+            prefix: '<h3>Address Fields</h3>'
+            postfix: 'i.e. The Library Innovation Lab'
+            label: "Address Name"
+        addressStreet1:
+            type: text
+            group: content
+            label: "Address Street 1"
+        addressStreet2:
+            type: text
+            group: content
+            label: "Address Street 2"
+        addressCity:
+            type: text
+            group: content
+            label: "Address City"
+            class: narrow
+        addressState:
+            type: text
+            group: content
+            label: "Address State"
+            class: narrow
+        addressZip:
+            type: text
+            group: content
+            label: "Address Zip Code"
+            width: 6em
+            class: narrow
+            pattern: '^[0-9-]{5,10}'
+            postfix: '5-digit Zip or Zip + 4 are ok.'
+        email:
+            type: text
+            group: content
+            prefix: '<h3>Nonaddress Contact Info</h3>'
+            label: "Email address"
+            pattern: 'email'
+            class: narrow
+        phone:
+            type: text
+            group: content
+            postfix: 'Use the format xxx-xxx-xxxx'
+            label: "Phone number"
+            pattern: '^[0-9-]{12,12}'
+            class: narrow
+        twitter:
+            type: text
+            group: content
+            postfix: 'Use the format @username'
+            label: "Twitter username"
+            pattern: '^@[A-Za-z0-9_-]$'
+            class: narrow
+        github:
+            type: text
+            group: content
+            postfix: 'Just your username, not the complete Github URL'
+            label: "Github username"
+            pattern: '^[0-9-]{12,12}'
+            class: narrow
 
 
 # Entries can be used for things like 'news' or 'blogpostings'. They have a 'teaser',
