@@ -234,6 +234,11 @@ people:
             type: text
             class: large
             group: content
+        sort_name:
+            type: text
+            class: narrow
+            label: "Sort name"
+            postfix: 'Typically the last name.'
         role:
             type: text
         active:

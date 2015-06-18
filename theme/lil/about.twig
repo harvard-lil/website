@@ -49,7 +49,7 @@
 		<h2 class="container-title">Who we are</h2>
 		<p class="container-subtitle">The people at the Library Lab.</p>
     	<div class="gallery _listing">
-	        {% setcontent activePeople = 'people' where {person_active: 1} %}
+	        {% setcontent activePeople = 'people' where {active: '1'} orderby 'sort_name' %}
 		    {% for person in activePeople %}
 		    	<div class="contributor">
 		    		<figure class="contributor-primaryImage">
@@ -61,35 +61,45 @@
 		    			<div class="contributor-description">
 							{{person.description}}
 		    			</div>
-		    			<ul class="person-specs">
-		    				<li class="person-specs-email">{{ person.email }}</li>
-		    				<li class="person-specs-website"><a href="{{ person.website|replace({'http://': ''})}}">{{ person.website }}</a></li>
-		    				<li class="person-specs-twitter"><a href="https://www.twitter.com/{{ person.twitter|replace({'@': ''})}}">{{ person.twitter }}</a></li>
-		    				<li class="person-specs-github"><a href="https://www.github.com/{{ person.github}}">{{ person.github }}</a></li>
-		    			</ul>
+		    			{% if person.email|length or person.website|length or person.twitter|length or person.github|length %}
+			    			<ul class="person-specs">
+				    			{% if person.email|length %}
+				    				<li class="person-specs-email">email: <a href="mailto:{{ person.email }}">{{ person.email }}</a></li>
+			    				{% endif %}
+				    			{% if person.website|length %}
+				    				<li class="person-specs-website">website: <a href="{{ person.website|replace({'http://': ''})}}">{{ person.website }}</a></li>
+			    				{% endif %}
+				    			{% if person.twitter|length %}
+				    				<li class="person-specs-twitter">twitter: <a href="https://www.twitter.com/{{ person.twitter|replace({'@': ''})}}">{{ person.twitter }}</a></li>
+			    				{% endif %}
+				    			{% if person.github|length %}
+				    				<li class="person-specs-github">github: <a href="https://www.github.com/{{ person.github}}">{{ person.github }}</a></li>
+			    				{% endif %}
+			    			</ul>
+			    			{% endif %}
 		    		</div>
 		    	</div>
 		    {% endfor %}
 		</div>
     </section>
 
-	{#
     <section class="container _collaborators">
 		<h2 class="container-title">Collaborators</h2>
 		<p class="container-subtitle">Friends and fellow travelers.</p>
 		<div class="collaborators">
-	        {% setcontent oldFriends = 'people' where {person_active: 0} %}
+	        {% setcontent oldFriends = 'people' where {active: '0'}  orderby 'sort_name' %}
 		    {% for person in oldFriends %}
 		    	<div class="collaborator">
 	    			<strong class="collaborator-name">{{ person.name }}</strong>
 	    			<span class="collaborator-role">{{ person.role }}</span>
 	    			<ul class="collaborator-specs">
-	    				<li class="collaborator-specs-website"><a href="{{ person.website|replace('http://': '')}}">{{ person.website }}</a></li>
-	    				<li class="collaborator-specs-twitter"><a href="https://www.twitter.com/{{ person.twitter|replace('@': '')}}">{{ person.twitter }}</a></li>
+	    				<li class="collaborator-specs-website"><a href="{{ person.website|replace({'http://': ''})}}">{{ person.website }}</a></li>
+	    				<li class="collaborator-specs-twitter"><a href="https://www.twitter.com/{{ person.twitter|replace({'@': ''})}}">{{ person.twitter }}</a></li>
 	    				<li class="collaborator-specs-github"><a href="https://www.github.com/{{ person.github}}">{{ person.github }}</a></li>
 	    			</ul>
 		    	</div>
 		    {% endfor %}
+	{#
 	        {% setcontent collaborators = 'collaborators' %}
 		    {% for collaborator in collaborators %}
 		    	<div class="collaborator">
@@ -103,7 +113,7 @@
 		    	</div>
 		    {% endfor %}
 		</div>
-    </section>
     #}
+    </section>
 
 {% endblock %}

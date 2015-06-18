@@ -238,11 +238,25 @@ a.link-project:active { color: #333; }
 
 .gallery._listing .person-specs { font-size: 12px; }
 
-.gallery._listing .person-specs-email { margin-top: 8px; }
+.gallery._listing .person-specs li { margin-top: 8px; }
 
-.container._people { background-color: #F8CC1C; }
+.gallery._listing .person-specs a { color: #bd10e0; text-decoration: none; }
 
-.container._people .container-subtitle { color: white; }
+.gallery._listing .person-specs a::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 1px; }
+
+.gallery._listing .person-specs a:link { color: #bd10e0; }
+
+.gallery._listing .person-specs a:visited { color: #bd10e0; }
+
+.gallery._listing .person-specs a:hover { color: #333; }
+
+.gallery._listing .person-specs a:active { color: #bd10e0; }
+
+.gallery._listing .person-specs a:hover::after { background-position-x: -20px; }
+
+.gallery._listing .person-specs a:active::after { background-position-x: 0px; }
+
+.container._people { background-color: #EAEAE5; }
 
 .container._sunset { background-color: #DD671A; }
 
