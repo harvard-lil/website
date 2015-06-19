@@ -26,6 +26,14 @@ pages:
             type: text
             group: content
             postfix: 'Keep this under 140 characters'
+        primary_image:
+            type: image
+            group: content
+            label: "Desktop Primary Image (2100px x 1000px)"
+        primary_image_square:
+            type: image
+            group: content
+            label: "Mobile Primary Image (648px x 648px)"
         history:
             type: html
             group: content

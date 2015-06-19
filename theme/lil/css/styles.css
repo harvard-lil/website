@@ -258,6 +258,34 @@ a.link-project:active { color: #333; }
 
 .container._people { background-color: #EAEAE5; }
 
+.slice-ah { font-size: 12px; margin-top: 16px; padding-bottom: 8px; float: left; border-bottom: 2px solid #333; }
+
+.about-specs, .about-address { clear: both; }
+
+.about-specs li { margin-top: 8px; }
+
+.about-specs a { color: #bd10e0; text-decoration: none; }
+
+.about-specs a::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 1px; }
+
+.about-specs a:link { color: #bd10e0; }
+
+.about-specs a:visited { color: #bd10e0; }
+
+.about-specs a:hover { color: #333; }
+
+.about-specs a:active { color: #bd10e0; }
+
+.about-specs a:hover::after { background-position-x: -20px; }
+
+.about-specs a:active::after { background-position-x: 0px; }
+
+.about-address { padding-top: 16px; padding-bottom: 16px; }
+
+.about-specs-phone { margin-top: 8px; }
+
+.slice-main p { margin-bottom: 16px; }
+
 .container._sunset { background-color: #DD671A; }
 
 .container._sunset .container-subtitle { color: white; }
