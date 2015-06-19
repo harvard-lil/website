@@ -33,7 +33,7 @@ pages:
         primary_image_square:
             type: image
             group: content
-            label: "Mobile Primary Image (648px x 648px)"
+            label: "Mobile Primary Image (800px x 800px)"
         history:
             type: html
             group: content

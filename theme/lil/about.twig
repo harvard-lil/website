@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% set footerLogoName = 'tribal' %}
+{% set vars = {respond: {'tabletWidth': 600, 'wideWidth': 1400}} %}
 
 {% setcontent about = 'page/about' %}
 
@@ -41,6 +42,27 @@
 		    	</ul>
 			</div>
 		</div>
+
+	    <div class="project-hero">
+			<picture class="slider-slide-primaryImage">
+	
+				<!-- 16:9 for wide widths -->
+				<source
+					media="(min-width: {{ vars.respond.tabletWidth }}px)"
+					srcset="{{ about.primary_image|thumbnail(800,450,'r') }} 800w,
+			        	{{ about.primary_image|thumbnail(1200,675,'r') }} 1200w,
+						{{ about.primary_image|thumbnail(1600,900,'r') }} 1600w" />
+	
+				<!-- square for narrow widths -->
+				<source
+					srcset="{{ about.primary_image_square|thumbnail(400,400,'r') }} 1x,
+			        	{{ about.primary_image_square|thumbnail(800,800,'r') }} 2x" />
+				<img
+					src="{{ about.primary_image_square|thumbnail(400,400,'r') }}" 
+					alt="{{ project.image.title }}" />
+			</picture>
+	    </div>
+
 	    <div class="slice">
 		    <h3 class="slice-hook">What’s our story?</h3>
 		    <div class="slice-main">
@@ -80,7 +102,7 @@
 				    				<li class="person-specs-github">github: <a href="https://www.github.com/{{ person.github}}">{{ person.github }}</a></li>
 			    				{% endif %}
 			    			</ul>
-			    			{% endif %}
+			    		{% endif %}
 		    		</div>
 		    	</div>
 		    {% endfor %}
@@ -94,13 +116,23 @@
 	        {% setcontent oldFriends = 'people' where {active: '0'}  orderby 'sort_name' %}
 		    {% for person in oldFriends %}
 		    	<div class="collaborator">
-	    			<strong class="collaborator-name">{{ person.name }}</strong>
-	    			<span class="collaborator-role">{{ person.role }}</span>
-	    			<ul class="collaborator-specs">
-	    				<li class="collaborator-specs-website"><a href="{{ person.website|replace({'http://': ''})}}">{{ person.website }}</a></li>
-	    				<li class="collaborator-specs-twitter"><a href="https://www.twitter.com/{{ person.twitter|replace({'@': ''})}}">{{ person.twitter }}</a></li>
-	    				<li class="collaborator-specs-github"><a href="https://www.github.com/{{ person.github}}">{{ person.github }}</a></li>
-	    			</ul>
+		    		<div class="collaborator-info">
+		    			<strong class="collaborator-name">{{ person.name }}</strong>
+		    			<span class="collaborator-role">{{ person.role }}</span>
+		    		</div>
+		    			{% if person.website|length or person.twitter|length or person.github|length %}
+			    			<ul class="collaborator-specs">
+				    			{% if person.website|length %}
+				    				<li class="collaborator-specs-website"><a href="{{ person.website|replace({'http://': ''})}}">{{ person.website }}</a></li>
+			    				{% endif %}
+				    			{% if person.twitter|length %}
+				    				<li class="collaborator-specs-twitter"><a href="https://www.twitter.com/{{ person.twitter|replace({'@': ''})}}">{{ person.twitter }}</a></li>
+			    				{% endif %}
+				    			{% if person.github|length %}
+				    				<li class="collaborator-specs-github"><a href="https://www.github.com/{{ person.github}}">{{ person.github }}</a></li>
+			    				{% endif %}
+			    			</ul>
+			    		{% endif %}
 		    	</div>
 		    {% endfor %}
 	{#
