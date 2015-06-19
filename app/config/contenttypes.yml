@@ -33,6 +33,11 @@ pages:
                 ckeditor:
                     height: 400
                     allowedContent: 'b i; a[!href]'
+        contact_intro:
+            type: markdown
+            group: content
+            label: "Intro to the Contact section"
+            height: 200;
         addressName:
             type: text
             group: content
