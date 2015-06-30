@@ -136,7 +136,7 @@ projects:
             type: text
             group: content
         description:
-            type: html
+            type: markdown
             height: 300px
         hero_image:
             type: image

@@ -115,7 +115,7 @@
 		<div class="collaborators">
 	        {% setcontent oldFriends = 'people' where {active: '0'}  orderby 'sort_name' %}
 		    {% for person in oldFriends %}
-		    	<div class="collaborator">
+		    	<div class="collaborator" id="{{ person.slug }}">
 		    		<div class="collaborator-info">
 		    			<strong class="collaborator-name">{{ person.name }}</strong>
 		    			<span class="collaborator-role">{{ person.role }}</span>
