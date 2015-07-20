@@ -19,8 +19,10 @@
 
     <section class="container">
 		{% include '_lil-hero-slider.twig' %}
-		<h2 class="container-title">Active Projects</h2>
-		<p class="container-subtitle">What we’re doing now.</p>
+		<div class="headers">
+			<h2 class="container-title">Active Projects</h2>
+			<p class="container-subtitle">What we’re doing now.</p>
+		</div>
 	    <div class="gallery">
 	        {% setcontent projects = 'projects' orderby 'name' where {project_active: 1} %}
 	    	{% for activeProject in projects %}
@@ -39,8 +41,10 @@
 	</section>
 	
 	<section class="container _sunset">
-		<h2 class="container-title">Sunset Projects</h2>
-		<p class="container-subtitle">Farewell, sweet friends.</p>
+		<div class="headers">
+			<h2 class="container-title">Sunset Projects</h2>
+			<p class="container-subtitle">Farewell, sweet friends.</p>
+		</div>
 		
 		<div class="sunset-entries">
 			{% setcontent projects = 'projects' orderby 'name' where {project_active: 0} %}

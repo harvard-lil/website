@@ -22,10 +22,10 @@
 		</div>
 	    <div class="slice">
 		    <h3 class="slice-hook">How can I get in touch with the Lab?</h3>
-		    <div class="contact-intro">
-		    	{{ about.contact_intro }}
-		    </div>
 		    <div class="slice-main">
+			    <div class="contact-intro">
+			    	{{ about.contact_intro }}
+			    </div>
 		    	<h4 class="slice-ah">Contact us online</h4>
 		    	<ul class="about-specs">
 		    		<li class="about-specs-twitter">twitter: <a href="https://www.twitter.com/{{ about.twitter|replace({'@': ''})}}">{{ about.twitter }}</a></li>
@@ -72,8 +72,10 @@
     </section>
 
     <section class="container _people">
-		<h2 class="container-title">Who we are</h2>
-		<p class="container-subtitle">The people at the Library Lab.</p>
+	    <div class="headers">
+			<h2 class="container-title">Who we are</h2>
+			<p class="container-subtitle">The people at the Library Lab.</p>
+	    </div>
     	<div class="gallery _listing">
 	        {% setcontent activePeople = 'people' where {active: '1'} orderby 'sort_name' %}
 		    {% for person in activePeople %}
@@ -110,8 +112,10 @@
     </section>
 
     <section class="container _collaborators">
-		<h2 class="container-title">Collaborators</h2>
-		<p class="container-subtitle">Friends and fellow travelers.</p>
+	    <div class="headers">
+			<h2 class="container-title">Collaborators</h2>
+			<p class="container-subtitle">Friends and fellow travelers.</p>
+	    </div>
 		<div class="collaborators">
 	        {% setcontent oldFriends = 'people' where {active: '0'}  orderby 'sort_name' %}
 		    {% for person in oldFriends %}

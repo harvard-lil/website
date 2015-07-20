@@ -202,6 +202,16 @@ sketches:
         logline:
             type: text
             group: content
+        sketch_date:
+            type: date
+            variant: inline
+            group: content
+            label: "Sketch Start Date"
+        project_active:
+             type: checkbox
+             group: content
+             label: "Active"
+             default: 1
         description:
             type: html
             height: 300px
@@ -220,11 +230,6 @@ sketches:
             pattern: "url"
             label: GitHub link
             group: content
-        project_active:
-             type: checkbox
-             group: content
-             label: "Active"
-             default: 1
     relations:
         news:
           multiple: true

@@ -12,6 +12,3 @@ main:
     path: sketches/
   - label: Blog
     link: http://librarylab.law.harvard.edu/blog
-  - label: Contact
-    link: contact
-    class: last

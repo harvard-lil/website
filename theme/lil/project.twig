@@ -10,32 +10,35 @@
     	{% include '_nav.twig' %}
     </header>
 
-    <nav class="intro-nav">
-	    <a class="intro-nav-previous" href="#">Previous project</a>
-	    <a class="intro-nav-next" href="#">Next project</a>
-    </nav>
+    <section class="container _intro">
+	    <nav class="intro-nav">
+		    <a class="intro-nav-previous" href="#">Previous project</a>
+		    <a class="intro-nav-next" href="#">Next project</a>
+	    </nav>
+	    <div class="sleeve">
+		    <h1 class="intro-title">{{ project.name }}</h1>
+		    <div class="slice">
+			    <h3 class="slice-hook">Where can I find {{ project.name }}?</h3>
+			    <div class="slice-main">
+				    <a class="link-project" href="{{ project.project_website }}">{{ project.project_website }}</a>
+				</div>
+			</div>
+		    <div class="slice _what">
+			    <h3 class="slice-hook">What does {{ project.name }} do?</h3>
+			    <div class="slice-main">
+				    <p>{{ project.logline }}</p>
+				</div>
+			</div>
+		    <div class="slice _why">
+			    <h3 class="slice-hook">Why does {{ project.name }} exist?</h3>
+			    <div class="slice-main">
+				    {{ project.description }}
+				</div>
+			</div>
+	 		<a href="{{ project.github_repo }}" role="button" class="github-button" aria-label="{{ project.name }} on Github"><span class="github-label">{{ project.name }} on Github</span></a>
+	    </div>
+    </section>
     <section class="container">
-	    <h1 class="intro-title">{{ project.name }}</h1>
-	    <div class="slice">
-		    <h3 class="slice-hook">Where can I find {{ project.name }}?</h3>
-		    <div class="slice-main">
-			    <a class="link-project" href="{{ project.project_website }}">{{ project.project_website }}</a>
-			</div>
-		</div>
-	    <div class="slice _what">
-		    <h3 class="slice-hook">What does {{ project.name }} do?</h3>
-		    <div class="slice-main">
-			    <p>{{ project.logline }}</p>
-			</div>
-		</div>
-	    <div class="slice _why">
-		    <h3 class="slice-hook">Why does {{ project.name }} exist?</h3>
-		    <div class="slice-main">
-			    {{ project.description }}
-			</div>
-		</div>
- 		<a href="{{ project.github_repo }}" role="button" class="github-button" aria-label="{{ project.name }} on Github"><span class="github-label">{{ project.name }} on Github</span></a>
-
 	    <!-- using <picture> element to art direct for wide/narrow screens -->
 	    <div class="project-hero">
 			<picture class="slider-slide-primaryImage">
@@ -58,51 +61,57 @@
 	    </div>
 		
 		<div class="slice _contributors">
-		    <h3 class="slice-hook">Who contributed to {{ project.name }}?</h3>
-		    <div class="slice-main">
-		    	<div class="gallery _alt">
-			        {% set relatedpeople = record.related('about') %}
-				    {% for contributor in relatedpeople %}
-				    	<a class="contributor" href="{{paths.root}}about#{{ contributor.slug }}">
-				    		<figure class="contributor-primaryImage">
-				    			<img src="{{ contributor.image|thumbnail(216,216) }}" srcset="{{ contributor.image|thumbnail(216,216) }}, {{ contributor.image|thumbnail(432,432) }} 2x, {{ contributor.image|thumbnail(648,648) }} 3x" alt="{{ contributor.name }}" />
-				    		</figure>
-			    			<strong class="contributor-name">{{ contributor.name }}</strong>
-			    			<span class="contributor-role">{{ contributor.role }}</span>
-				    	</a>
-				    {% endfor %}
+		    <div class="sleeve">
+			    <h3 class="slice-hook">Who contributed to {{ project.name }}?</h3>
+			    <div class="slice-main">
+			    	<div class="gallery _alt">
+				        {% set relatedpeople = record.related('about') %}
+					    {% for contributor in relatedpeople %}
+					    	<a class="contributor" href="{{paths.root}}about#{{ contributor.slug }}">
+					    		<figure class="contributor-primaryImage">
+					    			<img src="{{ contributor.image|thumbnail(216,216) }}" srcset="{{ contributor.image|thumbnail(216,216) }}, {{ contributor.image|thumbnail(432,432) }} 2x, {{ contributor.image|thumbnail(648,648) }} 3x" alt="{{ contributor.name }}" />
+					    		</figure>
+				    			<strong class="contributor-name">{{ contributor.name }}</strong>
+				    			<span class="contributor-role">{{ contributor.role }}</span>
+					    	</a>
+					    {% endfor %}
+					</div>
 				</div>
-			</div>
+		    </div>
 		</div>
 		
 		{% set relatedrecords = record.related('news') %}
         {% if relatedrecords is not empty %}
 		    <div class="slice _news">
-			    <h3 class="slice-hook">What’s been written about {{ project.name }}?</h3>
-			    <div class="slice-main">
-				    {% for newsItem in relatedrecords %}
-				    	<a class="news-item _{{ newsItem.category|lower }}" href="{{ newsItem.news_link }}">
-				    		<div class="news-item-category">{{ newsItem.category }}</div>
-				    		<div class="news-item-content">
-				    			<strong class="news-item-title">{{ newsItem.title }}</strong>
-				    			<span class="news-item-date">{{ newsItem.date|date("F d, Y") }}</span>
-				    			{% if newsItem.publication|length %}
-				    				<span class="news-item-publication">{{ newsItem.publication }}</span>
-				    			{% endif %}
-				    		</div>
-				    	</a>
-				    {% endfor %}
-				</div>
+		    	<div class="sleeve">
+				    <h3 class="slice-hook">What’s been written about {{ project.name }}?</h3>
+				    <div class="slice-main">
+					    {% for newsItem in relatedrecords %}
+					    	<a class="news-item _{{ newsItem.category|lower }}" href="{{ newsItem.news_link }}">
+					    		<div class="news-item-category">{{ newsItem.category }}</div>
+					    		<div class="news-item-content">
+					    			<strong class="news-item-title">{{ newsItem.title }}</strong>
+					    			<span class="news-item-date">{{ newsItem.date|date("F d, Y") }}</span>
+					    			{% if newsItem.publication|length %}
+					    				<span class="news-item-publication">{{ newsItem.publication }}</span>
+					    			{% endif %}
+					    		</div>
+					    	</a>
+					    {% endfor %}
+					</div>
+		    	</div>
 			</div>
 		{% endif %}
 		
 		<div class="slice _contact">
+			<div class="sleeve">
 			    <h3 class="slice-hook">How can I learn more?</h3>
 			    <div class="slice-main">
 			    	<p>If you’re interested in using {{ project.name }} or contributing to the project, check out the project’s <a href="{{ project.github.url }}">Github page</a> or contact us with this simple form.</p>
 			    	{{ simpleform('contact') }}
 			    </div>
-		    </div>
-		</section>
+			</div>
+		</div>
+	</section>
 
 {% endblock %}

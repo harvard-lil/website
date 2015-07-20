@@ -69,17 +69,9 @@
 
 		<!-- div.gallery can get an '_alt' modifier that puts it into circular mode --> 
 	    <div class="gallery _alt">
-	        {% setcontent sketches = 'sketches' %}
+	        {% setcontent sketches = 'sketches' where {project_active: '1'} order '-sketch_date' %}
 	    	{% for thisSketch in sketches %}
-	    		{% set thisStatusFlag = "" %}
-                {% if thisSketch.project_active %} 
-                    {% set thisStatus = "active" %}
-                {% else %} 
-                    {% set thisStatus = "inactive" %} 
-                    {% set thisStatusFlag = "_inactive" %}
-                {% endif %}
-				<!-- a.gallery-item can get an '_inactive' modifier that puts it into inactive mode --> 
-		    	<a class="gallery-item {{ thisStausFlag }}" href="{{ thisSketch.link }}">
+		    	<a class="gallery-item _active" href="{{ thisSketch.link }}">
 		    		<figure class="gallery-item-primaryImage">
 						<img 	src={{ thisSketch.image|thumbnail(216,216,"r") }}
 								srcset="{{ thisSketch.image|thumbnail(216,216,"r") }} 1x, 
@@ -90,8 +82,26 @@
 		    		<strong class="gallery-item-title">{{ thisSketch.name }}</strong>
 		    		<ul class="gallery-item-specs">
 			    		<li class="gallery-item-specs-logline">{{ thisSketch.logline }}</li>
-			    		<li class="gallery-item-specs-date">{{ thisSketch.datecreated|date("F j, Y") }}</li>
-			    		<li class="gallery-item-specs-status">{{ thisStatus }}</li>
+			    		<li class="gallery-item-specs-date">{{ thisSketch.sketch_date|date("F j, Y") }}</li>
+			    		<li class="gallery-item-specs-status">active</li>
+		    		</ul>
+		    	</a>
+	    	{% endfor %}
+	        {% setcontent sketches = 'sketches' where {project_active: '0'} order '-sketch_date' %}
+	    	{% for thisSketch in sketches %}
+		    	<a class="gallery-item _inactive" href="{{ thisSketch.link }}">
+		    		<figure class="gallery-item-primaryImage">
+						<img 	src={{ thisSketch.image|thumbnail(216,216,"r") }}
+								srcset="{{ thisSketch.image|thumbnail(216,216,"r") }} 1x, 
+									{{ thisSketch.image|thumbnail(432,432,"r") }} 2x,
+									{{ thisSketch.image|thumbnail(648,648,"r") }} 3x"
+								alt="{{ thisSketch.image.title }}" />
+		    		</figure>
+		    		<strong class="gallery-item-title">{{ thisSketch.name }}</strong>
+		    		<ul class="gallery-item-specs">
+			    		<li class="gallery-item-specs-logline">{{ thisSketch.logline }}</li>
+			    		<li class="gallery-item-specs-date">{{ thisSketch.sketch_date|date("F j, Y") }}</li>
+			    		<li class="gallery-item-specs-status">inactive</li>
 		    		</ul>
 		    	</a>
 	    	{% endfor %}
