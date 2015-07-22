@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% set footerLogoName = 'moire' %}
 
 {% block body_tag %}<body class="category _sketches">{% endblock %}
 {% block content %}
@@ -9,37 +10,48 @@
     <section class="container _intro">
 	    <h1 class="intro-title">Sketches</h1>
 	    <div class="slice">
-		    <h3 class="slice-hook">What do we do?</h3>
+		    <h3 class="slice-hook">What’s a sketch?</h3>
 		    <div class="slice-main">
-			    <p>{{ category.projects.description }}</p>
+			    <p>Before it’s a project it’s a sketch. Sketches are a way to get a handle on an idea and see where it goes. It’s what’s on our mind. Lend a hand if something here interests you, too.</p>
 			</div>
 		</div>
     </section>
 
     <section class="container">
-	    <div class="gallery">
-	        {% setcontent sketches = 'sketches' orderby 'name' %}
+	    <div class="gallery _alt">
+	        {% setcontent sketches = 'sketches' where {project_active: '1'} order '-sketch_date' %}
 	    	{% for thisSketch in sketches %}
-	    		{% set thisStatusFlag = '' %}
-	    		{% if thisSketch.status|length %} 
-	    		    {% set thisStatus = 'active' %} 
-	    		{% else %} 
-	    		    {% set thisStatus = 'inactive' %} 
-	    		    {% set thisStatusFlag = '_inactive' %}
-	    		{% endif %}
-
-				<!-- a.gallery-item can get an '_inactive' modifier that puts it into inactive mode --> 
-		    	<a class="gallery-item {{ thisStausFlag }}" href="{{ thisSketch.link }}">
+		    	<a class="gallery-item _active" href="{{ thisSketch.link }}">
 		    		<figure class="gallery-item-primaryImage">
-	
-		    			<!-- using srcset for reponsive density -->
-			    		<img src="{{ thisSketch.image|thumbnail(216, 216) }}" srcset="{{ thisSketch.image|thumbnail(216, 216) }}, {{ thisSketch.image|thumbnail(432, 432) }} 2x, {{ thisSketch.image|thumbnail(648, 648) }} 3x" />
+						<img 	src={{ thisSketch.image|thumbnail(216,216,"r") }}
+								srcset="{{ thisSketch.image|thumbnail(216,216,"r") }} 1x, 
+									{{ thisSketch.image|thumbnail(432,432,"r") }} 2x,
+									{{ thisSketch.image|thumbnail(648,648,"r") }} 3x"
+								alt="{{ thisSketch.image.title }}" />
 		    		</figure>
-		    		<strong class="item-title"><a href="{{ thisSketch.link }}">{{ thisSketch.name }}</a></strong>
-		    		<ul class="item-specs">
-			    		<li class="item-specs-logline">{{ thisSketch.logline }}</li>
-			    		<li class="item-specs-date">{{ thisSketch.datecreated }}</li>
-			    		<li class="item-specs-status">{{ thisStatus }}</li>
+		    		<strong class="gallery-item-title">{{ thisSketch.name }}</strong>
+		    		<ul class="gallery-item-specs">
+			    		<li class="gallery-item-specs-logline">{{ thisSketch.logline }}</li>
+			    		<li class="gallery-item-specs-date">{{ thisSketch.sketch_date|date("F j, Y") }}</li>
+			    		<li class="gallery-item-specs-status">active</li>
+		    		</ul>
+		    	</a>
+	    	{% endfor %}
+	        {% setcontent sketches = 'sketches' where {project_active: '0'} order '-sketch_date' %}
+	    	{% for thisSketch in sketches %}
+		    	<a class="gallery-item _inactive" href="{{ thisSketch.link }}">
+		    		<figure class="gallery-item-primaryImage">
+						<img 	src={{ thisSketch.image|thumbnail(216,216,"r") }}
+								srcset="{{ thisSketch.image|thumbnail(216,216,"r") }} 1x, 
+									{{ thisSketch.image|thumbnail(432,432,"r") }} 2x,
+									{{ thisSketch.image|thumbnail(648,648,"r") }} 3x"
+								alt="{{ thisSketch.image.title }}" />
+		    		</figure>
+		    		<strong class="gallery-item-title">{{ thisSketch.name }}</strong>
+		    		<ul class="gallery-item-specs">
+			    		<li class="gallery-item-specs-logline">{{ thisSketch.logline }}</li>
+			    		<li class="gallery-item-specs-date">{{ thisSketch.sketch_date|date("F j, Y") }}</li>
+			    		<li class="gallery-item-specs-status">inactive</li>
 		    		</ul>
 		    	</a>
 	    	{% endfor %}

@@ -1,56 +1,75 @@
 {% extends "base.html" %}
+{% set footerLogoName = 'tribal' %}
 
 {% block body_tag %}<body class="category _sketch">{% endblock %}
 {% block content %}
+
+{% set vars = {respond: {'tabletWidth': 600, 'wideWidth': 1400}} %}
 {% set sketch = record %}
     <header>
     	{% include '_nav.twig' %}
     </header>
 
-    
-    <section class="container">
+    <section class="container _intro">
 	    <nav class="intro-nav">
-		    <a class="intro-nav-previous">Previous</a>
-		    <a class="intro-nav-next">Next</a>
+		    <a class="intro-nav-previous" href="#">Previous sketch <span class="more">Hovermarks</span></a>
+		    <a class="intro-nav-next" href="#">Next sketch <span class="more">Library Dump</span></a>
 	    </nav>
-	    <div class="intro-category">category</div>
-	    <h1 class="intro-title">{{ sketch.name }}</h1>
-	    <div class="slice">
-		    <h3 class="slice-hook">What do you call this?</h3>
-		    <div class="slice-main">
-			    <p><a href="{{ sketch.externalUrl }}">{{ sketch.name }}</a></p>
+	    <div class="sleeve">
+		    <h1 class="intro-title"><span>Sketch:</span> {{ sketch.name }}</h1>
+		    <div class="slice _what">
+			    <h3 class="slice-hook">What does {{ sketch.name }} do?</h3>
+			    <div class="slice-main">
+				    <p>{{ sketch.logline }}</p>
+				</div>
 			</div>
-		</div>
-	    <div class="slice">
-		    <h3 class="slice-hook">What does it do?</h3>
-		    <div class="slice-main">
-			    <p>{{ sketch.logline }}</p>
+		    <div class="slice _why">
+			    <h3 class="slice-hook">Why does {{ sketch.name }} exist?</h3>
+			    <div class="slice-main">
+				    {{ sketch.description }}
+				</div>
 			</div>
-		</div>
-	    <div class="slice">
-		    <h3 class="slice-hook">Why does it exist?</h3>
-		    <div class="slice-main">
-			    <p>{{ sketch.description }}</p>
-			</div>
-		</div>
- 		<a href="{{ sketch.github_repo }}" role="button" class="github" aria-label="{{ sketch.name }} on Github">{{ sketch.name }} on Github</a>
+			{% if sketch.github_repo is not empty %}
+			 	<a href="{{ sketch.github_repo }}" role="button" class="github-button" aria-label="{{ sketch.name }} on Github"><span class="github-label">{{ sketch.name }} on Github</span></a>
+		 	{% endif %}
+	    </div>
     </section>
-	
-    <section class="container">
-	    <div class="slice">
-		    <h3 class="slice-hook">Who’s responsible for this sketch?</h3>
-		    <div class="slice-main">
-			    {% set relatedpeople = record.related('about') %}
-			    {% for contributor in relatedpeople %}
-			    	<a class="contributor" href="{{paths.root}}about#{{ contributor.slug }}">
-			    		<figure class="contributor-primaryImage">
-			    			<img src="{{ contributor.image|thumbnail(216,216) }}" srcset="{{ contributor.image|thumbnail(216,216) }}, {{ contributor.image|thumbnail(432,432) }} 2x, {{ contributor.image|thumbnail(648,648) }} 3x" alt="{{ contributor.name }}" />
+
+	{% set relatedpoints = sketch.related('sketch-points') %}
+    {% if relatedpoints is not empty %}
+		{% for point in relatedpoints %}
+		    <section class="container _point">
+				<div class="point-text">
+					<div class="sleeve">
+						<h3 class="point-hed">{{ point.hed }}</h3>
+						<p class="point-subhed">{{ point.subhed }}</p>
+						<div class="point-content">
+							{{ point.content }}
+						</div>
+					</div>
+				</div>
+				<div class="point-image">
+					<div class="sleeve">
+			    		<figure class="point-primaryImage">
+			    			<img src="{{ point.image|thumbnail(216,216) }}" srcset="{{ point.image|thumbnail(216,216) }}, {{ point.image|thumbnail(432,432) }} 2x, {{ point.image|thumbnail(648,648) }} 3x" alt="{{ point.name }}" />
 			    		</figure>
-		    			<strong class="contributor-name"><a href="{{paths.root}}about#{{ contributor.slug }}">{{ contributor.name }}</strong>
-		    			<span class="contributor.role">{{ contributor.role }}</span>
-			    	</a>
-			    {% endfor %}
+					</div>
+				</div>
+		    </section>
+		{% endfor %}
+	{% endif %}
+
+    <section class="container">
+		
+		<div class="slice _contact">
+			<div class="sleeve">
+			    <h3 class="slice-hook">How can I learn more?</h3>
+			    <div class="slice-main">
+			    	<p>If you’re interested in using {{ sketch.name }} or contributing to the sketch, {% if sketch.github_repo is not empty %}check out the project’s <a href="{{ sketch.github_repo }}">Github page</a> or {% endif %}contact us with this simple form.</p>
+			    	{{ simpleform('contact') }}
+			    </div>
 			</div>
 		</div>
+	</section>
 
 {% endblock %}

@@ -235,6 +235,9 @@ sketches:
           multiple: true
           order: date
           label: Select news
+        sketch_points:
+          multiple: true
+          label: Select related sketch points.
     record_template: sketch.twig
     listing_template: sketch-listing.twig
     listing_records: 20
@@ -308,6 +311,44 @@ people:
     default_status: publish
     sort: -datepublish
     recordsperpage: 10
+
+sketchpoints:
+    name: Sketch Points
+    singular_name: Sketch Point
+    slug: points
+    fields:
+        reference_title:
+            type: text
+            group: content
+            label: "Sketch point title (for reference only)"
+            postfix: "This is the name by which you’ll select this point in Sketch > Relationships"
+        point_order:
+            type: select
+            values: [ 1, 2, 3, 4, 5, 6 ]
+            label: "Select the order in which this point should appear"
+        hed:
+            type: text
+            class: large
+            group: content
+            label: "Point header"
+            postfix: "The point of the point."
+        subhed:
+            type: text
+            class: large
+            group: content
+            label: "Point subhed"
+            postfix: 'A short subhed of no longer than a sentence. (Optional.)'
+        content:
+            type: markdown
+            height: 300px
+            group: content
+            label: "Point content."
+            postfix: 'Format with markdown.'
+        image:
+            type: image
+    default_status: publish
+    sort: point_order
+
     
 news:
     name: News

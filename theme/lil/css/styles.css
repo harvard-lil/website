@@ -96,7 +96,7 @@ p a:active { color: #222; border-color: #222; }
 
 .sunset-entry-date, .roundup-post-date, .roundup-post-author, .news-item-category, .news-item-date, .news-item-publication { font-size: 12px; font-weight: 700; }
 
-.gallery._listing .contributor-description { line-height: 1.4; max-width: 40em; }
+.gallery._listing .contributor-description, .point-content { line-height: 1.4; max-width: 40em; }
 
 .gallery-item, .contributor { vertical-align: top; display: inline-block; }
 
@@ -222,7 +222,7 @@ nav[role="navigation"] { text-align: center; }
 
 @media only screen and (min-width: 641px) { .header-nav-item._home span.longname { display: inline; } }
 
-.header-nav-item._home a { padding-top: 0; padding-bottom: 0; padding-left: 46px; padding-right: 0; }
+.header-nav-item._home a { padding-top: 0; padding-bottom: 0; padding-left: 46px; padding-right: 12px; }
 
 @media only screen and (min-width: 641px) { .header-nav-item._home a { padding-right: 26px; } }
 
@@ -293,7 +293,7 @@ body.home .header-nav-item._home { display: none; }
 
 .slice-main { line-height: 1.4; }
 
-@media only screen and (min-width: 1049px) { .slice-main { font-size: 24px; padding-left: 32px; padding-right: 80px; padding-top: 26px; overflow: auto; } }
+@media only screen and (min-width: 1049px) { .slice-main { font-size: 24px; padding-left: 24px; padding-right: 80px; padding-top: 26px; overflow: auto; } }
 
 a.link-project { color: #222; text-decoration: none; }
 
@@ -328,6 +328,10 @@ a.link-project:active { color: #222; }
 .gallery._alt .gallery-item._inactive img { -webkit-filter: grayscale(100%); filter: grayscale(100%); -webkit-filter: gray; filter: gray; filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale"); opacity: 0.1; }
 
 @media only screen and (min-width: 1049px) { ._sketches .gallery._alt { margin: 40px auto 0 auto; text-align: center; } }
+
+._sketches .container._intro + .container { padding-top: 0; }
+
+@media only screen and (min-width: 1049px) { body._sketches .gallery._alt .gallery-item { width: 300px; } }
 
 .gallery-item-specs { margin-top: 8px; font-size: 12px; padding: 0 4px; }
 
@@ -374,7 +378,7 @@ a.link-project:active { color: #222; }
 .gallery._listing .person-specs a:active::after { background-position-x: 0px; }
 
 @media only screen and (min-width: 1049px) { .gallery._listing { max-width: 1144px; }
-  .gallery._listing .contributor { display: inline-block; vertical-align: top; width: 32%; padding: 16px; width: 33.1%; border-top: none; margin-top: 0; }
+  .gallery._listing .contributor { display: inline-block; vertical-align: top; width: 32%; padding: 16px; width: 33%; border-top: none; margin-top: 0; }
   .gallery._listing .contributor-primaryImage { float: none; width: 100%; }
   .gallery._listing .contributor-info { float: none; width: 100%; padding: 32px 16px; text-align: center; }
   .gallery._listing .contributor-role:before { margin-left: auto; margin-right: auto; } }
@@ -488,7 +492,7 @@ ul + .slice-ah { padding-top: 16px; }
 
 @media only screen and (min-width: 1049px) { .intro-nav { top: 45%; border: none; overflow: visible; } }
 
-.intro-nav a { color: #222; text-decoration: none; width: 50%; height: 40px; font-size: 12px; padding: 0 16px; }
+.intro-nav a { color: #222; text-decoration: none; width: 50%; height: 40px; font-size: 12px; padding: 0 19px; }
 
 .intro-nav a:link { color: #222; }
 
@@ -530,6 +534,8 @@ ul + .slice-ah { padding-top: 16px; }
 
 @media only screen and (min-width: 641px) { .slice._contributors .sleeve { padding: 0 32px; } }
 
+@media only screen and (min-width: 641px) { .slice._contributors .sleeve { padding: 0; } }
+
 @media only screen and (min-width: 1049px) { .slice._contributors { background-color: white; } }
 
 @media only screen and (min-width: 1049px) { .contributor { padding-top: 0; width: 32.3%; } }
@@ -543,6 +549,8 @@ ul + .slice-ah { padding-top: 16px; }
 .slice._news .sleeve { padding: 0 16px; }
 
 @media only screen and (min-width: 641px) { .slice._news .sleeve { padding: 0 32px; } }
+
+@media only screen and (min-width: 641px) { .slice._news .sleeve { padding: 0; } }
 
 @media only screen and (min-width: 1049px) { .slice._news { background-color: white; } }
 
@@ -566,11 +574,13 @@ ul + .slice-ah { padding-top: 16px; }
 
 .news-item._press .news-item-publication:before { content: 'in '; color: #222; }
 
-.slice._contact { background-color: #222; color: white; padding: 16px; margin-top: 0; margin-bottom: -24px; }
+.slice._contact { background-color: #222; color: white; margin-top: 0; margin-bottom: -24px; }
 
 .slice._contact .sleeve { padding: 0 16px; }
 
 @media only screen and (min-width: 641px) { .slice._contact .sleeve { padding: 0 32px; } }
+
+@media only screen and (min-width: 641px) { .slice._contact .sleeve { padding: 0; } }
 
 @media only screen and (min-width: 641px) { .slice._contact { margin-bottom: -32px; } }
 
@@ -646,6 +656,110 @@ form.simpleform label.required:after { content: " *"; color: #F00; font-weight: 
 p.simpleform-error { padding: 8px 35px 8px 14px; margin-bottom: 20px; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); border: 1px solid #EED3D7; border-radius: 4px; color: #B94A48; background-color: #F2DEDE; }
 
 p.simpleform-message { padding: 8px 35px 8px 14px; margin-bottom: 20px; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); border: 1px solid #D6E9C6; border-radius: 4px; color: #468847; background-color: #DFF0D8; }
+
+._sketch .container { background-color: #222; }
+
+._sketch .container .intro-nav { border-color: #bd10e0; border-top: none; color: white; }
+
+._sketch .container .intro-nav-next { border-color: #bd10e0; }
+
+._sketch .container .intro-nav a { color: white; text-decoration: none; }
+
+._sketch .container .intro-nav a:link { color: white; }
+
+._sketch .container .intro-nav a:visited { color: white; }
+
+._sketch .container .intro-nav a:hover { color: #bd10e0; }
+
+._sketch .container .intro-nav a:active { color: white; }
+
+._sketch .container .intro-nav a:hover { background-color: rgba(0, 0, 0, 0.1); color: #F8CC1C; }
+
+._sketch .container .intro-nav a:hover .more { color: #bd10e0; }
+
+._sketch .container .intro-nav a:active { background-color: #bd10e0; color: #222; }
+
+._sketch .container .intro-nav a:active .more { color: #222; }
+
+._sketch .container .intro-nav a .more { display: block; color: #777; }
+
+@media only screen and (min-width: 376px) { ._sketch .container .intro-nav a .more { display: inline; }
+  ._sketch .container .intro-nav a .more:before { content: ': '; } }
+
+._sketch .container._intro { background-color: #222; color: white; padding-top: 64px; padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 641px) { ._sketch .container._intro { padding-top: 80px; } }
+
+@media only screen and (min-width: 1049px) { ._sketch .container._intro { padding-top: 24px; } }
+
+._sketch .container._intro .sleeve { padding: 0 16px; }
+
+@media only screen and (min-width: 641px) { ._sketch .container._intro .sleeve { padding: 0; } }
+
+._sketch .container .slice-hook:before { border-color: #bd10e0; }
+
+._sketch .intro-title span { font-weight: 300; color: #bd10e0; }
+
+@media only screen and (min-width: 641px) { .point-text, .point-image { width: 50%; -webkit-box-flex: 1; -webkit-flex: 1 100%; -ms-flex: 1 100%; flex: 1 100%; } }
+
+.container._point { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; padding: 0; border-top: 1px solid white; border-bottom: 1px solid white; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; }
+
+.container._point + .container._point { border-top: none; }
+
+@media only screen and (min-width: 641px) { .container._point { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; } }
+
+@media only screen and (min-width: 1049px) { .container._point { max-height: 500px; } }
+
+.point-hed { font-size: 17px; font-weight: 700; }
+
+@media only screen and (min-width: 1049px) { .point-hed { font-size: 24px; } }
+
+@media only screen and (min-width: 1049px) { .point-hed { font-size: 32px; } }
+
+.point-subhed { font-size: 17px; color: #FFCF04; font-weight: 300; }
+
+@media only screen and (min-width: 1049px) { .point-subhed { font-size: 20px; color: white; } }
+
+@media only screen and (min-width: 1049px) { .point-subhed { font-size: 32px; } }
+
+.point-content { margin-top: 16px; font-size: 17px; font-weight: 300; }
+
+@media only screen and (min-width: 641px) { .point-content { font-size: 15px; font-weight: 500; } }
+
+@media only screen and (min-width: 1049px) { .point-content { font-size: 19px; } }
+
+@media only screen and (min-width: 641px) { .container._point:nth-of-type(2n) { -webkit-box-orient: horizontal; -webkit-box-direction: reverse; -webkit-flex-direction: row-reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; }
+  .container._point:nth-of-type(2n) .point-text { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; } }
+
+.point-text { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-orient: horizontal; -webkit-box-direction: reverse; -webkit-flex-direction: row-reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; color: white; background-color: #222; }
+
+.point-text .sleeve { padding: 32px 16px; max-width: 700px; }
+
+@media only screen and (min-width: 1049px) { .point-text .sleeve { padding: 16px; } }
+
+@media only screen and (min-width: 1049px) { .point-text .sleeve { padding: 64px; } }
+
+._sketch .slice._contact { background-color: transparent; color: white; padding-bottom: 32px; }
+
+._sketch form.simpleform input[type="text"], ._sketch form.simpleform input[type="password"], ._sketch form.simpleform input[type="email"], ._sketch form.simpleform textarea, ._sketch form.simpleform select { color: white; border-color: rgba(254, 254, 254, 0.5); }
+
+._sketch form.simpleform input[type="text"]::-webkit-input-placeholder, ._sketch form.simpleform input[type="password"]::-webkit-input-placeholder, ._sketch form.simpleform input[type="email"]::-webkit-input-placeholder, ._sketch form.simpleform textarea::-webkit-input-placeholder, ._sketch form.simpleform select::-webkit-input-placeholder { color: rgba(254, 254, 254, 0.5); }
+
+._sketch form.simpleform input[type="text"]:-moz-placeholder, ._sketch form.simpleform input[type="password"]:-moz-placeholder, ._sketch form.simpleform input[type="email"]:-moz-placeholder, ._sketch form.simpleform textarea:-moz-placeholder, ._sketch form.simpleform select:-moz-placeholder { color: rgba(254, 254, 254, 0.5); }
+
+._sketch form.simpleform input[type="text"]::-moz-placeholder, ._sketch form.simpleform input[type="password"]::-moz-placeholder, ._sketch form.simpleform input[type="email"]::-moz-placeholder, ._sketch form.simpleform textarea::-moz-placeholder, ._sketch form.simpleform select::-moz-placeholder { color: rgba(254, 254, 254, 0.5); }
+
+._sketch form.simpleform input[type="text"]:-ms-input-placeholder, ._sketch form.simpleform input[type="password"]:-ms-input-placeholder, ._sketch form.simpleform input[type="email"]:-ms-input-placeholder, ._sketch form.simpleform textarea:-ms-input-placeholder, ._sketch form.simpleform select:-ms-input-placeholder { color: rgba(254, 254, 254, 0.5); }
+
+._sketch form.simpleform input[type="text"]:focus, ._sketch form.simpleform input[type="password"]:focus, ._sketch form.simpleform input[type="email"]:focus, ._sketch form.simpleform textarea:focus { color: white; border-color: white; }
+
+._sketch form.simpleform input[type="text"]:focus::-webkit-input-placeholder, ._sketch form.simpleform input[type="password"]:focus::-webkit-input-placeholder, ._sketch form.simpleform input[type="email"]:focus::-webkit-input-placeholder, ._sketch form.simpleform textarea:focus::-webkit-input-placeholder { color: white; }
+
+._sketch form.simpleform input[type="text"]:focus:-moz-placeholder, ._sketch form.simpleform input[type="password"]:focus:-moz-placeholder, ._sketch form.simpleform input[type="email"]:focus:-moz-placeholder, ._sketch form.simpleform textarea:focus:-moz-placeholder { color: white; }
+
+._sketch form.simpleform input[type="text"]:focus::-moz-placeholder, ._sketch form.simpleform input[type="password"]:focus::-moz-placeholder, ._sketch form.simpleform input[type="email"]:focus::-moz-placeholder, ._sketch form.simpleform textarea:focus::-moz-placeholder { color: white; }
+
+._sketch form.simpleform input[type="text"]:focus:-ms-input-placeholder, ._sketch form.simpleform input[type="password"]:focus:-ms-input-placeholder, ._sketch form.simpleform input[type="email"]:focus:-ms-input-placeholder, ._sketch form.simpleform textarea:focus:-ms-input-placeholder { color: white; }
 
 footer { background: #FFCF04; color: white; font-weight: 700; text-align: right; padding: 24px 16px; overflow: auto; }
 
