@@ -3,12 +3,14 @@
 
 main:
   - label: About
-    title: About
     path: about
-    class: first
+    class: _navabout
   - label: Projects
     path: projects/
+    class: _navprojects
   - label: Sketches
     path: sketches/
+    class: _navsketches
   - label: Blog
     link: http://librarylab.law.harvard.edu/blog
+    class: _navblog

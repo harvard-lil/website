@@ -182,7 +182,7 @@ a[role='button']:active span::after { background-position-x: -10px; }
 
 nav[role="navigation"] { text-align: center; }
 
-@media only screen and (min-width: 641px) { .header-nav { display: inline-block; } }
+@media only screen and (min-width: 641px) { .header-nav { display: inline-block; margin-bottom: -4px; } }
 
 .header-nav-item { float: left; font-size: 17px; font-weight: 500; }
 
@@ -196,7 +196,7 @@ nav[role="navigation"] { text-align: center; }
 
 .header-nav-item a:active { color: #222; }
 
-@media only screen and (min-width: 641px) { .header-nav-item a { padding: 0 21px; height: 72px; } }
+@media only screen and (min-width: 641px) { .header-nav-item a { padding: 0 24px; height: 72px; } }
 
 @media only screen and (min-width: 1049px) { .header-nav-item a { height: 80px; } }
 
@@ -504,6 +504,11 @@ ul + .slice-ah { padding-top: 16px; }
 
 .intro-nav a:hover { background-color: white; }
 
+.intro-nav a .more { display: block; color: #777; }
+
+@media only screen and (min-width: 641px) { .intro-nav a .more { display: inline; }
+  .intro-nav a .more:before { content: ': '; } }
+
 @media only screen and (min-width: 1049px) { .intro-nav a { display: block; color: #222; text-decoration: none; width: 6em; padding: 8px 16px; z-index: 1; font-size: 12px; overflow: visible; }
   .intro-nav a:link { color: #222; }
   .intro-nav a:visited { color: #222; }
@@ -544,7 +549,7 @@ ul + .slice-ah { padding-top: 16px; }
 
 .contributor-role:before { margin-left: auto; margin-right: auto; }
 
-.slice._news { background-color: #EAEAE5; margin-top: 0; margin-bottom: 0; padding: 16px; padding-bottom: 16px; }
+.slice._news { background-color: #EAEAE5; margin-top: 0; margin-bottom: 0; padding-bottom: 16px; }
 
 .slice._news .sleeve { padding: 0 16px; }
 
@@ -681,16 +686,11 @@ p.simpleform-message { padding: 8px 35px 8px 14px; margin-bottom: 20px; text-sha
 
 ._sketch .container .intro-nav a:active .more { color: #222; }
 
-._sketch .container .intro-nav a .more { display: block; color: #777; }
-
-@media only screen and (min-width: 376px) { ._sketch .container .intro-nav a .more { display: inline; }
-  ._sketch .container .intro-nav a .more:before { content: ': '; } }
-
-._sketch .container._intro { background-color: #222; color: white; padding-top: 64px; padding-left: 0; padding-right: 0; }
+._sketch .container._intro { background-color: #222; color: white; padding-top: 72px; padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 641px) { ._sketch .container._intro { padding-top: 80px; } }
 
-@media only screen and (min-width: 1049px) { ._sketch .container._intro { padding-top: 24px; } }
+@media only screen and (min-width: 1049px) { ._sketch .container._intro { padding-top: 48px; } }
 
 ._sketch .container._intro .sleeve { padding: 0 16px; }
 
@@ -698,7 +698,7 @@ p.simpleform-message { padding: 8px 35px 8px 14px; margin-bottom: 20px; text-sha
 
 ._sketch .container .slice-hook:before { border-color: #bd10e0; }
 
-._sketch .intro-title span { font-weight: 300; color: #bd10e0; }
+.intro-title span { font-weight: 300; color: #bd10e0; }
 
 @media only screen and (min-width: 641px) { .point-text, .point-image { width: 50%; -webkit-box-flex: 1; -webkit-flex: 1 100%; -ms-flex: 1 100%; flex: 1 100%; } }
 
