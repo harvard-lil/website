@@ -196,9 +196,9 @@ nav[role="navigation"] { text-align: center; }
 
 .header-nav-item a:active { color: #222; }
 
-@media only screen and (min-width: 641px) { .header-nav-item a { padding: 0 24px; height: 72px; } }
+@media only screen and (min-width: 641px) { .header-nav-item a { padding: 0 21px; height: 72px; } }
 
-@media only screen and (min-width: 1049px) { .header-nav-item a { height: 80px; } }
+@media only screen and (min-width: 1049px) { .header-nav-item a { height: 80px; padding: 0 28px; } }
 
 .header-nav-item:nth-child(n+5) { display: none; }
 
@@ -224,7 +224,9 @@ nav[role="navigation"] { text-align: center; }
 
 .header-nav-item._home a { padding-top: 0; padding-bottom: 0; padding-left: 46px; padding-right: 12px; }
 
-@media only screen and (min-width: 641px) { .header-nav-item._home a { padding-right: 26px; } }
+@media only screen and (min-width: 641px) { .header-nav-item._home a { padding-right: 22px; } }
+
+@media only screen and (min-width: 1049px) { .header-nav-item._home a { padding-right: 34px; } }
 
 body.home header { top: 0; bottom: 0; width: 100%; }
 
@@ -527,9 +529,9 @@ ul + .slice-ah { padding-top: 16px; }
 @media only screen and (min-width: 1049px) { .intro-nav-next { float: right; padding-left: 0; }
   .intro-nav-next:before { border: 1px solid rgba(0, 0, 0, 0.1); border-right: none; left: -16px; right: 0; border-bottom-left-radius: 3em; border-top-left-radius: 3em; } }
 
-.project-hero { margin: 16px -16px 0 -16px; }
+.project-hero { margin: 32px -16px 16px -16px; }
 
-@media only screen and (min-width: 641px) { .project-hero { margin-left: -32px; margin-right: -32px; } }
+@media only screen and (min-width: 641px) { .project-hero { margin-left: -32px; margin-right: -32px; margin-top: 40px; margin-bottom: 24px; } }
 
 @media only screen and (min-width: 1049px) { .project-hero { margin-top: 80px; } }
 
