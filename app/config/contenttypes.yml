@@ -141,17 +141,17 @@ projects:
         hero_image:
             type: image
             group: media
-            label: "Wide hero image for desktop"
+            label: "Wide hero image (2100px x 1000px)"
             attrib: title
         hero_image_square:
             type: image
             group: media
-            label: "Square hero image for desktop"
+            label: "Square hero image (800px x 800px)"
             attrib: title
         thumbnail_image:
             type: image
             group: media
-            label: "Thumbnail image"
+            label: "Thumbnail image (1200px x 900px)"
             attrib: title
         video:
             type: video
@@ -179,6 +179,9 @@ projects:
           multiple: true
           order: date
           label: Select news
+        people:
+          multiple: true
+          label: People who worked on this Project.
     record_template: project.twig
     listing_template: project-listing.twig
     listing_records: 20
@@ -218,6 +221,7 @@ sketches:
         image:
             type: image
             group: media
+            label: "Sketch image (800px x 800px)"
         video:
             type: video
         project_website:
@@ -238,6 +242,9 @@ sketches:
         sketch_points:
           multiple: true
           label: Select related sketch points.
+        people:
+          multiple: true
+          label: People who worked on this Sketch.
     record_template: sketch.twig
     listing_template: sketch-listing.twig
     listing_records: 20
