@@ -323,6 +323,8 @@ a.link-project:active { color: #222; }
 
 @media only screen and (min-width: 1049px) { .gallery { margin-left: auto; margin-right: auto; } }
 
+.gallery-item-title, .gallery-item-logline { margin-top: 8px; }
+
 .gallery._alt { margin-left: -14px; margin-right: -14px; margin-top: 8px; overflow: auto; text-align: center; }
 
 @media only screen and (min-width: 1049px) { .gallery._alt { margin: 0 auto; text-align: left; } }
@@ -491,6 +493,8 @@ ul + .slice-ah { padding-top: 16px; }
 ._project .container._intro .sleeve { padding: 0 16px; }
 
 @media only screen and (min-width: 641px) { ._project .container._intro .sleeve { padding: 0 32px; } }
+
+@media only screen and (min-width: 1049px) { ._project .container._intro .sleeve { padding: 0; } }
 
 .intro-nav { position: absolute; top: 0; left: 0; right: 0; border-bottom: 1px solid rgba(0, 0, 0, 0.1); border-top: 1px solid rgba(0, 0, 0, 0.1); width: 100%; }
 
