@@ -6,14 +6,19 @@
 
 {% set vars = {respond: {'tabletWidth': 600, 'wideWidth': 1400}} %}
 {% set project = record %}
+{% setcontent projects = 'projects' orderby 'name' where {project_active: 1} %}
+{% set first = projects|first %}
+{% set last = projects|last %}
+{% set previous = project.previous('name') %}
+{% set next = project.next('name') %}
     <header>
     	{% include '_nav.twig' %}
     </header>
 
     <section class="container _intro">
 	    <nav class="intro-nav">
-		    <a class="intro-nav-previous" href="#">Previous project <span class="more">The Nuremberg Project</span></a>
-		    <a class="intro-nav-next" href="#">Next project <span class="more">Stack View</span></a>
+		    <a class="intro-nav-previous" href="{% if previous %}{{previous.link}}{% else %}{{last.link}}{% endif %}">Previous project <span class="more">{% if previous %}{{previous.name}}{% else %}{{last.name}}{% endif %}</span></a>
+		    <a class="intro-nav-next" href="{% if next %}{{next.link}}{% else %}{{first.link}}{% endif %}">Next project <span class="more">{% if next %}{{next.name}}{% else %}{{first.name}}{% endif %}</span></a>
 	    </nav>
 	    <div class="sleeve">
 		    <h1 class="intro-title"><span>Project:</span> {{ project.name }}</h1>
