@@ -70,7 +70,7 @@
 			    <h3 class="slice-hook">Who contributed to {{ project.name }}?</h3>
 			    <div class="slice-main">
 			    	<div class="gallery _alt">
-				        {% set relatedpeople = record.related('about') %}
+				        {% set relatedpeople = record.related('people') %}
 					    {% for contributor in relatedpeople %}
 					    	<a class="contributor" href="{{paths.root}}about#{{ contributor.slug }}">
 					    		<figure class="contributor-primaryImage">
