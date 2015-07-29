@@ -9,8 +9,8 @@
 {% setcontent sketches = 'sketches' orderby 'name' where {project_active: 1} %}
 {% set first = sketches|first %}
 {% set last = sketches|last %}
-{% set previous = sketch.previous('name') %}
-{% set next = sketch.next('name') %}
+{% set previous = sketch.previous('name', {'project_active': 1}) %}
+{% set next = sketch.next('name', {'project_active': 1}) %}
     <header>
     	{% include '_nav.twig' %}
     </header>
