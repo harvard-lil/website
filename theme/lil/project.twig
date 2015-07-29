@@ -40,7 +40,7 @@
 				    {{ project.description }}
 				</div>
 			</div>
-	 		<a href="{{ project.github_repo }}" role="button" class="github-button" aria-label="{{ project.name }} on Github"><span class="github-label">{{ project.name }} on Github</span></a>
+	 		{% if project.github_repo | length %}<a href="{{ project.github_repo }}" role="button" class="github-button" aria-label="{{ project.name }} on Github"><span class="github-label">{{ project.name }} on Github</span></a>{% endif %}
 	    </div>
     </section>
     <section class="container">
@@ -70,7 +70,7 @@
 			    <h3 class="slice-hook">Who contributed to {{ project.name }}?</h3>
 			    <div class="slice-main">
 			    	<div class="gallery _alt">
-				        {% set relatedpeople = record.related('about') %}
+				        {% set relatedpeople = record.related('people') %}
 					    {% for contributor in relatedpeople %}
 					    	<a class="contributor" href="{{paths.root}}about#{{ contributor.slug }}">
 					    		<figure class="contributor-primaryImage">
