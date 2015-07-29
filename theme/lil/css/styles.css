@@ -297,17 +297,17 @@ body.home .header-nav-item._home { display: none; }
 
 @media only screen and (min-width: 1049px) { .slice-main { font-size: 24px; padding-left: 24px; padding-right: 80px; padding-top: 26px; overflow: auto; } }
 
-a.link-project { color: #222; text-decoration: none; }
+a.link-project { color: #bd10e0; text-decoration: none; }
 
 a.link-project::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 1px; }
 
-a.link-project:link { color: #222; }
+a.link-project:link { color: #bd10e0; }
 
-a.link-project:visited { color: #222; }
+a.link-project:visited { color: #bd10e0; }
 
-a.link-project:hover { color: #bd10e0; }
+a.link-project:hover { color: #0075FF; }
 
-a.link-project:active { color: #222; }
+a.link-project:active { color: #bd10e0; }
 
 .github-label:before { content: ''; height: 32px; width: 33px; display: inline-block; background-image: url("../images/icon-github-sprite.svg"); background-position-x: 0; vertical-align: middle; bottom: 2px; margin-right: 8px; }
 
@@ -527,7 +527,7 @@ ul + .slice-ah { padding-top: 16px; }
   .intro-nav a:visited { color: #222; }
   .intro-nav a:hover { color: #bd10e0; }
   .intro-nav a:active { color: #222; }
-  .intro-nav a:hover { border-color: #bd10e0; }
+  .intro-nav a:hover { border-color: #bd10e0; background-color: transparent; }
   .intro-nav a:hover span { color: #222; } }
 
 .intro-nav a.intro-nav-previous { text-align: left; }

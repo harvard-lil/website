@@ -22,24 +22,28 @@
 	    </nav>
 	    <div class="sleeve">
 		    <h1 class="intro-title"><span>Project:</span> {{ project.name }}</h1>
-		    <div class="slice">
-			    <h3 class="slice-hook">Where can I find {{ project.name }}?</h3>
-			    <div class="slice-main">
-				    <a class="link-project" href="{{ project.project_website }}">{{ project.project_website }}</a>
+		    {% if project.project_website | length %}
+			    <div class="slice">
+				    <h3 class="slice-hook">Where can I find {{ project.name }}?</h3>
+				    <div class="slice-main">
+					    <a class="link-project" href="{{ project.project_website }}">{{ project.project_website }}</a>
+					</div>
 				</div>
-			</div>
+			{% endif %}
 		    <div class="slice _what">
 			    <h3 class="slice-hook">What does {{ project.name }} do?</h3>
 			    <div class="slice-main">
 				    <p>{{ project.logline }}</p>
 				</div>
 			</div>
-		    <div class="slice _why">
-			    <h3 class="slice-hook">Why does {{ project.name }} exist?</h3>
-			    <div class="slice-main">
-				    {{ project.description }}
+		    {% if project.description | length %}
+			    <div class="slice _why">
+				    <h3 class="slice-hook">Why does {{ project.name }} exist?</h3>
+				    <div class="slice-main">
+					    {{ project.description }}
+					</div>
 				</div>
-			</div>
+			{% endif %}
 	 		{% if project.github_repo | length %}<a href="{{ project.github_repo }}" role="button" class="github-button" aria-label="{{ project.name }} on Github"><span class="github-label">{{ project.name }} on Github</span></a>{% endif %}
 	    </div>
     </section>
@@ -53,7 +57,9 @@
 					media="(min-width: {{ vars.respond.tabletWidth }}px)"
 					srcset="{{ project.hero_image|thumbnail(800,450,'r') }} 800w,
 			        	{{ project.hero_image|thumbnail(1200,675,'r') }} 1200w,
-						{{ project.hero_image|thumbnail(1600,900,'r') }} 1600w" />
+						{{ project.hero_image|thumbnail(1600,900,'r') }} 1600w,
+						{{ project.hero_image|thumbnail(2100,1000,'r') }} 2100w"
+					sizes="100vw" />
 	
 				<!-- square for narrow widths -->
 				<source
