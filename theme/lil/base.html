@@ -26,9 +26,9 @@
 <footer>
 	<div class="footer-wrapper">
 		<figure class="footer-logo">
-			<img 	src="{{ paths.root }}theme/lil/images/lab-logo-footer-{{ footerLogoName }}.png"
-					srcset="{{ paths.root }}theme/lil/images/lab-logo-footer-{{ footerLogoName }}.png 1x, 
-						{{ paths.root }}theme/lil/images/lab-logo-footer-{{ footerLogoName }}@2x.png 2x"
+			<img 	src="{{ footerLogoImage|thumbnail(351,143,'r') }}"
+					srcset="{{ footerLogoImage|thumbnail(351,143,'r') }} 1x, 
+						{{ footerLogoImage|thumbnail(702,286,'r') }} 2x"
 					alt="Library Innovation Lab" />
 		</figure>
 		<ul class="footer-nav">

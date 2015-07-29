@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-{% set footerLogoName = 'tribal' %}
 {% set vars = {respond: {'tabletWidth': 600, 'wideWidth': 1400}} %}
 
 {% setcontent about = 'page/about' %}
+
+{% set footerLogoImage = about.logo_image %}
 
 
 {% block body_tag %}<body class="category _about">{% endblock %}
