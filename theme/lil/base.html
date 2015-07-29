@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
     <meta content="width=device-width" name="viewport">
     <meta content="The Libary Innovation Lab at Harvard University" name="description">
-
-    <title>The Library Innovation Lab at Harvard University</title>
+	<meta property='og:image' content='{% block facebookImage %}{% endblock %}'/>
+    <title>{% block pageTitle %}{% endblock %}</title>
     
     <link href="{{ paths.theme }}css/styles.css" rel="stylesheet">
     {% block extra_styles %}{% endblock %}

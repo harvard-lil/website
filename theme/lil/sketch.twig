@@ -2,8 +2,6 @@
 {% set footerLogoName = 'tribal' %}
 
 {% block body_tag %}<body class="category _sketch">{% endblock %}
-{% block content %}
-
 {% set vars = {respond: {'tabletWidth': 600, 'wideWidth': 1400}} %}
 {% set sketch = record %}
 {% setcontent sketches = 'sketches' orderby 'name' where {project_active: 1} %}
@@ -11,6 +9,11 @@
 {% set last = sketches|last %}
 {% set previous = sketch.previous('name', {'project_active': 1}) %}
 {% set next = sketch.next('name', {'project_active': 1}) %}
+{% block pageTitle %}{{ sketch.name }} | Sketches | Library Innovation Lab{% endblock %}
+{% block facebookImage %}{{ paths.hosturl }}{{ sketch.thumbnail(648,648,"r") }}{% endblock %}
+
+
+{% block content %}
     <header>
     	{% include '_nav.twig' %}
     </header>

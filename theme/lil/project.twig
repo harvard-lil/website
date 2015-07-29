@@ -1,16 +1,22 @@
 {% extends "base.html" %}
+
 {% set footerLogoName = 'tribal' %}
 
 {% block body_tag %}<body class="category _project">{% endblock %}
-{% block content %}
 
 {% set vars = {respond: {'tabletWidth': 600, 'wideWidth': 1400}} %}
 {% set project = record %}
+
+{% block pageTitle %}{{ project.name }} | Projects | Library Innovation Lab{% endblock %}
+{% block facebookImage %}{{ paths.hosturl }}{{ project.thumbnail_image|thumbnail(800,600,"r") }}{% endblock %}
+
 {% setcontent projects = 'projects' orderby 'name' where {project_active: 1} %}
 {% set first = projects|first %}
 {% set last = projects|last %}
 {% set previous = project.previous('name', {'project_active': 1}) %}
 {% set next = project.next('name', {'project_active': 1}) %}
+
+{% block content %}
     <header>
     	{% include '_nav.twig' %}
     </header>

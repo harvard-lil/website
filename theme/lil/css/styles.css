@@ -120,7 +120,7 @@ p a:active { color: #222; border-color: #222; }
 
 .gallery._listing .contributor:first-child, .collaborator:first-child, .sunset-entry:first-child, .roundup-post:first-child, .news-item:first-child { margin-top: 0; }
 
-.gallery-item, .contributor { color: #222; text-decoration: none; margin: 0 0 32px 0; text-align: center; border-top: 1px solid rgba(0, 0, 0, 0.1); width: 49%; }
+.gallery-item, .contributor { color: #222; text-decoration: none; margin: 0 0 32px 0; text-align: center; border-top: 1px solid rgba(0, 0, 0, 0.1); width: 100%; }
 
 .gallery-item:link, .contributor:link { color: #222; }
 
@@ -195,6 +195,8 @@ nav[role="navigation"] { text-align: center; }
 .header-nav-item a:hover { color: #bd10e0; }
 
 .header-nav-item a:active { color: #222; }
+
+@media only screen and (min-width: 376px) { .header-nav-item a { height: 56px; } }
 
 @media only screen and (min-width: 641px) { .header-nav-item a { padding: 0 21px; height: 88px; } }
 
@@ -488,6 +490,8 @@ ul + .slice-ah { padding-top: 16px; }
 
 ._project .container._intro { padding-top: 64px; padding-left: 0; padding-right: 0; padding-bottom: 0; position: relative; }
 
+@media only screen and (min-width: 376px) { ._project .container._intro { padding-top: 72px; } }
+
 @media only screen and (min-width: 641px) { ._project .container._intro { padding-top: 88px; } }
 
 @media only screen and (min-width: 1049px) { ._project .container._intro { padding-top: 48px; } }
@@ -522,6 +526,8 @@ ul + .slice-ah { padding-top: 16px; }
 @media only screen and (min-width: 1049px) { .intro-nav a .more { display: block; }
   .intro-nav a .more:before { content: none; } }
 
+@media only screen and (min-width: 376px) { .intro-nav a { height: 48px; } }
+
 @media only screen and (min-width: 1049px) { .intro-nav a { display: block; color: #222; text-decoration: none; width: 10em; height: auto; padding: 8px 0 0 16px; z-index: 1; font-size: 12px; border-top: 1px solid #222; }
   .intro-nav a:link { color: #222; }
   .intro-nav a:visited { color: #222; }
@@ -554,11 +560,13 @@ ul + .slice-ah { padding-top: 16px; }
 
 @media only screen and (min-width: 641px) { .slice._contributors .sleeve { padding: 0; } }
 
+.slice._contributors .gallery { text-align: left; }
+
 @media only screen and (min-width: 641px) { .slice._contributors { padding-top: 32px; } }
 
 @media only screen and (min-width: 1049px) { .slice._contributors { background-color: white; padding-top: 48px; } }
 
-.contributor { border-top: none; }
+.contributor { width: 49%; border-top: none; }
 
 @media only screen and (min-width: 1049px) { .contributor { padding-top: 0; width: 32.3%; } }
 
@@ -607,6 +615,10 @@ ul + .slice-ah { padding-top: 16px; }
 @media only screen and (min-width: 641px) { .slice._contact { margin-bottom: -32px; } }
 
 @media only screen and (min-width: 1049px) { .slice._contact { background-color: white; color: #222; padding-bottom: 80px; } }
+
+.slice._contact .sleeve { padding: 16px; }
+
+@media only screen and (min-width: 1049px) { .slice._contact .sleeve { padding: 0 16px; } }
 
 /** Sample form styling, taken from Skeleton, adapted for Bolt. @see http://www.getskeleton.com/?#forms */
 form.simpleform { margin: 20px 0; }
