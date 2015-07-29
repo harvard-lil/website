@@ -34,6 +34,11 @@ pages:
             type: image
             group: content
             label: "Mobile Primary Image (800px x 800px)"
+        logo_image:
+            type: image
+            group: content
+            label: "About-specific logo image (702px x 286px)"
+            attrib: title
         history:
             type: html
             group: content
@@ -153,6 +158,11 @@ projects:
             group: media
             label: "Thumbnail image (1200px x 900px)"
             attrib: title
+        logo_image:
+            type: image
+            group: media
+            label: "Project-specific logo image (702px x 286px)"
+            attrib: title
         video:
             type: video
         project_website:
@@ -222,6 +232,11 @@ sketches:
             type: image
             group: media
             label: "Sketch image (800px x 800px)"
+        logo_image:
+            type: image
+            group: media
+            label: "Sketch-specific logo image (702px x 286px)"
+            attrib: title
         video:
             type: video
         project_website:
