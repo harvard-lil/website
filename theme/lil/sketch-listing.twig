@@ -3,6 +3,10 @@
 
 {% block body_tag %}<body class="category _sketches">{% endblock %}
 {% block pageTitle %}Projects | Library Innovation Lab{% endblock %}
+
+{% setcontent thispage = 'page/sketches' %}
+{% set footerLogoImage = thispage.logo_image %}
+
 {% block content %}
     <header>
     	{% include '_nav.twig' %}

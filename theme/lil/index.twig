@@ -1,9 +1,12 @@
 {% extends "base.html" %}
-{% set footerLogoName = 'alpine' %}
 
 {% block extra_styles %}{# <link href="{{ paths.theme }}css/homepage.css" rel="stylesheet"> #}{% endblock %}
 {% block pageTitle %}The Library Innovation Lab at Harvard University{% endblock %}
 {% block facebookImage %}http://hlslwebtest.law.harvard.edu/dev/dano/cms/theme/lil/images/header-splash-logo-ani@1x.gif{% endblock %}
+
+{% setcontent thispage = 'page/home' %}
+
+{% set footerLogoImage = thispage.logo_image %}
 
 
 {% block body_tag %}<body class="home">{% endblock %}

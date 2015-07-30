@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 
-{% set footerLogoName = 'tribal' %}
 
 {% block body_tag %}<body class="category _project">{% endblock %}
 
@@ -15,6 +14,8 @@
 {% set last = projects|last %}
 {% set previous = project.previous('name', {'project_active': 1}) %}
 {% set next = project.next('name', {'project_active': 1}) %}
+{% set footerLogoImage = project.logo_image %}
+
 
 {% block content %}
     <header>

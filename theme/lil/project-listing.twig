@@ -4,6 +4,10 @@
 {% block body_tag %}<body class="category _projects">{% endblock %}
 {% block pageTitle %}Projects | Library Innovation Lab{% endblock %}
 
+{% setcontent thispage = 'page/projects' %}
+{% set footerLogoImage = thispage.logo_image %}
+
+
 {% block content %}
     <header>
 		{% include '_nav.twig' %}
