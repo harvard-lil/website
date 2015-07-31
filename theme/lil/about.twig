@@ -100,7 +100,7 @@
 				    				<li class="person-specs-email">email: <a href="mailto:{{ person.email }}">{{ person.email }}</a></li>
 			    				{% endif %}
 				    			{% if person.website|length %}
-				    				<li class="person-specs-website">website: <a href="{{ person.website|replace({'http://': ''})}}">{{ person.website }}</a></li>
+				    				<li class="person-specs-website">website: <a href="{{ person.website}}">{{ person.website }}</a></li>
 			    				{% endif %}
 				    			{% if person.twitter|length %}
 				    				<li class="person-specs-twitter">twitter: <a href="https://www.twitter.com/{{ person.twitter|replace({'@': ''})}}">{{ person.twitter }}</a></li>
@@ -132,7 +132,7 @@
 		    			{% if person.website|length or person.twitter|length or person.github|length %}
 			    			<ul class="collaborator-specs">
 				    			{% if person.website|length %}
-				    				<li class="collaborator-specs-website"><a href="{{ person.website|replace({'http://': ''})}}">{{ person.website }}</a></li>
+				    				<li class="collaborator-specs-website"><a href="{{ person.website}}">{{ person.website }}</a></li>
 			    				{% endif %}
 				    			{% if person.twitter|length %}
 				    				<li class="collaborator-specs-twitter"><a href="https://www.twitter.com/{{ person.twitter|replace({'@': ''})}}">{{ person.twitter }}</a></li>
