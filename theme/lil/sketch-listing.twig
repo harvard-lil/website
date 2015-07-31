@@ -26,7 +26,7 @@
 	    <div class="gallery _alt">
 	        {% setcontent sketches = 'sketches' where {project_active: '1'} order '-sketch_date' %}
 	    	{% for thisSketch in sketches %}
-		    	<a class="gallery-item _active" href="{{ thisSketch.link }}">
+		    	<div class="gallery-item _active" href="{{ thisSketch.link }}">
 		    		<figure class="gallery-item-primaryImage">
 						<img 	src={{ thisSketch.image|thumbnail(216,216,"r") }}
 								srcset="{{ thisSketch.image|thumbnail(216,216,"r") }} 1x, 
@@ -40,11 +40,11 @@
 			    		<li class="gallery-item-specs-date">{{ thisSketch.sketch_date|date("F j, Y") }}</li>
 			    		<li class="gallery-item-specs-status">active</li>
 		    		</ul>
-		    	</a>
+		    	</div>
 	    	{% endfor %}
 	        {% setcontent sketches = 'sketches' where {project_active: '0'} order '-sketch_date' %}
 	    	{% for thisSketch in sketches %}
-		    	<a class="gallery-item _inactive" href="{{ thisSketch.link }}">
+		    	<div class="gallery-item _inactive" href="{{ thisSketch.link }}">
 		    		<figure class="gallery-item-primaryImage">
 						<img 	src={{ thisSketch.image|thumbnail(216,216,"r") }}
 								srcset="{{ thisSketch.image|thumbnail(216,216,"r") }} 1x, 
@@ -58,7 +58,7 @@
 			    		<li class="gallery-item-specs-date">{{ thisSketch.sketch_date|date("F j, Y") }}</li>
 			    		<li class="gallery-item-specs-status">inactive</li>
 		    		</ul>
-		    	</a>
+		    	</div>
 	    	{% endfor %}
 	    </div>
 	</section>
