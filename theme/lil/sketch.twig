@@ -59,7 +59,7 @@
 				<div class="point-image">
 					<div class="sleeve">
 			    		<figure class="point-primaryImage">
-			    			<img src="{{ point.image|thumbnail(400,400) }}" srcset="{{ point.image|thumbnail(600,600) }}, {{ point.image|thumbnail(800,800) }} 2x, {{ point.image|thumbnail(1200,1200) }} 3x" alt="{{ point.name }}" />
+			    			<img srcset="{{ point.image|thumbnail(600,600) }}, {{ point.image|thumbnail(800,800) }} 2x, {{ point.image|thumbnail(1200,1200) }} 3x" srcset="{{ point.image|thumbnail(400,400) }}"  alt="{{ point.name }}" />
 			    		</figure>
 					</div>
 				</div>

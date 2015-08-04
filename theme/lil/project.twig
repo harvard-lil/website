@@ -73,7 +73,7 @@
 					srcset="{{ project.hero_image_square|thumbnail(400,400,'r') }} 1x,
 			        	{{ project.hero_image_square|thumbnail(800,800,'r') }} 2x" />
 				<img
-					src="{{ project.hero_image_square|thumbnail(400,400,'r') }}" 
+					srcset="{{ project.hero_image_square|thumbnail(400,400,'r') }}" 
 					alt="{{ project.image.title }}" />
 			</picture>
 	    </div>
@@ -88,7 +88,7 @@
 					    	<a class="contributor" href="{{paths.root}}about#{{ contributor.slug }}">
 					    		{% if contributor.image | length %}
 						    		<figure class="contributor-primaryImage">
-						    			<img src="{{ contributor.image|thumbnail(216,216) }}" srcset="{{ contributor.image|thumbnail(216,216) }}, {{ contributor.image|thumbnail(432,432) }} 2x, {{ contributor.image|thumbnail(648,648) }} 3x" alt="{{ contributor.name }}" />
+						    			<img srcset="{{ contributor.image|thumbnail(216,216) }}, {{ contributor.image|thumbnail(432,432) }} 2x, {{ contributor.image|thumbnail(648,648) }} 3x" srcset="{{ contributor.image|thumbnail(216,216) }}" alt="{{ contributor.name }}" />
 						    		</figure>
 					    		{% else %}
 						    		<figure class="contributor-primaryImage _noImage">
