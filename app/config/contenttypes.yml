@@ -387,7 +387,7 @@ news:
             group: content
         category:
             type: select
-            values: [ blog, press ]
+            values: [ Blog, Press ]
             label: "What kind of news item is this?"
             group: content
         date:

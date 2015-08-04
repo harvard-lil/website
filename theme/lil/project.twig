@@ -84,11 +84,17 @@
 			    <div class="slice-main">
 			    	<div class="gallery _alt">
 				        {% set relatedpeople = record.related('people') %}
-					    {% for contributor in relatedpeople %}
+					    {% for contributor in relatedpeople|order('sort_name') %}
 					    	<a class="contributor" href="{{paths.root}}about#{{ contributor.slug }}">
-					    		<figure class="contributor-primaryImage">
-					    			<img src="{{ contributor.image|thumbnail(216,216) }}" srcset="{{ contributor.image|thumbnail(216,216) }}, {{ contributor.image|thumbnail(432,432) }} 2x, {{ contributor.image|thumbnail(648,648) }} 3x" alt="{{ contributor.name }}" />
-					    		</figure>
+					    		{% if contributor.image | length %}
+						    		<figure class="contributor-primaryImage">
+						    			<img src="{{ contributor.image|thumbnail(216,216) }}" srcset="{{ contributor.image|thumbnail(216,216) }}, {{ contributor.image|thumbnail(432,432) }} 2x, {{ contributor.image|thumbnail(648,648) }} 3x" alt="{{ contributor.name }}" />
+						    		</figure>
+					    		{% else %}
+						    		<figure class="contributor-primaryImage _noImage">
+						    			<img src="{{ paths.theme }}images/blank.gif" alt="{{ contributor.name }}" />
+						    		</figure>
+					    		{% endif %}
 				    			<strong class="contributor-name">{{ contributor.name }}</strong>
 				    			<span class="contributor-role">{{ contributor.role }}</span>
 					    	</a>
