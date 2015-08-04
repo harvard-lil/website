@@ -500,7 +500,7 @@ ul + .slice-ah { padding-top: 16px; }
 
 @media only screen and (min-width: 641px) { ._project .container._intro .sleeve { padding: 0 32px; } }
 
-@media only screen and (min-width: 1049px) { ._project .container._intro .sleeve { padding: 0; } }
+@media only screen and (min-width: 1049px) { ._project .container._intro .sleeve { padding: 16px; } }
 
 .intro-nav { position: absolute; top: 0; left: 0; right: 0; border-bottom: 1px solid rgba(0, 0, 0, 0.1); border-top: 1px solid rgba(0, 0, 0, 0.1); width: 100%; }
 
