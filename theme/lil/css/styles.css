@@ -618,7 +618,7 @@ ul + .slice-ah { padding-top: 16px; }
 
 .slice._contact .sleeve { padding: 16px; }
 
-@media only screen and (min-width: 1049px) { .slice._contact .sleeve { padding: 0 16px; } }
+@media only screen and (min-width: 1049px) { .slice._contact .sleeve { padding: 0; } }
 
 /** Sample form styling, taken from Skeleton, adapted for Bolt. @see http://www.getskeleton.com/?#forms */
 form.simpleform { margin: 20px 0; }
