@@ -15,6 +15,7 @@
 {% set previous = project.previous('name', {'project_active': 1}) %}
 {% set next = project.next('name', {'project_active': 1}) %}
 {% set footerLogoImage = project.logo_image %}
+{% block pageDescription %}{{ project.logline }}{% endblock %}
 
 
 {% block content %}
