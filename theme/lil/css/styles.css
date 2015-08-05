@@ -397,6 +397,18 @@ a.link-project:active { color: #bd10e0; }
   .gallery._listing .contributor-info { float: none; width: 100%; padding: 32px 16px; text-align: center; }
   .gallery._listing .contributor-role:before { margin-left: auto; margin-right: auto; } }
 
+.map { color: #bd10e0; font-size: 12px; padding-left: .25em; }
+
+.map a { text-decoration: underline; }
+
+.map a:link { color: #bd10e0; }
+
+.map a:visited { color: #bd10e0; }
+
+.map a:hover { color: #0075FF; }
+
+.map a:active { color: #222; }
+
 .container._people { padding-bottom: 0; }
 
 .container._people, .container._collaborators { border-top: 16px solid #EAEAE5; }
