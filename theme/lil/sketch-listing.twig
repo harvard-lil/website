@@ -28,10 +28,10 @@
 	    	{% for thisSketch in sketches %}
 		    	<div class="gallery-item _active" href="{{ thisSketch.link }}">
 		    		<figure class="gallery-item-primaryImage">
-						<img 	src={{ thisSketch.image|thumbnail(216,216,"r") }}
-								srcset="{{ thisSketch.image|thumbnail(216,216,"r") }} 1x, 
+						<img 	srcset="{{ thisSketch.image|thumbnail(216,216,"r") }} 1x, 
 									{{ thisSketch.image|thumbnail(432,432,"r") }} 2x,
 									{{ thisSketch.image|thumbnail(648,648,"r") }} 3x"
+								srcset={{ thisSketch.image|thumbnail(216,216,"r") }}
 								alt="{{ thisSketch.image.title }}" />
 		    		</figure>
 		    		<strong class="gallery-item-title">{{ thisSketch.name }}</strong>
@@ -46,10 +46,10 @@
 	    	{% for thisSketch in sketches %}
 		    	<div class="gallery-item _inactive" href="{{ thisSketch.link }}">
 		    		<figure class="gallery-item-primaryImage">
-						<img 	src={{ thisSketch.image|thumbnail(216,216,"r") }}
-								srcset="{{ thisSketch.image|thumbnail(216,216,"r") }} 1x, 
+						<img	srcset="{{ thisSketch.image|thumbnail(216,216,"r") }} 1x, 
 									{{ thisSketch.image|thumbnail(432,432,"r") }} 2x,
 									{{ thisSketch.image|thumbnail(648,648,"r") }} 3x"
+								srcset={{ thisSketch.image|thumbnail(216,216,"r") }}
 								alt="{{ thisSketch.image.title }}" />
 		    		</figure>
 		    		<strong class="gallery-item-title">{{ thisSketch.name }}</strong>

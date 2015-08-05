@@ -570,6 +570,8 @@ ul + .slice-ah { padding-top: 16px; }
 
 @media only screen and (min-width: 1049px) { .contributor { padding-top: 0; width: 32.3%; } }
 
+.contributor-primaryImage._noImage { background-color: #dfdfdf; }
+
 @media only screen and (min-width: 1049px) { .contributor-name { font-size: 17px; } }
 
 .contributor-role:before { margin-left: auto; margin-right: auto; }
@@ -618,7 +620,7 @@ ul + .slice-ah { padding-top: 16px; }
 
 .slice._contact .sleeve { padding: 16px; }
 
-@media only screen and (min-width: 1049px) { .slice._contact .sleeve { padding: 0 16px; } }
+@media only screen and (min-width: 1049px) { .slice._contact .sleeve { padding: 0; } }
 
 /** Sample form styling, taken from Skeleton, adapted for Bolt. @see http://www.getskeleton.com/?#forms */
 form.simpleform { margin: 20px 0; }
