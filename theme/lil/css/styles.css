@@ -284,6 +284,10 @@ body.home .header-nav-item._home { display: none; }
 
 @media only screen and (min-width: 1049px) { .container { padding-top: 48px; } }
 
+.container._projects { border-top: 16px solid white; }
+
+@media only screen and (min-width: 641px) { .container._projects { border-top-width: 32px; } }
+
 .container-subtitle { color: #bd10e0; }
 
 .slice { font-weight: 300; overflow: auto; }
