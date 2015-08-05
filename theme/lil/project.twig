@@ -57,28 +57,29 @@
     </section>
     <section class="container">
 	    <!-- using <picture> element to art direct for wide/narrow screens -->
-	    <div class="project-hero">
-			<picture class="slider-slide-primaryImage">
-	
-				<!-- 16:9 for wide widths -->
-				<source
-					media="(min-width: {{ vars.respond.tabletWidth }}px)"
-					srcset="{{ project.hero_image|thumbnail(800,450,'r') }} 800w,
-			        	{{ project.hero_image|thumbnail(1200,675,'r') }} 1200w,
-						{{ project.hero_image|thumbnail(1600,900,'r') }} 1600w,
-						{{ project.hero_image|thumbnail(2100,1000,'r') }} 2100w"
-					sizes="100vw" />
-	
-				<!-- square for narrow widths -->
-				<source
-					srcset="{{ project.hero_image_square|thumbnail(400,400,'r') }} 1x,
-			        	{{ project.hero_image_square|thumbnail(800,800,'r') }} 2x" />
-				<img
-					srcset="{{ project.hero_image_square|thumbnail(400,400,'r') }}" 
-					alt="{{ project.image.title }}" />
-			</picture>
-	    </div>
+	    {% if project.hero_image|length %}
+		    <div class="project-hero">
+				<picture class="slider-slide-primaryImage">
 		
+					<!-- 16:9 for wide widths -->
+					<source
+						media="(min-width: {{ vars.respond.tabletWidth }}px)"
+						srcset="{{ project.hero_image|thumbnail(800,450,'r') }} 800w,
+				        	{{ project.hero_image|thumbnail(1200,675,'r') }} 1200w,
+							{{ project.hero_image|thumbnail(1600,900,'r') }} 1600w,
+							{{ project.hero_image|thumbnail(2100,1000,'r') }} 2100w"
+						sizes="100vw" />
+		
+					<!-- square for narrow widths -->
+					<source
+						srcset="{{ project.hero_image_square|thumbnail(400,400,'r') }} 1x,
+				        	{{ project.hero_image_square|thumbnail(800,800,'r') }} 2x" />
+					<img
+						srcset="{{ project.hero_image_square|thumbnail(400,400,'r') }}" 
+						alt="{{ project.image.title }}" />
+				</picture>
+		    </div>
+		{% endif %}
 		<div class="slice _contributors">
 		    <div class="sleeve">
 			    <h3 class="slice-hook">Who contributed to {{ project.name }}?</h3>
