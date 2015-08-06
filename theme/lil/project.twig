@@ -15,6 +15,7 @@
 {% set previous = project.previous('name', {'project_active': 1}) %}
 {% set next = project.next('name', {'project_active': 1}) %}
 {% set footerLogoImage = project.logo_image %}
+{% block pageDescription %}{{ project.logline }}{% endblock %}
 
 
 {% block content %}
@@ -56,28 +57,29 @@
     </section>
     <section class="container">
 	    <!-- using <picture> element to art direct for wide/narrow screens -->
-	    <div class="project-hero">
-			<picture class="slider-slide-primaryImage">
-	
-				<!-- 16:9 for wide widths -->
-				<source
-					media="(min-width: {{ vars.respond.tabletWidth }}px)"
-					srcset="{{ project.hero_image|thumbnail(800,450,'r') }} 800w,
-			        	{{ project.hero_image|thumbnail(1200,675,'r') }} 1200w,
-						{{ project.hero_image|thumbnail(1600,900,'r') }} 1600w,
-						{{ project.hero_image|thumbnail(2100,1000,'r') }} 2100w"
-					sizes="100vw" />
-	
-				<!-- square for narrow widths -->
-				<source
-					srcset="{{ project.hero_image_square|thumbnail(400,400,'r') }} 1x,
-			        	{{ project.hero_image_square|thumbnail(800,800,'r') }} 2x" />
-				<img
-					srcset="{{ project.hero_image_square|thumbnail(400,400,'r') }}" 
-					alt="{{ project.image.title }}" />
-			</picture>
-	    </div>
+	    {% if project.hero_image|length %}
+		    <div class="project-hero">
+				<picture class="slider-slide-primaryImage">
 		
+					<!-- 16:9 for wide widths -->
+					<source
+						media="(min-width: {{ vars.respond.tabletWidth }}px)"
+						srcset="{{ project.hero_image|thumbnail(800,450,'r') }} 800w,
+				        	{{ project.hero_image|thumbnail(1200,675,'r') }} 1200w,
+							{{ project.hero_image|thumbnail(1600,900,'r') }} 1600w,
+							{{ project.hero_image|thumbnail(2100,1000,'r') }} 2100w"
+						sizes="100vw" />
+		
+					<!-- square for narrow widths -->
+					<source
+						srcset="{{ project.hero_image_square|thumbnail(400,400,'r') }} 1x,
+				        	{{ project.hero_image_square|thumbnail(800,800,'r') }} 2x" />
+					<img
+						srcset="{{ project.hero_image_square|thumbnail(400,400,'r') }}" 
+						alt="{{ project.image.title }}" />
+				</picture>
+		    </div>
+		{% endif %}
 		<div class="slice _contributors">
 		    <div class="sleeve">
 			    <h3 class="slice-hook">Who contributed to {{ project.name }}?</h3>
@@ -131,7 +133,7 @@
 			<div class="sleeve">
 			    <h3 class="slice-hook">How can I learn more?</h3>
 			    <div class="slice-main">
-			    	<p>If you’re interested in using {{ project.name }} or contributing to the project, check out the project’s <a href="{{ project.github_repo }}">Github page</a> or contact us with this simple form.</p>
+			    	<p>If you’re interested in using {{ project.name }} or contributing to the project,{% if project.github_repo | length %} check out the project’s <a href="{{ project.github_repo }}">Github page</a> or{% endif %} contact us with this simple form.</p>
 			    	{{ simpleform('contact') }}
 			    </div>
 			</div>

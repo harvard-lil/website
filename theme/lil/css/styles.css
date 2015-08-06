@@ -284,6 +284,10 @@ body.home .header-nav-item._home { display: none; }
 
 @media only screen and (min-width: 1049px) { .container { padding-top: 48px; } }
 
+.container._projects, .container._sketches { border-top: 16px solid white; }
+
+@media only screen and (min-width: 641px) { .container._projects, .container._sketches { border-top-width: 32px; } }
+
 .container-subtitle { color: #bd10e0; }
 
 .slice { font-weight: 300; overflow: auto; }
@@ -316,8 +320,6 @@ a.link-project:active { color: #bd10e0; }
 .github-button:active .github-label:before { background-position-x: -34px; }
 
 .container._about { background-color: rgba(100, 100, 0, 0.02); }
-
-.container._sketches { background-color: #EAEAE5; }
 
 .gallery { text-align: left; margin-top: 32px; }
 
@@ -392,6 +394,18 @@ a.link-project:active { color: #bd10e0; }
   .gallery._listing .contributor-primaryImage { float: none; width: 100%; }
   .gallery._listing .contributor-info { float: none; width: 100%; padding: 32px 16px; text-align: center; }
   .gallery._listing .contributor-role:before { margin-left: auto; margin-right: auto; } }
+
+.map { color: #bd10e0; font-size: 12px; padding-left: .25em; }
+
+.map a { text-decoration: underline; }
+
+.map a:link { color: #bd10e0; }
+
+.map a:visited { color: #bd10e0; }
+
+.map a:hover { color: #0075FF; }
+
+.map a:active { color: #222; }
 
 .container._people { padding-bottom: 0; }
 

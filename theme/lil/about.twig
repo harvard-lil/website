@@ -8,6 +8,7 @@
 
 {% block body_tag %}<body class="category _about">{% endblock %}
 {% block pageTitle %} About | Library Innovation Lab {% endblock %}
+{% block pageDescription %}Bringing the best of technology to the world of libraries and the best of libraries to the world of technology. And vice versa.{% endblock %}
 {% block facebookImage %}{{ paths.hosturl }}{{ about.primary_image_square|thumbnail(800,800,'r') }}{% endblock %}
 {% block content %}
 
@@ -39,7 +40,7 @@
 		    	<ul class="about-address">
 		    		<li class="about-address-name">{{ about.addressname }}</li>
 		    		<li class="about-address-street">{{ about.addressstreet1 }}</li>
-		    		<li class="about-address-street">{{ about.addressstreet2 }}</li>
+		    		<li class="about-address-street">{{ about.addressstreet2 }} <span class="map"><a href="https://www.google.com/maps/place/1545+Massachusetts+Ave,+Harvard+University,+Cambridge,+MA+02138/@42.377991,-71.1185105,17z/data=!3m1!4b1!4m2!3m1!1s0x89e37741a21295b9:0x22b97c31830fc93f">Map</a></span></li>
 		    		<li class="about-address-citystate">{{ about.addresscity }}, {{ about.addressstate }} {{ about.addresszip }}</li>
 		    		<li class="about-specs-phone">phone: {{ about.phone }}</li>
 		    	</ul>
