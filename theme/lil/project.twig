@@ -52,7 +52,11 @@
 					</div>
 				</div>
 			{% endif %}
-	 		{% if project.github_repo | length %}<a href="{{ project.github_repo }}" role="button" class="github-button" aria-label="{{ project.name }} on Github"><span class="github-label">{{ project.name }} on Github</span></a>{% endif %}
+	 		{% if project.github_repo | length %}
+			    <div class="slice _github">
+		 			<a href="{{ project.github_repo }}" role="button" class="github-button" aria-label="{{ project.name }} on Github"><span class="github-label">{{ project.name }} on Github</span></a>
+			    </div>
+	 		{% endif %}
 	    </div>
     </section>
     <section class="container">

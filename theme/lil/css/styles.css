@@ -580,6 +580,10 @@ ul + .slice-ah { padding-top: 16px; }
 
 @media only screen and (min-width: 1049px) { .slice._contributors { background-color: white; padding-top: 48px; } }
 
+.slice._github { margin-top: 0; text-align: center; }
+
+.slice._github a[role='button'] { display: inline-block; width: auto; min-width: 232px; }
+
 .contributor { width: 49%; border-top: none; }
 
 @media only screen and (min-width: 1049px) { .contributor { padding-top: 0; width: 32.3%; } }
