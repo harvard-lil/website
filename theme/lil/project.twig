@@ -116,7 +116,7 @@
 		    	<div class="sleeve">
 				    <h3 class="slice-hook">What’s been written about {{ project.name }}?</h3>
 				    <div class="slice-main">
-					    {% for newsItem in relatedrecords %}
+					    {% for newsItem in relatedrecords|order('-date') %}
 					    	<a class="news-item _{{ newsItem.category|lower }}" href="{{ newsItem.news_link }}">
 					    		<div class="news-item-category">{{ newsItem.category }}</div>
 					    		<div class="news-item-content">
