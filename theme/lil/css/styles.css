@@ -467,6 +467,22 @@ ul + .slice-ah { padding-top: 16px; }
 
 .sunset-entry-content { margin-top: 4px; }
 
+.sunset-entry-title a { color: white; text-decoration: none; }
+
+.sunset-entry-title a::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 2px; margin-right: -14px; }
+
+.sunset-entry-title a::after { background-position-x: -10px; }
+
+.sunset-entry-title a:link { color: white; }
+
+.sunset-entry-title a:visited { color: white; }
+
+.sunset-entry-title a:hover { color: #222; }
+
+.sunset-entry-title a:active { color: white; }
+
+.sunset-entry-title a:hover::after { background-position-x: -20px; }
+
 .container._roundup { background-color: #222; color: white; }
 
 .container._roundup .container-subtitle { color: #F8CC1C; }
