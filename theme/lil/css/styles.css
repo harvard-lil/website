@@ -355,6 +355,8 @@ a.link-project:active { color: #bd10e0; }
 
 .gallery._listing { margin-top: 32px; }
 
+.gallery._listing .list-hed { font-size: 17px; font-weight: 800; margin-bottom: 16px; }
+
 .gallery._listing .contributor { border-top-color: rgba(0, 0, 0, 0.1); float: none; width: 100%; }
 
 .gallery._listing .contributor-primaryImage { float: left; width: 30%; margin: 0; }
@@ -394,6 +396,14 @@ a.link-project:active { color: #bd10e0; }
   .gallery._listing .contributor-primaryImage { float: none; width: 100%; }
   .gallery._listing .contributor-info { float: none; width: 100%; padding: 32px 16px; text-align: center; }
   .gallery._listing .contributor-role:before { margin-left: auto; margin-right: auto; } }
+
+._project .gallery._listing { margin-top: 16px; margin-bottom: 24px; }
+
+._project .gallery._listing .collaborator { border-color: rgba(0, 0, 0, 0.1); }
+
+._project .gallery._listing .collaborator-name::after { content: ''; height: 8px; width: 10px; display: inline-block; background-image: url("../images/ui-arrow-sprite.svg"); background-position-x: 0; margin-left: 4px; vertical-align: middle; bottom: 1px; margin-right: -14px; }
+
+._project .gallery._listing .collaborator-name:hover { color: #bd10e0; }
 
 .map { color: #bd10e0; font-size: 12px; padding-left: .25em; }
 
