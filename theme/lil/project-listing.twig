@@ -49,7 +49,7 @@
 	
 	<section class="container _sunset">
 		<div class="headers">
-			<h2 class="container-title">Sunset Projects</h2>
+			<h2 class="container-title">Former Projects</h2>
 			<p class="container-subtitle">Farewell, sweet friends.</p>
 		</div>
 		
@@ -59,7 +59,7 @@
 				<div class="sunset-entry">
 					<div class="sunset-entry-date">{{ sunsetProject.daterange }}</div>
 					<div class="sunset-entry-content">
-						<strong class="sunset-entry-title">{{ sunsetProject.name }}</strong>
+						<strong class="sunset-entry-title">{% if sunsetProject.project_website|length %}<a href="{{ sunsetProject.project_website }}">{{ sunsetProject.name }}</a>{% else %}{{ sunsetProject.name }}{% endif %}</strong>
 						<span class="sunset-entry-logline">{{ sunsetProject.logline }}</span>
 					</div>
 				</div>

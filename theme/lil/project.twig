@@ -52,7 +52,11 @@
 					</div>
 				</div>
 			{% endif %}
-	 		{% if project.github_repo | length %}<a href="{{ project.github_repo }}" role="button" class="github-button" aria-label="{{ project.name }} on Github"><span class="github-label">{{ project.name }} on Github</span></a>{% endif %}
+	 		{% if project.github_repo | length %}
+			    <div class="slice _github">
+		 			<a href="{{ project.github_repo }}" role="button" class="github-button" aria-label="{{ project.name }} on Github"><span class="github-label">{{ project.name }} on Github</span></a>
+			    </div>
+	 		{% endif %}
 	    </div>
     </section>
     <section class="container">
@@ -85,7 +89,7 @@
 			    <h3 class="slice-hook">Who contributed to {{ project.name }}?</h3>
 			    <div class="slice-main">
 			    	<div class="gallery _alt">
-				        {% set relatedpeople = record.related('people') %}
+				        {% set relatedpeople = record.related('people', {'active': 1}) %}
 					    {% for contributor in relatedpeople|order('sort_name') %}
 					    	<a class="contributor" href="{{paths.root}}about#{{ contributor.slug }}">
 					    		{% if contributor.image | length %}
@@ -102,6 +106,18 @@
 					    	</a>
 					    {% endfor %}
 					</div>
+					{% set relatedformer = record.related('people', {'active': 0}) %}
+			    	{% if relatedformer | length %}
+				    	<div class="gallery _listing">
+				    		<h4 class="list-hed">Former contributors</h4>
+						    {% for collaborator in relatedformer|order('sort_name') %}
+						    	<a class="collaborator" href="{{paths.root}}about#{{ collaborator.slug }}">
+					    			<strong class="collaborator-name">{{ collaborator.name }}</strong>
+					    			<span class="collaborator-role">{{ collaborator.role }}</span>
+						    	</a>
+						    {% endfor %}
+						</div>
+					{% endif %}
 				</div>
 		    </div>
 		</div>
@@ -112,7 +128,7 @@
 		    	<div class="sleeve">
 				    <h3 class="slice-hook">What’s been written about {{ project.name }}?</h3>
 				    <div class="slice-main">
-					    {% for newsItem in relatedrecords %}
+					    {% for newsItem in relatedrecords|order('-date') %}
 					    	<a class="news-item _{{ newsItem.category|lower }}" href="{{ newsItem.news_link }}">
 					    		<div class="news-item-category">{{ newsItem.category }}</div>
 					    		<div class="news-item-content">
