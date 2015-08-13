@@ -87,8 +87,13 @@
 		    {% for person in activePeople %}
 		    	<div class="contributor" id="{{ person.slug }}">
 		    		<figure class="contributor-primaryImage">
-		    			<img 	srcset="{{ person.image|thumbnail(216,216) }} 216w, {{ person.image|thumbnail(432,432) }} 432w, {{ person.image|thumbnail(648,648) }} 648w" 
-		    					sizes="(min-width: 640px) 180px, (min-width: 1049px) 30vw, (min-width: 1144px) 346px, 30vw" 
+		    			<img 	srcset="	{{ person.image|thumbnail(216,216) }} 216w, 
+		    								{{ person.image|thumbnail(432,432) }} 432w, 
+		    								{{ person.image|thumbnail(648,648) }} 648w" 
+		    					sizes="	(min-width:1144px) 346px,
+		    								(min-width:1049px) 30vw,
+		    								(min-width:640px) 180px, 
+		    								30vw" 
 		    					alt="{{ person.name }}" />
 		    		</figure>
 		    		<div class="contributor-info">
