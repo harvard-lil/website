@@ -68,7 +68,7 @@ p a:active { color: #222; border-color: #222; }
 
 .intro-title, .container-title, .container-subtitle, .post-title, .headers .container-title, .headers .container-subtitle { font-weight: 700; line-height: 1.1; }
 
-.intro-title { font-size: 32px; }
+.intro-title { font-size: 40px; margin: 8px 0; font-weight: 300; }
 
 @media only screen and (min-width: 641px) { .intro-title { font-size: 48px; } }
 
@@ -76,13 +76,13 @@ p a:active { color: #222; border-color: #222; }
 
 .container-title, .container-subtitle, .post-title { font-size: 24px; }
 
-@media only screen and (min-width: 641px) { .container-title, .container-subtitle, .post-title { font-size: 48px; font-weight: 200; } }
+@media only screen and (min-width: 641px) { .container-title, .container-subtitle, .post-title { font-size: 48px; font-weight: 300; } }
 
 @media only screen and (min-width: 1049px) { .container-title, .container-subtitle, .post-title { font-size: 72px; font-weight: 500; } }
 
 .headers .container-title, .headers .container-subtitle { font-size: 24px; }
 
-@media only screen and (min-width: 641px) { .headers .container-title, .headers .container-subtitle { font-size: 48px; font-weight: 200; } }
+@media only screen and (min-width: 641px) { .headers .container-title, .headers .container-subtitle { font-size: 48px; font-weight: 300; } }
 
 @media only screen and (min-width: 1049px) { .headers .container-title, .headers .container-subtitle { padding-bottom: .2em; } }
 
@@ -488,7 +488,7 @@ ul + .slice-ah { padding-top: 16px; }
 .container._roundup .container-subtitle { color: #F8CC1C; }
 
 @media only screen and (min-width: 1049px) { .headers .container-title { float: left; font-weight: 500; }
-  .headers .container-subtitle { float: right; font-weight: 200; } }
+  .headers .container-subtitle { float: right; font-weight: 300; } }
 
 #hopper { margin-top: 32px; clear: both; }
 
@@ -518,7 +518,7 @@ ul + .slice-ah { padding-top: 16px; }
 
 .roundup-post-author { margin-top: 8px; color: rgba(254, 254, 254, 0.9); }
 
-.roundup-post-author:before { content: 'Posted by '; font-weight: 200; }
+.roundup-post-author:before { content: 'Posted by '; font-weight: 300; }
 
 @media only screen and (min-width: 1049px) { .roundup-post-date, .roundup-post-content, .roundup-post-author { float: left; }
   .roundup-post-date { width: 30%; }
@@ -566,7 +566,7 @@ ul + .slice-ah { padding-top: 16px; }
 @media only screen and (min-width: 1049px) { .intro-nav a .more { display: block; }
   .intro-nav a .more:before { content: none; } }
 
-@media only screen and (min-width: 376px) { .intro-nav a { height: 48px; } }
+@media only screen and (min-width: 376px) { .intro-nav a { height: 56px; } }
 
 @media only screen and (min-width: 1049px) { .intro-nav a { display: block; color: #222; text-decoration: none; width: 10em; height: auto; padding: 8px 0 0 16px; z-index: 1; font-size: 12px; border-top: 1px solid #222; }
   .intro-nav a:link { color: #222; }
@@ -881,7 +881,7 @@ article.post + article.post { margin-top: 48px; }
 
 .post-content .screenshot { margin: 16px 0; border-radius: 4px; overflow: hidden; border: 1px solid rgba(0, 0, 0, 0.1); }
 
-.post-content .submitted-by { font-weight: 200; margin-top: 8px; }
+.post-content .submitted-by { font-weight: 300; margin-top: 8px; }
 
 .post-content .submitted-by:before { content: '/'; color: #bd10e0; padding-right: 2px; }
 
