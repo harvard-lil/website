@@ -30,11 +30,14 @@
 	    	{% for thisSketch in sketches %}
 		    	<div class="gallery-item _active" href="{{ thisSketch.link }}">
 		    		<figure class="gallery-item-primaryImage">
-						<img 	srcset="{{ thisSketch.image|thumbnail(216,216,"r") }} 1x, 
-									{{ thisSketch.image|thumbnail(432,432,"r") }} 2x,
-									{{ thisSketch.image|thumbnail(648,648,"r") }} 3x"
-								srcset={{ thisSketch.image|thumbnail(216,216,"r") }}
-								alt="{{ thisSketch.image.title }}" />
+		    			<img 	srcset="	{{ thisSketch.image|thumbnail(216,216,"r") }} 216w, 
+		    								{{ thisSketch.image|thumbnail(432,432,"r") }} 432w, 
+		    								{{ thisSketch.image|thumbnail(648,648,"r") }} 648w" 
+		    					sizes="	(min-width:1049px) 268px,
+		    								(min-width:640px) 184px, 
+		    								50vw" 
+		    					srcset={{ thisSketch.image|thumbnail(216,216,"r") }}
+		    					alt="{{ thisSketch.image.title }}" />
 		    		</figure>
 		    		<strong class="gallery-item-title">{{ thisSketch.name }}</strong>
 		    		<ul class="gallery-item-specs">
