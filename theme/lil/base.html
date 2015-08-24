@@ -7,7 +7,12 @@
 	<meta property='og:image' content='{% block facebookImage %}{% endblock %}'/>
 	<link rel="icon" type="image/png" href="{{ paths.theme }}images/favicon.png" />
     <title>{% block pageTitle %}{% endblock %}</title>
-    
+    {% block inlineJs %}{% endblock %}
+    <style>
+		@font-face{font-family:'PostGrotesk';src:url("../fonts/PostGrotesk-Book.eot?") format("eot"),url("../fonts/PostGrotesk-Book.woff") format("woff");font-weight:300;font-style:normal}@font-face{font-family:'PostGrotesk';src:url("../fonts/PostGrotesk-BookItalic.eot?") format("eot"),url("../fonts/PostGrotesk-BookItalic.woff") format("woff");font-weight:300;font-style:italic}@font-face{font-family:'PostGrotesk';src:url("../fonts/PostGrotesk-Medium.eot?") format("eot"),url("../fonts/PostGrotesk-Medium.woff") format("woff");font-weight:500;font-style:normal}@font-face{font-family:'PostGrotesk';src:url("../fonts/PostGrotesk-Bold.eot?") format("eot"),url("../fonts/PostGrotesk-Bold.woff") format("woff");font-weight:700;font-style:normal}html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}a.block{display:block}p a{border-bottom:1px solid #bd10e0;padding-bottom:1px}p a:hover{color:#bd10e0}p a:active{color:#222;border-color:#222}.header-nav-item{display:table}.header-nav-item a{display:table-cell;vertical-align:middle}html{box-sizing:border-box}html,body{overflow:auto}body{-webkit-font-smoothing:antialiased}*,*:before,*:after{box-sizing:inherit;text-rendering:optimizeLegibility;-webkit-font-variant-ligatures:common-ligatures;-moz-font-variant-ligatures:common-ligatures;font-variant-ligatures:common-ligatures;-moz-font-feature-settings:"kern=1";-webkit-font-feature-settings:"kern";-moz-font-feature-settings:"kern";font-feature-settings:"kern";-webkit-font-kerning:normal;-moz-font-kerning:normal;font-kerning:normal;overflow:hidden;position:relative}cite,em,i{font-style:italic}cite cite,cite em,cite i,em cite,em em,em i,i cite,i em,i i{font-style:inherit}img{width:100%;max-width:100%;display:block;margin:0 auto}a{color:#222;text-decoration:none}a:link{color:inherit}a:visited{color:inherit}a:hover{color:inherit}a:active{color:inherit}input[type="text"],input[type="password"],input[type="email"],input[type="button"],input[type="submit"],textarea{-webkit-appearance:none}body{font-family:"PostGrotesk",Helvetica,Arial,sans-serif;font-size:17px;font-weight:500;line-height:1.2;color:#222;margin:0 auto;background-color:white}a[role='button']{border-radius:4px;display:block;text-decoration:none;text-align:center;color:#bd10e0;font-weight:700;font-size:12px;border:1px solid #bd10e0;padding:20px;cursor:pointer;background-color:transparent;font-family:"PostGrotesk",Helvetica,Arial,sans-serif;width:232px;margin:24px auto 16px auto}a[role='button']:hover{border-width:2px;padding:19px}a[role='button']:active{color:#fff;border-color:#bd10e0;background:#bd10e0}a[role='button'] span:after{content:'';height:8px;width:10px;display:inline-block;background-image:url("../images/ui-arrow-sprite.svg");background-position-x:0;margin-left:4px;vertical-align:middle;bottom:1px;margin-right:-14px}a[role='button']:active span:after{background-position-x:-10px}nav[role="navigation"]{text-align:center}@media only screen and (min-width: 641px){.header-nav{display:inline-block;margin-bottom:-4px}}.header-nav-item{float:left;font-size:17px;font-weight:500}@media only screen and (min-width: 641px){.header-nav-item{font-size:17px}}.header-nav-item a{color:#222;text-decoration:none;padding:0 8px;height:48px}.header-nav-item a:link{color:#222}.header-nav-item a:visited{color:#222}.header-nav-item a:hover{color:#bd10e0}.header-nav-item a:active{color:#222}@media only screen and (min-width: 376px){.header-nav-item a{height:56px}}@media only screen and (min-width: 641px){.header-nav-item a{padding:0 21px;height:88px}}@media only screen and (min-width: 1049px){.header-nav-item a{padding:0 28px}}.header-nav-item:nth-child(n+5){display:none}@media only screen and (min-width: 641px){.header-nav-item:nth-child(n+5){display:table}}.header-nav-logo{position:absolute;display:block;margin-top:-2px;margin-left:-28px}.header-nav-item:hover .style1,.header-nav-item:hover .style2{fill:#bd10e0}.header-nav-item:hover a{color:#bd10e0}.header-nav-item._home{font-weight:700}.header-nav-item._home span.name{display:block;text-indent:-10000px}@media only screen and (min-width: 376px){.header-nav-item._home span.name{display:inline;text-indent:0}}.header-nav-item._home span.longname{display:none}@media only screen and (min-width: 641px){.header-nav-item._home span.longname{display:inline}}.header-nav-item._home a{padding-top:0;padding-bottom:0;padding-left:46px;padding-right:12px}@media only screen and (min-width: 641px){.header-nav-item._home a{padding-right:22px}}@media only screen and (min-width: 1049px){.header-nav-item._home a{padding-right:34px}}    
+	</style>
+    {% block inlineCss %}{% endblock %}
+  
     <link href="{{ paths.theme }}css/styles.css" rel="stylesheet">
     {% block extra_styles %}{% endblock %}
     <link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed">
@@ -20,10 +25,11 @@
 	- so, an active primary nav list element might look like "primaryNav-list-item _active" 
 -->
 {% block body_tag %}<body>{% endblock %}
+
 {% block content %}
 
 {% endblock %}
-
+            
 <footer>
 	<div class="footer-wrapper">
 		<figure class="footer-logo">
@@ -45,9 +51,10 @@
 	</div>
 </footer>
 
-<script src="{{ paths.theme }}javascripts/jquery-2.1.0.min.js"></script>
-<script src="{{ paths.theme }}javascripts/picturefill.min.js"></script>
-<script src="{{ paths.theme }}javascripts/lilapp-min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+{# <script src="{{ paths.theme }}javascripts/jquery-2.1.0.min.js"></script> #}
+{# <script src="{{ paths.theme }}javascripts/lilapp-min.js"></script> #}
+<script async src="{{ paths.theme }}javascripts/picturefill.min.js"></script>
 {% block extra_scripts %}{% endblock %}
 </body>
 </html>
