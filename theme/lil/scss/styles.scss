@@ -1,45 +1,119 @@
-// dan o. williams
-// library innovation lab scss
-// styles.scss
+////////////////////////////////////////////////
+
+//	dan o. williams
+//	library innovation lab scss
+//	styles.scss > ../css/styles.css
+//	August 2015
 
 
-// typography
+////////////////////////////////////////////////
+
+//	Usually, I split each of these first six elements into its own scss partial (_example.scss) and include them with 
+//	@include _example.scss;
+//	In this case, I kept them all together in the same file for simplicity.
+
+//	a.	comments
+//	b.	font loading
+//	c.	reset
+//	d.	variables
+//		- grid
+//		- respond
+//		- typography
+//		- colors
+//	e.	mixins
+//	f.	placeholders
+//		- styles
+//		- modules
+//	g.	normalish
+
+//	1.	general body
+//	2.	nav
+//		- intro-nav (for projects and sketches)
+//	3.	containers, slices, and sleeves
+//	4.	intro
+//	5.	gallery
+//		- circular
+//		- listing
+//	6.	forms
+//	7.	home
+//		- home splash
+//		- roundup
+//	8.	about
+//		- people
+//	9.	projects and sketches
+//		- former projects (sunset)
+//	10.	project
+//		- contributor
+//		- news
+//		- contact
+//	11.	sketch
+//		- sketch points
+//		- contact
+//	12.	blog
+//	13.	footer
+
+
+////////////////////////////////////////////////
+//	comments
+
+//	Comments in the format '//[tab]comment' so they'll be stripped by compiling
+
+// Compiled with:
+//	- CodeKit 2.4 (http://incident57.com/codekit/)
+//	- Libsass 3.2.5 compiler (http://sass-lang.com/libsass)
+//	- Autoprefixer 5.2.0 (https://github.com/postcss/autoprefixer)
+//	- Compressed output
+//	- Creating sourcemap ../css/styles.css.map
+
+
+////////////////////////////////////////////////
+//	font loading
+
+//	uses the Fontspring @font-face syntax
+//	see http://www.paulirish.com/2009/bulletproof-font-face-implementation-syntax
+//	our face (Post Grotesk) has no ttf version, so that part of the Fontsquirrel syntax is omitted
 
 @font-face {
-    font-family: 'PostGrotesk';
-    src:url('/fonts/PostGrotesk-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
+	font-family: 'PostGrotesk';
+	src: 	url('../fonts/PostGrotesk-Book.woff?') format('eot'), 
+			url('../fonts/PostGrotesk-Book.woff') format('woff'); 
+	font-weight: 300;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'PostGrotesk';
-    src:url('/fonts/PostGrotesk-LightItalic.woff') format('woff');
-    font-weight: 300;
-    font-style: italic;
+	font-family: 'PostGrotesk';
+	src: 	url('../fonts/PostGrotesk-BookItalic.woff?') format('eot'), 
+			url('../fonts/PostGrotesk-BookItalic.woff') format('woff'); 
+	font-weight: 300;
+	font-style: italic;
 }
 
 @font-face {
-    font-family: 'PostGrotesk';
-    src:url('/fonts/PostGrotesk-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
+	font-family: 'PostGrotesk';
+	src: 	url('../fonts/PostGrotesk-Medium.woff?') format('eot'), 
+			url('../fonts/PostGrotesk-Medium.woff') format('woff'); 
+	font-weight: 500;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'PostGrotesk';
-    src:url('/fonts/PostGrotesk-Bold.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
+	font-family: 'PostGrotesk';
+	src: 	url('../fonts/PostGrotesk-Bold.woff?') format('eot'), 
+			url('../fonts/PostGrotesk-Bold.woff') format('woff'); 
+	font-weight: 700;
+	font-style: normal;
 }
 
 
-// reset
+////////////////////////////////////////////////
+//	reset
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+//	That clean Meyer reset.
+
+//	http://meyerweb.com/eric/tools/css/reset/ 
+//	v2.0 | 20110126
+//	License: none (public domain)
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -61,20 +135,13 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+
+//	HTML5 display-role reset for older browsers
 article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
+footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
@@ -85,145 +152,1954 @@ table {
 	border-spacing: 0;
 }
 
-// vars
 
-$black: #333;
+////////////////////////////////////////////////
+//	variables
 
-// first things first
+////////
+//	grid
 
-*, *:before, *:after {
-    box-sizing: border-box;
-    text-rendering: optimizelegibility;
+// basic grid to keep spacing simple and regular
+$grid: 8px;
+$double: $grid * 2;
+$half: $grid / 2;
+
+// common widths
+$width-mobile: $grid * 40; 		//320px;
+$width-tablet: $grid * 80; 		//640px;
+$width-max: $grid * 140; 		//1120px;
+$width-column: $width-mobile;
+$width-sidebar: $grid * 22; 	//172px;
+
+$width-hook: $grid * 24;
+
+
+////////
+//	respond
+
+//	Used by the respond($n) mixin
+//	ex:
+//	@include respond(3) {[content]}
+//	sets a min-width meda query at element [3] in this variable (+ 1 px)
+
+$respond-breakpoints: 320px 375px 640px 1048px 1296px;
+
+////////
+//	typography
+
+//	Just one family on this site.
+//$font-display: #;
+$font-body: 'PostGrotesk', Helvetica, Arial, sans-serif;
+//$font-reading: #;
+//$font-actions: #;
+//$font-alt: #;
+
+//	Common sizes.
+$size-3xlarge: 72px;
+$size-2xlarge: 48px;
+$size-xlarge: 40px;
+$size-large: 24px;
+$size-xbody: 1.222222rem;
+$size-body: 17px;
+$size-small: 12px;
+
+////////
+//	colors
+$color-black: #222;
+$color-background: white;
+$color-highlight: #bd10e0;
+$color-active: white;
+$color-pink: #FF19D2;
+$color-blue: #0075FF;
+$color-electricblue: #17C5E3;
+$color-warmgray: #EAEAE5;
+$color-yellow: #F8CC1C; 
+$color-brightyellow: #FFCF04;
+$color-sunset: #DD671A;
+$color-trans-darkgray: rgba(0,0,0,.5);
+$color-trans-lightgray: rgba(0,0,0,.1);
+$color-trans-whispergray: rgba(100,100,0,.02);
+$color-trans-gray: rgba(0,0,0,.4);
+$color-trans-black: rgba(0,0,0,.95);
+$color-trans-textwhite: rgba(254,254,254,.4);
+$color-trans-darkwhite: rgba(254,254,254,.9);
+$color-trans-white: rgba(254,254,254,.5);
+$color-trans-lightwhite: rgba(254,254,254,.25);
+$color-white: white;
+$color-acidmint: #18F1C0;
+
+
+////////////////////////////////////////////////
+//	mixins
+
+// 	Generally used for media-queries and for certain bits of repetitive styling not appropriate for a placeholder (because of cascade or media query)
+
+//	ex:
+//	@include dev(320px);
+//	sets max body width
+//	sometimes good for testing
+@mixin dev($width){
+	html { background-color: #eee; }
+	body { max-width: $width; }
 }
+
+//	ex:
+//	@include respond(3);
+//	sets min-width media query at 641px
+@mixin respond($n) { @media only screen and (min-width: nth($respond-breakpoints, $n) + 1) { @content; } }
+
+//	mixins for <a> styles, typically
+@mixin link-none($linkcolor){
+	color: $linkcolor;
+	text-decoration: none;
+	&:link { color: $linkcolor; }
+	&:visited { color: $linkcolor}
+	&:hover { color: $linkcolor; }
+	&:active { color: $linkcolor; }
+}
+
+@mixin link-highlight($linkcolor, $highlightcolor){
+	color: $linkcolor;
+	text-decoration: none;
+	&:link { color: $linkcolor; }
+	&:visited { color: $linkcolor}
+	&:hover { color: $highlightcolor; }
+	&:active { color: $linkcolor; }
+}
+
+@mixin link-underline($linkcolor, $highlightcolor){
+	color: $linkcolor;
+	text-decoration: none;
+	&:link { color: $linkcolor; }
+	&:visited { color: $linkcolor}
+	&:hover { 
+		color: $linkcolor; 
+		text-decoration: underline;
+	}
+	&:active { color: $highlightcolor; }
+}
+
+//	add the arrow sprite after an element
+@mixin include-arrow($offset) {
+	&:after {
+		content: '';
+		height: 8px;
+		width: 10px;
+		display: inline-block;
+		background-image: url('../images/ui-arrow-sprite.svg');
+		background-position-x: 0;
+		margin-left: 4px;
+		vertical-align: middle;
+		bottom: $offset;
+		margin-right: -14px;
+	}
+}
+
+@mixin underline-on-hover {
+	text-decoration: none;
+	&:hover { text-decoration: underline; }
+}
+
+//	shifts the sprite to different positions/colors
+@mixin include-arrow-highlight { &:after { background-position-x: 0px; } }
+
+@mixin include-arrow-white { &:after { background-position-x: -10px; } }
+
+@mixin include-arrow-black { &::after { background-position-x: -20px; } }
+
+@mixin button-basic($padding) {
+	border-radius: 4px;
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	color: $color-highlight;
+	font-weight: 700;
+	font-size: $size-small;
+	border: 1px solid $color-highlight;
+	padding: #{$padding}px;
+	cursor: pointer;
+	background-color: transparent;
+	font-family: $font-body;
+	&:hover {
+		border-width: 2px;
+		padding: #{$padding - 1}px;
+	}
+	&:active {
+		color: $color-white;
+		border-color: $color-highlight;
+		background: $color-highlight;
+	}
+}
+
+@mixin nofloat {
+	float: none;
+	width: auto;	
+}
+
+//	mixins for input placeholders
+@mixin input-placeholder-color($placeholderColor) {
+	&::-webkit-input-placeholder { color: $placeholderColor; }
+	&:-moz-placeholder { color: $placeholderColor;   }
+	&::-moz-placeholder { color: $placeholderColor;   }
+	&:-ms-input-placeholder { 
+		color: $placeholderColor;  
+	}
+}
+
+@mixin input-placeholder-weight($placeholderWeight) {
+	&::-webkit-input-placeholder { font-weight: $placeholderWeight; }
+	&:-moz-placeholder { font-weight: $placeholderWeight;   }
+	&::-moz-placeholder { font-weight: $placeholderWeight;   }
+	&:-ms-input-placeholder { 
+		font-weight: $placeholderWeight;  
+	}
+}
+
+
+//	mixins for hiding elemtns on mobile, then showing a certain display type at ~tablet
+@mixin hide-onmobile-then($thiskind){
+	display: none;
+	@include respond(3) { display: $thiskind; }
+}
+
+@mixin module-masonry($thiswidth) {
+	display: inline-block;
+	vertical-align: top;
+	width: $thiswidth - 1;
+	padding: $double;
+}
+
+@mixin slice-fullbleedbg($thisbg) {
+	@extend %style-fullbleed;
+	background-color: $thisbg;
+	.sleeve {
+		padding: 0 $double;
+		@extend %style-block-reading;
+		@include respond(3) { padding: 0 2 * $double; }
+		@include respond(3) { padding: 0; }
+	}
+}
+
+////////////////////////////////////////////////
+//	placeholders
+
+//	Used for common styling patterns.
+//	I like to use placeholders rather than specified elemtns for styles because they can be descriptive and specific in their names.
+
+//	I prefer to class my html as follows:
+
+//	html is classed using a modified BEM (Block, Element, Modifier) method
+//	in general, the primary block class is listed first, with an element connected by a hyphen. modifier classes follow, each preceded by an underscore.
+//	multi-word blocks, elements, or modifiers are written in camelCase
+//	so, an active primary nav list element might look like "primaryNav-list-item _active" 
+
+//	Since I like the readability and speed of speccing by class rather than by element (.roundup-post-title rather than h4.roundup-post-title or .roundup h4) it makes sense to grap items and connect them to a plceholder style (@extend %placeholder;) rather than try to define a global style for h4 (or whatever).
+//	This allows the flexibility to to give your html the proper structure and naming for the page without having to shoehorn in elements that aren't correct for the document outline (like skipping an h3 to go right to a styled h4)
+
+//	A caveat: using placeholder extensions can sometimes have unexpected results in the cascade, since the placeholder comes at the start of the scss file. Also, extensions can't be used across media queries (something in a media query can't extend something not in that query.)
+
+//	A common pattern that needs to cross media queries could use a mixin.
+//	Or, the media query could be included in the placeholder itself. 
+
+//	This, for instance, WOULD be acceptable:
+
+//	%style-example-ah {
+//		font-size: $size-small;
+//		@include respond(3) {
+//			font-size: $size-body;
+//		}
+//	}
+//
+//	.example-title {
+//		@extend %style-example-ah;
+//	}
+
+//	But this would NOT be acceptable:
+
+//	%style-example-ah-bigger {
+//		font-size: $size-small;
+//	}
+//	
+//	@include respond(3) {
+//		.example-title {
+//			@extend %style-example-ah-bigger;
+//		}
+//	}
+
+//	A long way of saying that I make extensive use of placeholders. Styling a new element usually involves learing which existing placeholder to apply.
+
+//	Typically prefixed %style- or %module-
+//	Alphabetical order, except when it would affect the cascade
+
+////////
+//	%style
+%style-block { display: block; }
+
+%style-block-centered { 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+%style-block-reading {
+	@extend %style-block-centered;
+	@include respond(3) { max-width: 596px; }
+	@include respond(4) { max-width: nth($respond-breakpoints,4); }
+}
+
+%style-block-max {
+	@extend %style-block-centered;
+	max-width: nth($respond-breakpoints,5);
+}
+
+%style-border-bottom {
+	padding-bottom: $grid;
+	float: left;
+	border-bottom: 2px solid $color-black;
+}
+
+%style-entry {
+	@extend %style-block;
+	line-height: 1.3;
+	font-size: $size-body;
+}
+
+%style-entry-title { @extend %style-entry; }
+
+%style-entry-logline {
+	@extend %style-entry;
+	font-weight: 300;
+}
+
+%style-entry-meta {
+	font-size: $size-small;
+	font-weight: 700;
+}
+
+%style-float-50 {
+	@include module-masonry(50%);
+	padding: 0 $grid;
+	@include respond(3) { width: $grid * 25; }
+	@include respond(4) { padding: 0 $double; }
+}
+
+%style-followsfloats { clear: both; }
+
+%style-fullbleed {
+	margin-left: -$double;
+	margin-right: -$double;
+	max-width: none;
+	@include respond(3){
+		margin-left: -$double * 2;
+		margin-right: -$double * 2;
+	}
+}
+
+%style-gallery-item-title {
+	@extend %style-block;
+	@include include-arrow(1px);
+	font-weight: 300;
+	margin-top: $double;
+	overflow: visible;
+	&:active { color: $color-black; }
+}
+
+%style-hed {
+	font-weight: 700;
+	line-height: 1.1;
+}
+
+%style-hed-ah {
+	@extend %style-hed;
+	font-size: $size-xlarge;
+	margin: $grid auto;
+	font-weight: 300;
+	@include respond(3) { font-size: $size-2xlarge; }
+	@include respond(4) {
+		font-size: $size-3xlarge;
+		font-weight: 500;
+		margin-top: $double;
+		margin-bottom: $double * 2;
+	}
+}
+
+%style-hed-bh {
+	@extend %style-hed;
+	font-size: $size-large;
+	@include respond(3) {
+		font-size: $size-2xlarge;
+		font-weight: 300;
+	}
+	@include respond(4) {
+		font-size: $size-3xlarge;
+		font-weight: 500;
+	}
+}
+
+%style-hed-ch {
+	@extend %style-hed;
+	font-size: $size-large;
+	@include respond(3) {
+		font-size: $size-2xlarge;
+		font-weight: 300;
+	}
+	@include respond(4) { padding-bottom: .2em; }
+}
+
+
+%style-hed-dh {
+	@extend %style-hed;
+	@extend %style-border-bottom;
+	font-size: $size-small;
+	font-weight: 500;
+	margin-top: $double * 2;
+}
+
+%style-hed-slice-ah {
+	@extend %style-block;
+	font-size: $size-small;
+	font-weight: 500;
+	&:before {
+		content: '';
+		display: block;
+		width: $grid * 7;
+		height: 1px;
+		border-bottom: 1px solid $color-trans-gray;
+		margin: $grid 0;
+	}
+}
+
+%style-line-above {
+	&:before {
+		content: '';
+		display: block;
+		width: $grid * 6;
+		height: 1px;
+		margin-bottom: $grid;
+		border-top: 1px solid $color-black;
+	}
+}
+
+%style-link-arrow {
+	@include include-arrow(1px);
+	@include link-highlight($color-highlight, $color-black);
+	&:hover { @include include-arrow-black; }
+	&:active { @include include-arrow-highlight; }
+}
+
+%style-link-inline {
+	border-bottom: 1px solid $color-highlight;
+	padding-bottom: 1px;
+	&:hover { color: $color-highlight; }
+	&:active { 
+		color: $color-black; 
+		border-color: $color-black;
+	}
+}
+
+%style-moduleblock {
+	vertical-align: top;
+	display: inline-block;
+}
+
+%style-overflow-visible { overflow: visible; }
+
+%style-reading-text {
+	line-height: 1.4;
+	max-width: 40em;
+}
+
+%style-thumb-rounded {
+	border-radius: 1000px;
+	img { position: static; }
+}
+
+%style-vcenter-parent { display: table; }
+
+%style-vcenter-child {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+////////
+//	%module
+%module-entry-container {
+	@extend %style-block;
+	border-top: 1px solid $color-trans-lightwhite;
+	padding: $double 0;	
+	margin-top: $grid;
+	&:first-child { margin-top: 0 }
+}
+
+%module-gallery-item {
+	@extend %style-moduleblock;
+	@include link-none($color-black);
+	margin: 0 0 $double * 2 0;
+	text-align: center;
+	border-top: 1px solid $color-trans-lightgray;
+	width: 100%;
+	strong:hover { color: $color-highlight; }
+	strong:active { color: $color-black; }
+	@include respond(3) {
+		width: ((100/2) - 1) * 1%;
+		padding: $double;
+		border-top: none;
+	}
+	@include respond(4) { width: 33%; }
+}
+
+
+////////////////////////////////////////////////////////////////
+//	normalish
+
+// Not a full, official Normalize. Just my default preferences.
+
+html { box-sizing: border-box; }
+
+html, body { overflow: auto; }
 
 body {
-    font-family: 'PostGrotesk', Helvetica, Arial, sans-serif;
-    font-size: 20px;
-    line-height: 1.3;
-    color: $black;
-    margin: 0 auto;
-    max-width: 1500px;
-    -webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
 }
 
-/**
- * Sample form styling, taken from Skeleton, adapted for Bolt.
- *
- * @see http://www.getskeleton.com/?#forms
- */
-
-form.simpleform {
-    margin: 20px 0;
+*, *:before, *:after {
+	box-sizing: inherit;
+	text-rendering: optimizeLegibility;
+	-webkit-font-variant-ligatures: common-ligatures;
+	font-variant-ligatures: common-ligatures;
+	-moz-font-feature-settings: "kern=1";
+	-webkit-font-feature-settings: "kern";
+	-moz-font-feature-settings: "kern";
+	font-feature-settings: "kern";
+	font-kerning: normal;
+	overflow: hidden;
+	position: relative;
 }
 
-form.simpleform fieldset {
-    margin-bottom: 20px;
+cite, em , i {
+	font-style: italic;
+	cite, em, i { font-style: inherit; }
 }
+
+img {
+	width: 100%;
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+a {
+	color: $color-black;
+	text-decoration: none;
+	&:link { color: inherit; }
+	&:visited { color: inherit; }
+	&:hover { color: inherit; }
+	&:active { color: inherit; }
+}
+
+p a { @extend %style-link-inline; }
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="button"],
+input[type="submit"],
+textarea { -webkit-appearance: none; }
+
+////////////////////////////////////////////////
+//	dev for mobile -- comment out later
+
+//@include dev(320px);
+
+
+////////////////////////////////////////////////
+//	general body
+
+body {
+	font-family: $font-body;
+	font-size: $size-body;
+	font-weight: 500;
+	line-height: 1.2;
+	color: $color-black;
+	margin: 0 auto;
+	background-color: white;
+}
+
+a[role='button'] {
+	@include button-basic(20);
+	width: $grid * 29;
+	margin: $grid * 3 auto $double auto;
+	span { @include include-arrow(1px); }
+	&:active { 
+		span  { @include include-arrow-white; }
+	}
+}
+
+a.block { @extend %style-block; }
+
+
+////////////////////////////////////////////////
+//	nav
+
+nav[role="navigation"] { text-align: center; }
+
+.header-nav {
+	@include respond(3) {
+		display: inline-block;
+		margin-bottom: -$half;
+	}
+}
+
+.header-nav-item {
+	@extend %style-vcenter-parent;
+	float: left;
+	font-size: $size-body;
+	font-weight: 500;
+	@include respond(3) { font-size: $size-body; }
+	a {
+		@extend %style-vcenter-child;
+		@include link-highlight($color-black, $color-highlight);
+		padding: 0 $grid;
+		height: $grid * 6;
+		@include respond(2) { height: $grid * 7; }
+		@include respond(3) {
+			padding: 0 21px;
+			height: $grid * 11;
+		}
+		@include respond(4) { padding: 0 28px; }
+	}
+	&:nth-child(n+5) { @include hide-onmobile-then(table); }
+}
+
+.header-nav-logo {
+	position: absolute;
+	display: block;
+	margin-top: -2px;
+	margin-left: -28px;
+}
+
+.header-nav-item:hover {
+	.style1, .style2 { fill: $color-highlight; }
+	a { color: $color-highlight; }
+}
+
+.header-nav-item._home {
+	font-weight: 700;
+	span.name {
+		display: block;
+		text-indent: -10000px;
+		@include respond(2) {
+			display: inline;
+			text-indent: 0;
+		}
+	}
+	span.longname { @include hide-onmobile-then(inline); }
+	a {
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 46px;
+		padding-right: 12px;
+		@include respond(3) { padding-right: 22px; }
+		@include respond(4) { padding-right: 34px; }
+	}
+}
+
+////////
+//	intro-nav (for projects and sketches)
+
+.intro-nav {
+	@extend %style-vcenter-parent;
+	@extend %style-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	border-bottom: 1px solid $color-trans-lightgray;
+	border-top: 1px solid $color-trans-lightgray;
+	width: 100%;
+	@include respond(4) {
+		top: 45%;
+		border: none;
+		overflow: visible;
+	}
+	a {
+		@include link-highlight($color-black, $color-highlight);
+		@extend %style-vcenter-child;
+		width: 50%;
+		height: $grid * 5;
+		font-size: $size-small;
+		padding: 0 19px;
+		&:hover { background-color: $color-white; }
+		.more {
+			display: block;
+			color: #777;
+			@include respond(3) {
+				display: inline;
+				&:before { content: ': '; }
+			}
+			@include respond(4) {
+				display: block;
+				&:before { content: none; }
+			}
+		}
+		@include respond(2) { height: $grid * 7; }
+		@include respond(4) {
+			display: block;
+			@include link-highlight($color-black, $color-highlight);
+			width: 10em;
+			height: auto;
+			padding: $grid 0 0 $double;
+			z-index: 1;
+			font-size: $size-small;
+			border-top: 1px solid $color-black;
+	  		&:hover {
+		  		border-color: $color-highlight;
+		  		background-color: transparent;
+		  		span {
+			  		color: $color-black;
+		  		}
+	  		}
+		}
+	}
+}
+
+.intro-nav a.intro-nav-previous { 
+	text-align: left; 
+	@include respond(4) { float: left; }
+}
+
+.intro-nav a.intro-nav-next { 
+	text-align: right; 
+	border-left: 1px solid $color-trans-lightgray;
+	@include respond(4) {
+		float: right;
+		padding-left: 0;
+		padding-right: $double;
+		border-left: none;
+	}
+}
+
+
+////////////////////////////////////////////////
+//	containers, slices, and sleeves
+
+.container {
+	padding: $grid * 3 $double;
+	background-color: $color-trans-whispergray;
+	@include respond(3) { padding: $grid * 4 $double * 2; }
+	@include respond(4) { padding-top: $grid * 6; }
+}
+
+.container-title, .container-subtitle {
+	@extend %style-hed-bh;
+	@extend %style-block-reading;
+}
+
+.container-subtitle { color: $color-highlight; }
+
+.sleeve { @extend %style-overflow-visible; }
+
+.slice {
+	@extend %style-overflow-visible;
+	@extend %style-block-reading;
+	@extend %style-followsfloats;
+	font-weight: 300;
+	overflow: auto;
+	@include respond(4) { padding-top: $double; }
+}
+
+.slice-hook {
+	font-weight: 700;
+	margin-bottom: $double;
+	margin-top: $grid * 3;
+	@include respond(4){
+		font-size: $size-body;
+		width: $grid * 24;
+		float: left;
+		margin-left: $grid * 24;
+		@extend %style-line-above;
+	}
+}
+
+.slice-main {
+	@extend %style-overflow-visible;
+	line-height: 1.4;
+	@include respond(4){ 
+		font-size: $size-large;
+		padding-left: $grid * 3;
+		padding-right: $grid * 10;
+		padding-top: 26px;
+		overflow: auto;
+	}
+}
+
+.slice-ah { @extend %style-hed-slice-ah; }
+
+ul + .slice-ah { padding-top: $double; }
+
+
+////////////////////////////////////////////////
+//	intro
+
+.intro-title {
+	@extend %style-hed-ah;
+	@extend %style-block-reading;
+	span {
+		font-weight: 300;
+		color: $color-highlight;
+	}
+}
+
+a.link-project {
+	@include include-arrow(1px);
+	@include link-highlight($color-highlight, $color-blue);
+}
+
+.github-label:before {
+	content: '';
+	height: 32px;
+	width: 33px;
+	display: inline-block;
+	background-image: url('../images/icon-github-sprite.svg');
+	background-position-x: 0;
+	vertical-align: middle;
+	bottom: 2px;
+	margin-right: 8px;
+}
+
+.github-button:active { .github-label:before { background-position-x: -34px; } }
+
+
+////////////////////////////////////////////////
+//	gallery
+
+.gallery {
+	@extend %style-block-max;
+	text-align: left;
+	margin-top: $double * 2;
+	@include respond(3) {
+		margin-left: -$double;
+		margin-right: -$double;
+	}
+	@include respond(4) {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.gallery-item-title, .gallery-item-logline {
+	@extend %style-block;
+	margin-top: $grid;
+}
+
+.gallery-item { @extend %module-gallery-item; }
+
+.gallery-item-title { @extend %style-gallery-item-title; }
+
+.gallery-item-specs {
+		margin-top: $grid;
+		font-size: $size-small;
+		padding: 0 $grid /2;
+	}
+
+.gallery-item-specs-date { padding-top: 4px; }
+
+.gallery-item-specs-logline { color: $color-highlight; }
+
+.gallery-item-specs-status {
+		font-weight: 300;
+		margin-top: $half;
+		font-size: $size-body;
+		color: $color-blue;
+	}
+
+._inactive .gallery-item-specs-status { color: $color-trans-lightgray; }
+
+////////
+// circular-style gallery
+
+.gallery._alt {
+	margin-left: -14px;
+	margin-right: -14px;
+	margin-top: $grid * 4;
+	overflow: auto;
+	text-align: center;
+	@include respond(4) {
+		margin: 0 auto;
+		text-align: left;
+	}
+	.gallery-item {
+		@extend %style-float-50;
+		border-top: none;
+		&._inactive {
+			img {
+				filter: grayscale(100%);
+				filter: gray;
+				filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+				opacity: 0.1;
+			}
+		}
+	}
+	.gallery-item-primaryImage { @extend %style-thumb-rounded; }
+}
+
+._sketches .gallery._alt {
+	@include respond(4) {
+		margin: $grid * 5 auto 0 auto;
+		text-align: center;
+	}
+}
+
+body._sketches .gallery._alt .gallery-item { @include respond(4) { width: 300px; } }
+
+////////
+// listing-style gallery
+
+.gallery._listing {
+	@extend %style-block-reading;
+	margin-top: $double * 2; 
+	.list-hed {
+		font-size: $size-body;
+		font-weight: 800;
+		margin-bottom: $double;
+	}
+	.contributor {
+		@extend %module-entry-container;
+		border-top-color: $color-trans-lightgray;
+		float: none;
+		width: 100%;
+	}
+	.contributor-primaryImage {
+		@extend %style-thumb-rounded;
+		float: left;
+		width: 30%;
+		margin: 0;
+	}
+	.contributor-info {
+		float: right;
+		width: 70%;
+		text-align: left;
+		padding-left: $double;
+	}
+	.contributor-name {
+		margin-top: 0;
+		&:after { display: none; }
+	}
+	.contributor-role { &:before { margin-left: 1px; } }
+	.contributor-description {
+		@extend %style-reading-text;
+		font-size: $size-small;
+		font-weight: 500;
+		color: $color-trans-darkgray;
+		margin-top: $double;
+	}
+	.person-specs {
+		font-size: $size-small;
+		li { margin-top: $grid; }
+		a {
+			@include include-arrow(1px);
+			@include link-highlight($color-highlight, $color-black);
+			&:hover { @include include-arrow-black; }
+			&:active { @include include-arrow-highlight; }
+		}
+	}
+	@include respond(4) {
+		max-width: nth($respond-breakpoints,4) + (6 * $double);
+		.contributor {
+			@include module-masonry(33%);
+			width: 33%;
+			border-top: none;
+			margin-top: 0;
+		}
+		.contributor-primaryImage {
+			float: none;
+			width: 100%;
+		}
+		.contributor-info {
+			float: none;
+			width: 100%;
+			padding: ($double * 2) $double;
+			text-align: center;
+		}
+		.contributor-name {
+		}
+		.contributor-role:before {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+
+._project .gallery._listing {
+	margin-top: $double;
+	margin-bottom: $grid * 3;
+	.collaborator { border-color: $color-trans-lightgray; }
+	.collaborator-name {
+		@include include-arrow(1px);
+		&:hover { color: $color-highlight; }
+	}
+}
+
+
+////////////////////////////////////////////////
+//	forms
+
+//	Sample form styling, taken from Skeleton, adapted for Bolt.
+//	@see http://www.getskeleton.com/?#forms
+
+//	Probably still needs some cleanup
+
+form.simpleform { margin: 20px 0; }
+
+form.simpleform fieldset { margin-bottom: 20px; }
 
 form.simpleform input[type="text"],
 form.simpleform input[type="password"],
 form.simpleform input[type="email"],
 form.simpleform textarea,
 form.simpleform select {
-    border: 1px solid #ccc;
-    padding: 6px 4px;
-    outline: none;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    color: #777;
-    width: 210px;
-    max-width: 100%;
-    display: block;
-    margin-bottom: 0 0 0.25em 0;
-    background: #fff;
+	border: 1px solid $color-trans-white;
+	padding: $double;
+	outline: none;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	color: $color-white;
+	width: 100%;
+	max-width: 100%;
+	display: block;
+	margin: 0 0 $double 0;
+	font-family: $font-body;
+	font-weight: 500;
+	font-size: $size-body;
+	background-color: transparent;
+	@include input-placeholder-color($color-trans-white);
+	@include input-placeholder-weight(300);
+	@include respond(4) {
+		color: $color-black;
+		border-color: $color-trans-darkgray;
+		@include input-placeholder-color($color-trans-darkgray);
+	}
 }
 
-form.simpleform select {
-    padding: 0;
+form.simpleform select { padding: 0; }
+
+form.simpleform input[type="submit"] {
+	@include button-basic(12);
+	width: 16em;
+	margin: 0 auto;
 }
 
 form.simpleform input[type="text"]:focus,
 form.simpleform input[type="password"]:focus,
 form.simpleform input[type="email"]:focus,
 form.simpleform textarea:focus {
-    border: 1px solid #aaa;
-    color: #444;
-    -moz-box-shadow: 0 0 3px rgba(0,0,0,.2);
-    -webkit-box-shadow: 0 0 3px rgba(0,0,0,.2);
-    box-shadow:  0 0 3px rgba(0,0,0,.2);
+	border: 1px solid $color-white;
+	color: $color-white;
+	background-color: transparent;
+	@include input-placeholder-color($color-white);
+	@include respond(4) {
+		color: $color-blue;
+		border-color: $color-blue;
+		@include input-placeholder-color($color-blue);
+	}
 }
 
-form.simpleform input.wide {
-    width: 90%;
-}
-
-form.simpleform textarea {
-    min-height: 60px;
-    min-width: 90%;
-}
+form.simpleform textarea { min-height: 10em; }
 
 form.simpleform label,
-form.simpleform legend {
-    display: block;
-    margin: 0.75em 0 0.25em;
-}
+form.simpleform legend { display: none; }
 
-form.simpleform select {
-    width: 220px;
-}
+form.simpleform select { width: 220px; }
 
 form.simpleform input[type="checkbox"] {
-    display: inline;
-    margin-right: 1em;
+	display: inline;
+	margin-right: 1em;
 }
 
 form.simpleform label span,
 form.simpleform legend span {
-    font-weight: normal;
-    font-size: 13px;
-    color: #444;
-}
-
-form.simpleform button,
-form.simpleform input[type="button"],
-form.simpleform input[type="submit"] {
-    margin-top: 0.75em;
-    padding: 4px 14px;
-    font-weight: normal;
+	font-weight: normal;
+	font-size: $size-small;
+	color: #444;
 }
 
 form.simpleform .checkbox-placeholder {
-    display: inline;
-    color: #666;
+	display: inline;
+	color: #666;
 }
 
 form.simpleform label.required:after {
-    content: " *";
-    color: #F00;
-    font-weight: bold;
+	content: " *";
+	color: #F00;
+	font-weight: bold;
 }
 
 p.simpleform-error {
-    padding: 8px 35px 8px 14px;
-    margin-bottom: 20px;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-    border: 1px solid #EED3D7;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    color: #B94A48;
-    background-color: #F2DEDE;
+	padding: 8px 35px 8px 14px;
+	margin-bottom: 20px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	border: 1px solid #EED3D7;
+	border-radius: 4px;
+	color: #B94A48;
+	background-color: #F2DEDE;
 }
 
 p.simpleform-message {
-    padding: 8px 35px 8px 14px;
-    margin-bottom: 20px;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-    border: 1px solid #D6E9C6;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    color: #468847;
-    background-color: #DFF0D8;
+	padding: 8px 35px 8px 14px;
+	margin-bottom: 20px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	border: 1px solid #D6E9C6;
+	border-radius: 4px;
+	color: #468847;
+	background-color: #DFF0D8;
+}
+
+
+////////////////////////////////////////////////
+//	home
+
+body.home {
+	header {
+		@extend %style-vcenter-parent;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+	}
+	.header-nav {
+		padding: $double 0 $double 0;
+		overflow: auto;
+		text-align: center;
+	}
+	nav[role="navigation"] {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	.header-nav-item {
+		display: inline-block;
+		float: none;
+		&:nth-child(n+5) { @include hide-onmobile-then(inline-block); }
+	}
+	.header-nav-item._home {  display: none; }
+}
+
+////////
+//	home splash
+
+.home-splash {
+	@extend %style-vcenter-child;
+	text-align: center;
+	font-weight: 700;
+	padding: $double;
+	padding-bottom: 95px;
+	figure {
+		margin: 0 auto;
+		max-width: nth($respond-breakpoints,3) + 1;	}
+	}
+
+.home-title {
+	margin-top: $double * 2;
+	font-size: 19.25px;
+}
+
+////////
+//	roundup
+
+.container._roundup {
+	background-color: $color-black;
+	color: white;
+	.container-subtitle { color: $color-yellow; }
+}
+
+.headers {
+	@extend %style-block-reading;
+	.container-title, .container-subtitle { @extend %style-hed-ch; }
+	@include respond(4) {
+		.container-title {
+			float: left;
+			font-weight: 500;
+		}
+		.container-subtitle {
+			float: right;
+			font-weight: 300;
+		}
+	}
+}
+
+#hopper {
+	@extend %style-block-reading;	
+	margin-top: $double * 2;
+	clear: both;
+}
+
+.roundup-post { @extend %module-entry-container;	 }
+
+.roundup-post-date { @extend %style-entry-meta; }
+
+.roundup-post-content { margin-top: $grid / 2; }
+
+.roundup-post-title, .roundup-post-logline { margin-top: 6px; }
+
+.roundup-post-title {
+	@extend %style-entry-title;
+	font-weight: 700;
+}
+
+.roundup-post-logline {
+	@extend %style-entry-logline;
+	color: $color-trans-textwhite;
+	font-weight: 300;
+}
+
+.roundup-post-title a {
+	@include underline-on-hover;
+	@include include-arrow(1px);
+	&:link { color: $color-highlight; }
+	&:visited { color: $color-highlight}
+	&:hover { color: $color-highlight; }
+	&:active { 
+		color: $color-active; 
+		@include include-arrow-white;
+	}
+}
+
+.roundup-post-author {
+	@extend %style-entry-meta;
+	margin-top: $grid;
+	color: $color-trans-darkwhite;
+	&:before {
+		content: 'Posted by ';
+		font-weight: 300;
+	}
+}
+
+@include respond(4) {
+	.roundup-post-date, .roundup-post-content, .roundup-post-author { float: left; }
+	.roundup-post-date { width: 30%; }
+	.roundup-post-content {
+		width: 40%;
+		margin-top: 0;
+	}
+	.roundup-post-author {
+		width: 30%;
+		padding-left: $double * 2;
+		margin-top: 0;
+	}
+	.roundup-post-title, .roundup-post-logline { font-size: 20px; }
+	.roundup-post-title {
+		margin-top: 0;
+		font-weight: 300;
+	}
+	.roundup-post-date, .roundup-post-author { margin-top: 4px; }
+}
+
+
+
+////////////////////////////////////////////////
+//	about
+
+.container._about { background-color: $color-trans-whispergray; }
+
+.map {
+	color: $color-highlight;
+	font-size: $size-small;
+	padding-left: .25em;
+	a {
+		text-decoration: underline;
+		&:link { color: $color-highlight; }
+		&:visited { color: $color-highlight}
+		&:hover { color: $color-blue; }
+		&:active { color: $color-black; }
+	}
+}
+
+////////
+//	people
+
+.container._people { padding-bottom: 0; }
+
+.container._people, .container._collaborators { border-top: $double solid $color-warmgray; }
+
+.about-specs, .about-address {
+	@extend %style-followsfloats;
+	@include respond(4){
+		font-weight: 500;
+		font-size: $size-body;
+	}
+}
+
+.about-specs {
+	li { margin-top: $grid; }
+	a { @extend %style-link-arrow; }
+}
+
+.about-address { padding-top: $double; }
+
+.about-specs-phone { margin-top: $grid; }
+
+.slice-main p { margin-bottom: $double; }
+
+.collaborators {
+	@extend %style-block-reading;
+	margin-top: $double * 2;
+}
+
+.collaborator {
+	@extend %module-entry-container;
+	border-top-color: $color-black;
+	font-size: $size-small;
+	margin-top: 0;
+}
+
+.collaborator-info { float: left; }
+
+.collaborator-name {
+	font-weight: 700;
+	display: block;
+}
+
+.collaborator-role {
+	color: $color-trans-darkgray;
+	display: block;
+}
+
+.collaborator-specs {
+	float: right;
+	top: 1px;
+	li {
+		display: inline;
+		a {
+			overflow: hidden;
+			text-indent: -10000px;
+			height: 24px;
+			width: 25px;
+			margin-left: $grid;
+			float: right;
+			background-size: auto 24px;
+			background-position-x: 0;
+			background-repeat: no-repeat;
+			&:hover { background-position-x: -56px; }
+			&:active { background-position-x: 0; }
+		}
+	}
+	li.collaborator-specs-website a { background-image: url('../images/website-sprite.svg'); }
+	li.collaborator-specs-twitter a { background-image: url('../images/twitter-sprite.svg'); }
+	li.collaborator-specs-github a { background-image: url('../images/github-sprite.svg'); }
+}
+
+////////////////////////////////////////////////
+//	projects and sketches
+
+.container._projects, 
+.container._sketches {
+	border-top: $double solid white;
+	@include respond(3) { border-top-width: $double * 2; }
+}
+
+/////////
+//	former projects
+
+._sketches .container._intro + .container { padding-top: 0; }
+
+
+.container._sunset {
+	background-color: $color-sunset;
+	.container-subtitle { color: $color-white; }
+}
+
+.sunset-entries {
+	@extend %style-block-reading;
+	margin-top: $double;
+	margin-bottom: $double;
+}
+
+.sunset-entry { @extend %module-entry-container; }
+
+.sunset-entry-content { margin-top: $grid / 2; }
+
+.sunset-entry-date { @extend %style-entry-meta; }
+
+.sunset-entry-title {
+	@extend %style-entry-title;
+	a {
+		@include include-arrow(2px);
+		@include include-arrow-white;
+		@include link-highlight($color-white, $color-black);
+		&:hover { @include include-arrow-black; }
+	}
+}
+
+.sunset-entry-logline { @extend %style-entry-logline; }
+
+
+////////////////////////////////////////////////
+//	project
+
+._project .container._intro {
+	padding-top: $grid * 8;
+	padding-left: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	position: relative;
+	@include respond(2) { padding-top: $grid * 9; }
+	@include respond(3) { padding-top: $grid * 11; }
+	@include respond(4) { padding-top: $grid * 6; }
+	.sleeve {
+		padding: 0 $double;
+		@extend %style-block-reading;
+		@include respond(3) { padding: 0 2 * $double; }
+		@include respond(4) { padding: 0; }
+	}
+}
+
+
+.project-hero {
+	margin: 0 (-$double) 0  (-$double);
+	@include respond(3) {
+		margin-left: -$double * 2;
+		margin-right: -$double * 2;
+	}
+	& + .slice {
+		padding-top: $double;
+		@include respond(4) { padding-top: $double * 3; }
+	}
+}
+
+.slice._contributors {
+	@include slice-fullbleedbg($color-trans-whispergray);
+	padding-top: $grid;
+	.gallery { text-align: left; }
+	@include respond(3) { padding-top: $grid * 4; }
+	@include respond(4) {
+		background-color: white;
+		padding-top: $grid * 6;
+	}
+}
+
+.slice._github {
+	margin-top: 0;
+	text-align: center;
+	a[role='button'] {
+		display: inline-block;
+		width: auto;
+		min-width: 232px;
+	}
+}
+
+////////
+//	contributor
+
+.contributor {
+	@extend %module-gallery-item;
+	@extend %style-float-50;
+	width: 49%;
+	border-top: none;
+	@include respond(4) {
+		padding-top: 0;
+		width: 32.3%;
+	}
+}
+
+.contributor-primaryImage { @extend %style-thumb-rounded; }
+
+.contributor-primaryImage._noImage { background-color: #dfdfdf;  }
+
+.contributor-name {
+	@extend %style-gallery-item-title;
+	@include respond(4) { font-size: $size-body; }
+}
+
+.contributor-role {
+	@extend %style-hed-slice-ah;
+	&:before {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+////////
+//	news
+
+.slice._news {
+	@include slice-fullbleedbg($color-warmgray);
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-bottom: $double;
+	@include respond(4) { background-color: white; }
+}
+
+.news-item {
+	@extend %module-entry-container;
+	border-color: $color-trans-lightgray;
+	&:first-child{
+		margin-top: $grid * 3;
+		@include respond(4) { margin-top: -2px; }
+	}
+}
+
+.news-item-title {
+	@extend %style-entry-title;
+	@include include-arrow(1px);
+	font-weight: 700;
+	&:active { color: $color-black; }
+}
+
+.news-item-category { @extend %style-entry-meta; }
+
+.news-item._blog  {
+	.news-item-category,
+	.news-item-title:hover { color: $color-pink; }
+}
+
+.news-item._press {
+	.news-item-category,
+	.news-item-title:hover { color: $color-blue; }
+	.news-item-publication {
+		color: $color-blue;
+		&:before {
+			content: 'in ';
+			color: $color-black;
+		}
+	}
+}
+
+.news-item-date { @extend %style-entry-meta; }
+
+.news-item-publication { @extend %style-entry-meta; }
+
+////////
+//	contact
+
+.slice._contact {
+	@include slice-fullbleedbg($color-black);
+	color: $color-white;
+	margin-top: 0;
+	margin-bottom: -$grid * 3;
+	@include respond(3) { margin-bottom: -$grid * 4; }
+	@include respond(4) {
+		background-color: white;
+		color: $color-black;
+		padding-bottom: $grid * 10;
+	}
+	.sleeve {
+		padding: $double;
+		@include respond(4) { padding: 0; }
+	}
+}
+
+
+////////////////////////////////////////////////
+//	sketch
+
+._sketch .container {
+	background-color: $color-black;
+	.intro-nav {
+		border-color: $color-highlight;
+		border-top: none;
+		color: white;
+	}
+	.intro-nav-next { border-color: $color-highlight; }
+	.intro-nav a {
+		@include link-highlight($color-white, $color-highlight);
+		&:hover {
+			background-color: $color-trans-lightgray;
+			color: $color-yellow;
+			.more { color: $color-highlight; }
+		}
+		&:active {
+			background-color: $color-highlight;
+			color: $color-black;
+			.more { color: $color-black; }
+		}
+		@include respond(4) {
+			border-color: $color-white;
+			&:hover {
+				border-color: $color-highlight;
+				background-color: transparent;
+				color: $color-highlight !important;
+			}
+		}
+	}
+}
+
+._sketch .container._intro {
+	background-color: $color-black;
+	color: white;
+	padding-top: $grid * 9;
+	padding-left: 0;
+	padding-right: 0;
+	@include respond(3) { padding-top: $grid * 10; }
+	@include respond(4) { padding-top: $grid * 6; }
+	.sleeve {
+		padding: 0 $double;
+		@include respond(3) { padding: 0; }
+	}
+}
+
+._sketch .container { .slice-hook:before { border-color: $color-highlight; } }
+
+////////
+// sketch points
+
+.point-text, .point-image {
+	@include respond(3) {
+		width: 50%;
+		flex: 1 100%;
+	}
+	
+}
+
+.container._point {
+	display: flex;
+	padding: 0;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	flex-direction: column;
+	& + .container._point { border-top: none; }
+	@include respond(3) { flex-direction: row; }
+	@include respond(4) { max-height: 500px; }
+}
+
+
+.point-hed {
+	font-size: $size-body;
+	font-weight: 700;
+	@include respond(4) { font-size: $size-large; }
+	@include respond(4) { font-size: 32px; }
+}
+
+.point-subhed {
+	font-size: $size-body;
+	color: $color-brightyellow;
+	font-weight: 300;
+	@include respond(4) {
+		font-size: 20px;
+		color: white;
+	}
+	@include respond(4) { font-size: 32px; }
+}
+
+.point-content {
+	@extend %style-reading-text;
+	margin-top: $double;
+	font-size: $size-body;
+	font-weight: 300;
+	@include respond(3) {
+		font-size: 15px;
+		font-weight: 500;
+	}
+	@include respond(4) { font-size: 19px; }
+}
+
+.container._point:nth-of-type(2n) {
+	@include respond(3) {
+		flex-direction: row-reverse;
+		.point-text { flex-direction: row; }
+	}
+}
+
+.point-text {
+	display: flex;
+	align-items: center;
+	flex-direction: row-reverse;
+	color: white;
+	background-color: $color-black;
+}
+
+.point-text .sleeve {
+	padding: $double * 2 $double;
+	max-width: 700px;
+	@include respond(4) { padding: $double; }
+	@include respond(4) { padding: $double * 4; }
+}
+
+////////
+// sketch contact
+
+._sketch {
+	.slice._contact {
+		background-color: transparent;
+		color: $color-white;
+		padding-bottom: $double * 2;
+	}
+	form.simpleform input[type="text"],
+	form.simpleform input[type="password"],
+	form.simpleform input[type="email"],
+	form.simpleform textarea,
+	form.simpleform select {
+		color: $color-white;
+		border-color: $color-trans-white;
+		@include input-placeholder-color($color-trans-white);
+	}
+	form.simpleform input[type="text"]:focus,
+	form.simpleform input[type="password"]:focus,
+	form.simpleform input[type="email"]:focus,
+	form.simpleform textarea:focus {
+		color: $color-white;
+		border-color: $color-white;
+		@include input-placeholder-color($color-white);
+	}
+}
+
+
+////////////////////////////////////////////////
+//	blog
+
+.container._posts .sleeve, .container._blognav .sleeve {
+	@extend %style-block-reading;
+	@include respond(3) { padding: 0; }
+	@include respond(4) {
+		padding-top: 0;
+		width: $grid * 82;
+	}
+}
+
+article.post {
+	border-top: $double solid $color-black;
+	padding: $double  0;
+	margin-top: $double;
+   	footer {
+	   	background-color: transparent;
+	   	padding: 0;
+   	}
+   	time { display: block; }
+}
+
+article.post + article.post { margin-top: $double * 3; }
+
+//.post-header {}
+//.post-date {}
+
+.post-author {
+	padding: 6px 0;
+	font-weight: 300;
+}
+
+.post-title {
+	@extend %style-hed-bh;
+	margin-top: $grid / 2;
+}
+
+.post-content {
+	padding-top: $double;
+	.row {
+		font-size: $size-body;
+		font-weight: 400;
+		padding-top: $grid;
+		margin-top: $double * 2;
+		border-top: 1px solid $color-highlight;
+		& + .row { margin-top: $double * 3; }
+	}
+	.roundup-title {}
+	.roundup-title a {
+		@include link-highlight($color-highlight, $color-black);
+		@include include-arrow(1px);
+		border-bottom: none;
+		&:hover { @include include-arrow-black; }
+		&:active {
+			color: $color-highlight;
+			@include include-arrow-highlight;
+		}
+	}
+	.screenshot {
+		margin: $double 0;
+		border-radius: 4px;
+		overflow: hidden;
+		border: 1px solid $color-trans-lightgray;
+	}
+	.submitted-by {
+		font-weight: 300;
+		margin-top: $grid;
+		&:before {
+			content: '/';
+			color: $color-highlight;
+			padding-right: 2px;
+		}
+   	}
+   	img.size-full {
+	   	margin: $double 0;
+   	}
+   	& > p + p  {
+	   	margin-top: 1em;
+   	}
+   	& > ol, & > ul {
+	   	margin: $double 0;
+	   	li {
+		   	padding-left: .8em;
+		   	text-indent: -.8em;
+		   	+ li {
+			   	margin-top: .75em;
+		   	}
+	   	}
+   	}
+   	& > p + a img {
+	   	margin-top: $double;
+   	}
+   	blockquote {
+	   	margin: $double 0;
+		border-left: 1px solid $color-trans-lightgray;
+		padding-left: $double;
+		   	p + p {
+		   	margin-top: 1em;
+	   	}
+	   	ul {
+		   	margin: 1em 0;
+		   	li + li {
+			   	margin-top: .75em;
+		   	}
+	   	}
+   	}
+}
+
+.pagination {
+	ul { text-align: center; }
+	li {
+		display: none;
+		a {
+			padding: $grid;
+			display: inline-block;
+		}
+	}
+	li.prev, li.next {
+		display: table;
+		float: left;
+		width: 48%;
+		position: relative;
+		a {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			padding: $double;
+			width: 100%;
+			overflow: hidden;
+			text-indent: -1000px;
+			border-top: 1px solid $color-black;
+			background-color: transparent;
+			z-index: 10;
+			&:hover { border-color: $color-highlight; }
+		}
+		&:after {
+			content: 'Older Posts';
+			position: absolute;
+			left: 0;
+			right: 0;
+			padding-top: $double;
+			z-index: 0;
+			font-size: $size-small;
+		}
+		&:hover::after { color: $color-highlight; }
+	}
+	li.disabled { display: none !important; }
+	li.next {
+		float: right;
+		&:after { content: 'Older posts'; }
+	}
+	li.prev { &:after { content: 'Newer posts'; } }
+}
+
+@include respond(3) {
+	.metadata {
+		float: left;
+		width: 70%;
+		padding: $double;
+	}
+	article.post time { padding-bottom: 4px; }
+	.post-content {
+		p, ul, ol {
+			font-size: 22px;
+			font-weight: 300;
+			line-height: 1.4;
+		}
+		.row p { font-size: $size-body; }
+		.roundup-title { font-weight: 400; }
+		.row + .row { margin-top: $double; }
+		.submitted-by { font-weight: 400; }
+		.screenshot {
+			float: left;
+			width: 30%;
+			margin-top: $grid * 3;
+		}
+	}
+	.post-title {
+		font-size: 40px;
+		font-weight: 600;
+	}
+	.text-frame { font-weight: 300; }
+	.metadata { padding: $grid * 3; }
+	article.post + article.post { margin-top: $double * 4; }
+	.post-author { padding-bottom: $double; }
+}
+
+@include respond(4) {
+	.post-content { & > p, & > ul, & > ol { font-size: $size-large; } }
+}
+
+
+////////////////////////////////////////////////
+//	footer
+
+footer {
+	background: $color-brightyellow;
+	color: $color-white;
+	font-weight: 700;
+	text-align: right;
+	padding: $grid * 3 $double;
+	overflow: auto;
+	@include respond(3) { padding: $double * 2; }
+	@include respond(4) { padding-bottom: $grid * 6; }
+}
+
+.footer-wrapper { @extend %style-block-reading; }
+
+.category._projects footer { background-color: $color-acidmint; }
+
+.category._project footer { background-color: $color-highlight; }
+
+.category._about footer { background-color: $color-electricblue; }
+
+.footer-logo {
+	float: left;
+	width: 50%;
+	max-width: $grid * 44;
+}
+
+.footer-nav {
+	width: 50%;
+	float: right;
+}
+
+.footer-nav-item {
+	@include respond(4) {
+		display: inline-block;
+		margin-left: $grid * 3;
+		margin-top: $grid;
+	}
+}
+
+.footer-nav-item a {
+	@include link-underline($color-white, $color-black);
+	text-decoration: none;
+	display: inline-block;
+	padding: 1px 0;
+}
+
+.footer-copyright {
+	margin-top: $double;
+	font-size: $size-small;
+	clear: both;
+	float: right;
+	p { margin-top: $grid; }
+	@include respond(4) {
+		width: 50%;
+		margin-top: $grid * 6;
+		clear: none;
+	}
+}
+
+@include respond(3) {
+	.home-title {  
+		font-size: 40px; 
+		margin-top: $grid * 10;
+	}
 }
