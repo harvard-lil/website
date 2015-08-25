@@ -73,6 +73,8 @@
 //	see http://www.paulirish.com/2009/bulletproof-font-face-implementation-syntax
 //	our face (Post Grotesk) has no ttf version, so that part of the Fontsquirrel syntax is omitted
 
+
+
 @font-face {
 	font-family: 'PostGrotesk';
 	src: 	url('../fonts/PostGrotesk-Book.eot?') format('eot'), 
@@ -114,6 +116,8 @@
 //	http://meyerweb.com/eric/tools/css/reset/ 
 //	v2.0 | 20110126
 //	License: none (public domain)
+
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -339,20 +343,16 @@ $color-acidmint: #18F1C0;
 //	mixins for input placeholders
 @mixin input-placeholder-color($placeholderColor) {
 	&::-webkit-input-placeholder { color: $placeholderColor; }
-	&:-moz-placeholder { color: $placeholderColor;   }
-	&::-moz-placeholder { color: $placeholderColor;   }
-	&:-ms-input-placeholder { 
-		color: $placeholderColor;  
-	}
+	&:-moz-placeholder { color: $placeholderColor; }
+	&::-moz-placeholder { color: $placeholderColor; }
+	&:-ms-input-placeholder { color: $placeholderColor; }
 }
 
 @mixin input-placeholder-weight($placeholderWeight) {
 	&::-webkit-input-placeholder { font-weight: $placeholderWeight; }
-	&:-moz-placeholder { font-weight: $placeholderWeight;   }
-	&::-moz-placeholder { font-weight: $placeholderWeight;   }
-	&:-ms-input-placeholder { 
-		font-weight: $placeholderWeight;  
-	}
+	&:-moz-placeholder { font-weight: $placeholderWeight; }
+	&::-moz-placeholder { font-weight: $placeholderWeight; }
+	&:-ms-input-placeholder { font-weight: $placeholderWeight; }
 }
 
 
@@ -705,6 +705,7 @@ input[type="button"],
 input[type="submit"],
 textarea { -webkit-appearance: none; }
 
+
 ////////////////////////////////////////////////
 //	dev for mobile -- comment out later
 
@@ -802,6 +803,7 @@ nav[role="navigation"] { text-align: center; }
 		@include respond(4) { padding-right: 34px; }
 	}
 }
+
 
 ////////
 //	intro-nav (for projects and sketches)
