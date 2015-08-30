@@ -9,7 +9,8 @@
 
 {% set footerLogoImage = thispage.logo_image %}
 
-
+{% block criticalCss %}
+{% endblock %}
 
 {% block body_tag %}<body class="home">{% endblock %}
 {% block content %}
@@ -18,27 +19,13 @@
     		<figure>
     			<img	srcset="theme/lil/images/header-splash-logo-ani@1x.gif 1x, 
     						theme/lil/images/header-splash-logo-ani@2x.gif 2x"
-    					srcset="theme/lil/images/header-splash-logo-ani@1x.gif"
+    					src="theme/lil/images/header-splash-logo-ani@1x.gif"
     					alt="Library Innovation Lab" />
     		</figure>
     		<h1 class="home-title">We’re building things in libraries.</h1>
     	</div>
     	{% include '_nav.twig' %}
 	</header>
-
-    <script type="text/javascript">//<![CDATA[ 
-        function resize()
-        {
-            var heights = window.innerHeight;
-            document.getElementById("header-splash").style.height = heights + "px";
-        }
-        resize();
-        window.onresize = function() {
-            resize();
-        };
-        //]]>  
-
-    </script> 
 
 	<!-- comment -->
 	
