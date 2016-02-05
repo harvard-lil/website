@@ -328,6 +328,7 @@ people:
           multiple: true
           order: name
           label: Select sketches
+    record_template: about.twig
     listing_template: about.twig
     listing_records: 20
     default_status: publish
