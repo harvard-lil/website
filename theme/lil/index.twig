@@ -9,15 +9,17 @@
 
 {% set footerLogoImage = thispage.logo_image %}
 
+{% block criticalCss %}
+{% endblock %}
 
 {% block body_tag %}<body class="home">{% endblock %}
 {% block content %}
-    <header>
+    <header id="header-splash">
     	<div class="home-splash">
     		<figure>
-    			<img 	src="theme/lil/images/header-splash-logo-ani@1x.gif"
-    					srcset="theme/lil/images/header-splash-logo-ani@1x.gif 1x, 
+    			<img	srcset="theme/lil/images/header-splash-logo-ani@1x.gif 1x, 
     						theme/lil/images/header-splash-logo-ani@2x.gif 2x"
+    					src="theme/lil/images/header-splash-logo-ani@1x.gif"
     					alt="Library Innovation Lab" />
     		</figure>
     		<h1 class="home-title">We’re building things in libraries.</h1>
@@ -120,4 +122,8 @@
 	
 {% endblock %}
 
-{% block extra_scripts %}<script src="{{ paths.theme }}javascripts/roundup.js"></script>{% endblock %} 
+{% block extra_scripts %}
+<script type="text/javascript">
+	function showHopper(){$.getJSON(item_url+"/recent?items=5&callback=?",function(o){var t=[];$.each(o.items,function(o,s){t.push('<div class="roundup-post"><div class="roundup-post-date"> '+s.date+'</div><div class="roundup-post-content"><strong class="roundup-post-title"><a href="'+s.link+'">'+s.title+'</a></strong><span class="roundup-post-logline">'+s.description+'</span></div><div class="roundup-post-author">'+s.creator+"</div></div>")});var s=t.join("");console.log(s),$("#hopper").html(s)})}var item_url="http://librarylab.law.harvard.edu/roundup/api/item";$(document).ready(function(){showHopper()});
+</script>
+{% endblock %} 

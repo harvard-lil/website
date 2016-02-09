@@ -1,0 +1,800 @@
+////////////////////////////////////////////////
+
+//	dan o. williams
+//	library innovation lab scss
+//	styles.scss > ../css/styles.css
+//	August 2015
+
+
+////////////////////////////////////////////////
+
+//	Usually, I split each of these first six elements into its own scss partial (_example.scss) and include them with 
+//	@include _example.scss;
+//	In this case, I kept them all together in the same file for simplicity.
+
+//	a.	comments
+//	b.	font loading
+//	c.	reset
+//	d.	variables
+//		- grid
+//		- respond
+//		- typography
+//		- colors
+//	e.	mixins
+//	f.	placeholders
+//		- styles
+//		- modules
+//	g.	normalish
+
+//	1.	general body
+//	2.	nav
+//		- intro-nav (for projects and sketches)
+//	3.	containers, slices, and sleeves
+//	4.	intro
+//	5.	gallery
+//		- circular
+//		- listing
+//	6.	forms
+//	7.	home
+//		- home splash
+//		- roundup
+//	8.	about
+//		- people
+//	9.	projects and sketches
+//		- former projects (sunset)
+//	10.	project
+//		- contributor
+//		- news
+//		- contact
+//	11.	sketch
+//		- sketch points
+//		- contact
+//	12.	blog
+//	13.	footer
+
+
+////////////////////////////////////////////////
+//	comments
+
+//	Comments in the format '//[tab]comment' so they'll be stripped by compiling
+
+// Compiled with:
+//	- CodeKit 2.4 (http://incident57.com/codekit/)
+//	- Libsass 3.2.5 compiler (http://sass-lang.com/libsass)
+//	- Autoprefixer 5.2.0 (https://github.com/postcss/autoprefixer)
+//	- Compressed output
+//	- Creating sourcemap ../css/styles.css.map
+
+
+////////////////////////////////////////////////
+//	font loading
+
+//	uses the Fontspring @font-face syntax
+//	see http://www.paulirish.com/2009/bulletproof-font-face-implementation-syntax
+//	our face (Post Grotesk) has no ttf version, so that part of the Fontsquirrel syntax is omitted
+
+@font-face {
+	font-family: 'PostGrotesk';
+	src: 	url('../fonts/PostGrotesk-Book.eot?') format('eot'), 
+			url('../fonts/PostGrotesk-Book.woff') format('woff'); 
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'PostGrotesk';
+	src: 	url('../fonts/PostGrotesk-BookItalic.eot?') format('eot'), 
+			url('../fonts/PostGrotesk-BookItalic.woff') format('woff'); 
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'PostGrotesk';
+	src: 	url('../fonts/PostGrotesk-Medium.eot?') format('eot'), 
+			url('../fonts/PostGrotesk-Medium.woff') format('woff'); 
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'PostGrotesk';
+	src: 	url('../fonts/PostGrotesk-Bold.eot?') format('eot'), 
+			url('../fonts/PostGrotesk-Bold.woff') format('woff'); 
+	font-weight: 700;
+	font-style: normal;
+}
+
+
+////////////////////////////////////////////////
+//	reset
+
+//	That clean Meyer reset.
+
+//	http://meyerweb.com/eric/tools/css/reset/ 
+//	v2.0 | 20110126
+//	License: none (public domain)
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+//	HTML5 display-role reset for older browsers
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+////////////////////////////////////////////////
+//	variables
+
+////////
+//	grid
+
+// basic grid to keep spacing simple and regular
+$grid: 8px;
+$double: $grid * 2;
+$half: $grid / 2;
+
+// common widths
+$width-mobile: $grid * 40; 		//320px;
+$width-tablet: $grid * 80; 		//640px;
+$width-max: $grid * 140; 		//1120px;
+$width-column: $width-mobile;
+$width-sidebar: $grid * 22; 	//172px;
+
+$width-hook: $grid * 24;
+
+
+////////
+//	respond
+
+//	Used by the respond($n) mixin
+//	ex:
+//	@include respond(3) {[content]}
+//	sets a min-width meda query at element [3] in this variable (+ 1 px)
+
+$respond-breakpoints: 320px 375px 640px 1048px 1296px;
+
+////////
+//	typography
+
+//	Just one family on this site.
+//$font-display: #;
+$font-body: 'PostGrotesk', Helvetica, Arial, sans-serif;
+//$font-reading: #;
+//$font-actions: #;
+//$font-alt: #;
+
+//	Common sizes.
+$size-3xlarge: 72px;
+$size-2xlarge: 48px;
+$size-xlarge: 40px;
+$size-large: 24px;
+$size-xbody: 1.222222rem;
+$size-body: 17px;
+$size-small: 12px;
+
+////////
+//	colors
+$color-black: #222;
+$color-background: white;
+$color-highlight: #bd10e0;
+$color-active: white;
+$color-pink: #FF19D2;
+$color-blue: #0075FF;
+$color-electricblue: #17C5E3;
+$color-warmgray: #EAEAE5;
+$color-yellow: #F8CC1C; 
+$color-brightyellow: #FFCF04;
+$color-sunset: #DD671A;
+$color-trans-darkgray: rgba(0,0,0,.5);
+$color-trans-lightgray: rgba(0,0,0,.1);
+$color-trans-whispergray: rgba(100,100,0,.02);
+$color-trans-gray: rgba(0,0,0,.4);
+$color-trans-black: rgba(0,0,0,.95);
+$color-trans-textwhite: rgba(254,254,254,.4);
+$color-trans-darkwhite: rgba(254,254,254,.9);
+$color-trans-white: rgba(254,254,254,.5);
+$color-trans-lightwhite: rgba(254,254,254,.25);
+$color-white: white;
+$color-acidmint: #18F1C0;
+
+
+////////////////////////////////////////////////
+//	mixins
+
+// 	Generally used for media-queries and for certain bits of repetitive styling not appropriate for a placeholder (because of cascade or media query)
+
+//	ex:
+//	@include dev(320px);
+//	sets max body width
+//	sometimes good for testing
+@mixin dev($width){
+	html { background-color: #eee; }
+	body { max-width: $width; }
+}
+
+//	ex:
+//	@include respond(3);
+//	sets min-width media query at 641px
+@mixin respond($n) { @media only screen and (min-width: nth($respond-breakpoints, $n) + 1) { @content; } }
+
+//	mixins for <a> styles, typically
+@mixin link-none($linkcolor){
+	color: $linkcolor;
+	text-decoration: none;
+	&:link { color: $linkcolor; }
+	&:visited { color: $linkcolor}
+	&:hover { color: $linkcolor; }
+	&:active { color: $linkcolor; }
+}
+
+@mixin link-highlight($linkcolor, $highlightcolor){
+	color: $linkcolor;
+	text-decoration: none;
+	&:link { color: $linkcolor; }
+	&:visited { color: $linkcolor}
+	&:hover { color: $highlightcolor; }
+	&:active { color: $linkcolor; }
+}
+
+@mixin link-underline($linkcolor, $highlightcolor){
+	color: $linkcolor;
+	text-decoration: none;
+	&:link { color: $linkcolor; }
+	&:visited { color: $linkcolor}
+	&:hover { 
+		color: $linkcolor; 
+		text-decoration: underline;
+	}
+	&:active { color: $highlightcolor; }
+}
+
+//	add the arrow sprite after an element
+@mixin include-arrow($offset) {
+	&:after {
+		content: '';
+		height: 8px;
+		width: 10px;
+		display: inline-block;
+		background-image: url('../images/ui-arrow-sprite.svg');
+		background-position-x: 0;
+		margin-left: 4px;
+		vertical-align: middle;
+		bottom: $offset;
+		margin-right: -14px;
+	}
+}
+
+@mixin underline-on-hover {
+	text-decoration: none;
+	&:hover { text-decoration: underline; }
+}
+
+//	shifts the sprite to different positions/colors
+@mixin include-arrow-highlight { &:after { background-position-x: 0px; } }
+
+@mixin include-arrow-white { &:after { background-position-x: -10px; } }
+
+@mixin include-arrow-black { &::after { background-position-x: -20px; } }
+
+@mixin button-basic($padding) {
+	border-radius: 4px;
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	color: $color-highlight;
+	font-weight: 700;
+	font-size: $size-small;
+	border: 1px solid $color-highlight;
+	padding: #{$padding}px;
+	cursor: pointer;
+	background-color: transparent;
+	font-family: $font-body;
+	&:hover {
+		border-width: 2px;
+		padding: #{$padding - 1}px;
+	}
+	&:active {
+		color: $color-white;
+		border-color: $color-highlight;
+		background: $color-highlight;
+	}
+}
+
+@mixin nofloat {
+	float: none;
+	width: auto;	
+}
+
+//	mixins for input placeholders
+@mixin input-placeholder-color($placeholderColor) {
+	&::-webkit-input-placeholder { color: $placeholderColor; }
+	&:-moz-placeholder { color: $placeholderColor; }
+	&::-moz-placeholder { color: $placeholderColor; }
+	&:-ms-input-placeholder { color: $placeholderColor; }
+}
+
+@mixin input-placeholder-weight($placeholderWeight) {
+	&::-webkit-input-placeholder { font-weight: $placeholderWeight; }
+	&:-moz-placeholder { font-weight: $placeholderWeight; }
+	&::-moz-placeholder { font-weight: $placeholderWeight; }
+	&:-ms-input-placeholder { font-weight: $placeholderWeight; }
+}
+
+
+//	mixins for hiding elemtns on mobile, then showing a certain display type at ~tablet
+@mixin hide-onmobile-then($thiskind){
+	display: none;
+	@include respond(3) { display: $thiskind; }
+}
+
+@mixin module-masonry($thiswidth) {
+	display: inline-block;
+	vertical-align: top;
+	width: $thiswidth - 1;
+	padding: $double;
+}
+
+@mixin slice-fullbleedbg($thisbg) {
+	@extend %style-fullbleed;
+	background-color: $thisbg;
+	.sleeve {
+		padding: 0 $double;
+		@extend %style-block-reading;
+		@include respond(3) { padding: 0 2 * $double; }
+		@include respond(3) { padding: 0; }
+	}
+}
+
+////////////////////////////////////////////////
+//	placeholders
+
+//	Used for common styling patterns.
+//	I like to use placeholders rather than specified elemtns for styles because they can be descriptive and specific in their names.
+
+//	I prefer to class my html as follows:
+
+//	html is classed using a modified BEM (Block, Element, Modifier) method
+//	in general, the primary block class is listed first, with an element connected by a hyphen. modifier classes follow, each preceded by an underscore.
+//	multi-word blocks, elements, or modifiers are written in camelCase
+//	so, an active primary nav list element might look like "primaryNav-list-item _active" 
+
+//	Since I like the readability and speed of speccing by class rather than by element (.roundup-post-title rather than h4.roundup-post-title or .roundup h4) it makes sense to grap items and connect them to a plceholder style (@extend %placeholder;) rather than try to define a global style for h4 (or whatever).
+//	This allows the flexibility to to give your html the proper structure and naming for the page without having to shoehorn in elements that aren't correct for the document outline (like skipping an h3 to go right to a styled h4)
+
+//	A caveat: using placeholder extensions can sometimes have unexpected results in the cascade, since the placeholder comes at the start of the scss file. Also, extensions can't be used across media queries (something in a media query can't extend something not in that query.)
+
+//	A common pattern that needs to cross media queries could use a mixin.
+//	Or, the media query could be included in the placeholder itself. 
+
+//	This, for instance, WOULD be acceptable:
+
+//	%style-example-ah {
+//		font-size: $size-small;
+//		@include respond(3) {
+//			font-size: $size-body;
+//		}
+//	}
+//
+//	.example-title {
+//		@extend %style-example-ah;
+//	}
+
+//	But this would NOT be acceptable:
+
+//	%style-example-ah-bigger {
+//		font-size: $size-small;
+//	}
+//	
+//	@include respond(3) {
+//		.example-title {
+//			@extend %style-example-ah-bigger;
+//		}
+//	}
+
+//	A long way of saying that I make extensive use of placeholders. Styling a new element usually involves learing which existing placeholder to apply.
+
+//	Typically prefixed %style- or %module-
+//	Alphabetical order, except when it would affect the cascade
+
+////////
+//	%style
+%style-block { display: block; }
+
+%style-block-centered { 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+%style-block-reading {
+	@extend %style-block-centered;
+	@include respond(3) { max-width: 596px; }
+	@include respond(4) { max-width: nth($respond-breakpoints,4); }
+}
+
+%style-block-max {
+	@extend %style-block-centered;
+	max-width: nth($respond-breakpoints,5);
+}
+
+%style-border-bottom {
+	padding-bottom: $grid;
+	float: left;
+	border-bottom: 2px solid $color-black;
+}
+
+%style-entry {
+	@extend %style-block;
+	line-height: 1.3;
+	font-size: $size-body;
+}
+
+%style-entry-title { @extend %style-entry; }
+
+%style-entry-logline {
+	@extend %style-entry;
+	font-weight: 300;
+}
+
+%style-entry-meta {
+	font-size: $size-small;
+	font-weight: 700;
+}
+
+%style-float-50 {
+	@include module-masonry(50%);
+	padding: 0 $grid;
+	@include respond(3) { width: $grid * 25; }
+	@include respond(4) { padding: 0 $double; }
+}
+
+%style-followsfloats { clear: both; }
+
+%style-fullbleed {
+	margin-left: -$double;
+	margin-right: -$double;
+	max-width: none;
+	@include respond(3){
+		margin-left: -$double * 2;
+		margin-right: -$double * 2;
+	}
+}
+
+%style-gallery-item-title {
+	@extend %style-block;
+	@include include-arrow(1px);
+	font-weight: 300;
+	margin-top: $double;
+	overflow: visible;
+	&:active { color: $color-black; }
+}
+
+%style-hed {
+	font-weight: 700;
+	line-height: 1.1;
+}
+
+%style-hed-ah {
+	@extend %style-hed;
+	font-size: $size-xlarge;
+	margin: $grid auto;
+	font-weight: 300;
+	@include respond(3) { font-size: $size-2xlarge; }
+	@include respond(4) {
+		font-size: $size-3xlarge;
+		font-weight: 500;
+		margin-top: $double;
+		margin-bottom: $double * 2;
+	}
+}
+
+%style-hed-bh {
+	@extend %style-hed;
+	font-size: $size-large;
+	@include respond(3) {
+		font-size: $size-2xlarge;
+		font-weight: 300;
+	}
+	@include respond(4) {
+		font-size: $size-3xlarge;
+		font-weight: 500;
+	}
+}
+
+%style-hed-ch {
+	@extend %style-hed;
+	font-size: $size-large;
+	@include respond(3) {
+		font-size: $size-2xlarge;
+		font-weight: 300;
+	}
+	@include respond(4) { padding-bottom: .2em; }
+}
+
+
+%style-hed-dh {
+	@extend %style-hed;
+	@extend %style-border-bottom;
+	font-size: $size-small;
+	font-weight: 500;
+	margin-top: $double * 2;
+}
+
+%style-hed-slice-ah {
+	@extend %style-block;
+	font-size: $size-small;
+	font-weight: 500;
+	&:before {
+		content: '';
+		display: block;
+		width: $grid * 7;
+		height: 1px;
+		border-bottom: 1px solid $color-trans-gray;
+		margin: $grid 0;
+	}
+}
+
+%style-line-above {
+	&:before {
+		content: '';
+		display: block;
+		width: $grid * 6;
+		height: 1px;
+		margin-bottom: $grid;
+		border-top: 1px solid $color-black;
+	}
+}
+
+%style-link-arrow {
+	@include include-arrow(1px);
+	@include link-highlight($color-highlight, $color-black);
+	&:hover { @include include-arrow-black; }
+	&:active { @include include-arrow-highlight; }
+}
+
+%style-link-inline {
+	border-bottom: 1px solid $color-highlight;
+	padding-bottom: 1px;
+	&:hover { color: $color-highlight; }
+	&:active { 
+		color: $color-black; 
+		border-color: $color-black;
+	}
+}
+
+%style-moduleblock {
+	vertical-align: top;
+	display: inline-block;
+}
+
+%style-overflow-visible { overflow: visible; }
+
+%style-reading-text {
+	line-height: 1.4;
+	max-width: 40em;
+}
+
+%style-thumb-rounded {
+	border-radius: 1000px;
+	img { position: static; }
+}
+
+%style-vcenter-parent { display: table; }
+
+%style-vcenter-child {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+////////
+//	%module
+%module-entry-container {
+	@extend %style-block;
+	border-top: 1px solid $color-trans-lightwhite;
+	padding: $double 0;	
+	margin-top: $grid;
+	&:first-child { margin-top: 0 }
+}
+
+%module-gallery-item {
+	@extend %style-moduleblock;
+	@include link-none($color-black);
+	margin: 0 0 $double * 2 0;
+	text-align: center;
+	border-top: 1px solid $color-trans-lightgray;
+	width: 100%;
+	strong:hover { color: $color-highlight; }
+	strong:active { color: $color-black; }
+	@include respond(3) {
+		width: ((100/2) - 1) * 1%;
+		padding: $double;
+		border-top: none;
+	}
+	@include respond(4) { width: 33%; }
+}
+
+
+////////////////////////////////////////////////////////////////
+//	normalish
+
+// Not a full, official Normalize. Just my default preferences.
+
+html { box-sizing: border-box; }
+
+html, body { overflow: auto; }
+
+body {
+	-webkit-font-smoothing: antialiased;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+	text-rendering: optimizeLegibility;
+	-webkit-font-variant-ligatures: common-ligatures;
+	font-variant-ligatures: common-ligatures;
+	-moz-font-feature-settings: "kern=1";
+	-webkit-font-feature-settings: "kern";
+	-moz-font-feature-settings: "kern";
+	font-feature-settings: "kern";
+	font-kerning: normal;
+	overflow: hidden;
+	position: relative;
+}
+
+cite, em , i {
+	font-style: italic;
+	cite, em, i { font-style: inherit; }
+}
+
+img {
+	width: 100%;
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+a {
+	color: $color-black;
+	text-decoration: none;
+	&:link { color: inherit; }
+	&:visited { color: inherit; }
+	&:hover { color: inherit; }
+	&:active { color: inherit; }
+}
+
+p a { @extend %style-link-inline; }
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="button"],
+input[type="submit"],
+textarea { -webkit-appearance: none; }
+
+////////////////////////////////////////////////
+//	dev for mobile -- comment out later
+
+//@include dev(320px);
+
+
+////////////////////////////////////////////////
+//	general body
+
+body {
+	font-family: $font-body;
+	font-size: $size-body;
+	font-weight: 500;
+	line-height: 1.2;
+	color: $color-black;
+	margin: 0 auto;
+	background-color: white;
+}
+
+a[role='button'] {
+	@include button-basic(20);
+	width: $grid * 29;
+	margin: $grid * 3 auto $double auto;
+	span { @include include-arrow(1px); }
+	&:active { 
+		span  { @include include-arrow-white; }
+	}
+}
+
+a.block { @extend %style-block; }
+
+
+////////////////////////////////////////////////
+//	nav
+
+nav[role="navigation"] { text-align: center; }
+
+.header-nav {
+	@include respond(3) {
+		display: inline-block;
+		margin-bottom: -$half;
+	}
+}
+
+.header-nav-item {
+	@extend %style-vcenter-parent;
+	float: left;
+	font-size: $size-body;
+	font-weight: 500;
+	@include respond(3) { font-size: $size-body; }
+	a {
+		@extend %style-vcenter-child;
+		@include link-highlight($color-black, $color-highlight);
+		padding: 0 $grid;
+		height: $grid * 6;
+		@include respond(2) { height: $grid * 7; }
+		@include respond(3) {
+			padding: 0 21px;
+			height: $grid * 11;
+		}
+		@include respond(4) { padding: 0 28px; }
+	}
+	&:nth-child(n+5) { @include hide-onmobile-then(table); }
+}
+
+.header-nav-logo {
+	position: absolute;
+	display: block;
+	margin-top: -2px;
+	margin-left: -28px;
+}
+
+.header-nav-item:hover {
+	.style1, .style2 { fill: $color-highlight; }
+	a { color: $color-highlight; }
+}
+
+.header-nav-item._home {
+	font-weight: 700;
+	span.name {
+		display: block;
+		text-indent: -10000px;
+		@include respond(2) {
+			display: inline;
+			text-indent: 0;
+		}
+	}
+	span.longname { @include hide-onmobile-then(inline); }
+	a {
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 46px;
+		padding-right: 12px;
+		@include respond(3) { padding-right: 22px; }
+		@include respond(4) { padding-right: 34px; }
+	}
+}
