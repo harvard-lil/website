@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% set vars = {respond: {'tabletWidth': 600, 'wideWidth': 1400}} %}
+
+{% set footerLogoImage = record.logo_image %}
+
+
+{% block body_tag %}<body class="category">{% endblock %}
+{% block pageTitle %} {{ record.title }} | Library Innovation Lab {% endblock %}
+{% block pageDescription %}Bringing the best of technology to the world of libraries and the best of libraries to the world of technology. And vice versa.{% endblock %}
+{% block facebookImage %}{{ paths.hosturl }}{{ record.primary_image_square|thumbnail(800,800,'r') }}{% endblock %}
+{% block content %}
+
+    <header>
+    	{% include '_nav.twig' %}
+    </header>	
+	
+    <section class="container _intro">
+	    <h1 class="intro-title">{{ record.title }}</h1>
+	    <div class="slice">
+		    <h3 class="slice-hook">{{ record.logline }}</h3>
+		    <div class="slice-main">
+			    {{ record.history }}
+			</div>
+		</div>
+    </section>
+
+    {% if record.primary_image %}
+    <section class="container">
+	    <div class="project-hero">
+			<picture class="slider-slide-primaryImage">
+	
+				<!-- 16:9 for wide widths -->
+				<source
+					media="(min-width: {{ vars.respond.tabletWidth }}px)"
+					srcset="{{ record.primary_image|thumbnail(800,450,'r') }} 800w,
+			        	{{ record.primary_image|thumbnail(1200,675,'r') }} 1200w,
+						{{ record.primary_image|thumbnail(1600,900,'r') }} 1600w" />
+	
+				<!-- square for narrow widths -->
+				<source
+					srcset="{{ record.primary_image_square|thumbnail(400,400,'r') }} 1x,
+			        	{{ record.primary_image_square|thumbnail(800,800,'r') }} 2x" />
+				<img
+					srcset="{{ record.primary_image_square|thumbnail(400,400,'r') }}"
+					alt="{{ project.image.title }}" />
+			</picture>
+	    </div>
+    </section>
+    {% endif %}
+
+{% endblock %}
