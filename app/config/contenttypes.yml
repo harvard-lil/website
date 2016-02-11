@@ -45,7 +45,7 @@ pages:
             options:
                 ckeditor:
                     height: 400
-                    allowedContent: 'b i; a[!href]'
+                    #allowedContent: 'b i; a[!href]'
         contact_intro:
             type: markdown
             group: content

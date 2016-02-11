@@ -15,5 +15,5 @@ main:
     link: http://librarylab.law.harvard.edu/blog
     class: _navblog
   - label: We're Hiring
-    link: http://librarylab.law.harvard.edu/blog/2015/10/20/hiring-devops-energy-wanted/
+    path: jobs
     class: _navblog

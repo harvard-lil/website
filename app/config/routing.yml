@@ -47,17 +47,21 @@ contentlisting:
 # ------------------------------------------------------------------------------
 # Place your own routes here, that have a LOWER priority than the default routes.
 
-sketchlisting:
-   path:     /sketches/
-   defaults: { _controller: 'Bolt\Controllers\Frontend::template', template: 'sketch-listing.twig' }
-   
-sketchbinding:
-  path: /sketch/{slug}
-  defaults: { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'project', 'project_type': 'sketch' }
-
-aboutlisting:
-   path:     /about/
-   defaults: { _controller: 'Bolt\Controllers\Frontend::template', template: 'about.twig' }
+#sketchlisting:
+#   path:     /sketches/
+#   defaults: { _controller: 'Bolt\Controllers\Frontend::template', template: 'sketch-listing.twig' }
+#   
+#sketchbinding:
+#  path: /sketch/{slug}
+#  defaults: { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'project', 'project_type': 'sketch' }
+#
+#aboutlisting:
+#   path:     /about/
+#   defaults: { _controller: 'Bolt\Controllers\Frontend::template', template: 'about.twig' }
+pagebinding:
+  path:           /{slug}
+  defaults:       { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'page' }
+  contenttype:    pages
 
 #  recordslug: page/about
 

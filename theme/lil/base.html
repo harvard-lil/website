@@ -33,9 +33,11 @@
 <footer>
 	<div class="footer-wrapper">
 		<figure class="footer-logo">
-			<img	srcset="{{ footerLogoImage|thumbnail(351,143,'r') }} 1x, 
-						{{ footerLogoImage|thumbnail(702,286,'r') }} 2x"
-					alt="Library Innovation Lab" />
+			{% if footerLogoImage %}
+				<img	srcset="{{ footerLogoImage|thumbnail(351,143,'r') }} 1x, 
+							{{ footerLogoImage|thumbnail(702,286,'r') }} 2x"
+						alt="Library Innovation Lab" />
+			{% endif %}
 		</figure>
 		<ul class="footer-nav">
 			<li class="footer-nav-item"><a href="{{ paths.root }}">Home</a></li>
