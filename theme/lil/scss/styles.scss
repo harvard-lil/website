@@ -568,17 +568,6 @@ $color-acidmint: #18F1C0;
 	}
 }
 
-%style-line-above {
-	&:before {
-		content: '';
-		display: block;
-		width: $grid * 6;
-		height: 1px;
-		margin-bottom: $grid;
-		border-top: 1px solid $color-black;
-	}
-}
-
 %style-link-arrow {
 	@include include-arrow(1px);
 	@include link-highlight($color-highlight, $color-black);
@@ -704,6 +693,18 @@ input[type="email"],
 input[type="button"],
 input[type="submit"],
 textarea { -webkit-appearance: none; }
+
+// stuff for page and post typography
+.slice-main, .post-content{
+	strong, b{
+		font-weight:bold;
+	}
+	ul{
+		list-style-type: disc;
+		list-style-position: inside;
+		margin-bottom:1em;
+	}
+}
 
 
 ////////////////////////////////////////////////
@@ -918,7 +919,14 @@ nav[role="navigation"] { text-align: center; }
 		width: $grid * 24;
 		float: left;
 		margin-left: $grid * 24;
-		@extend %style-line-above;
+		&:before {
+			content: '';
+			display: block;
+			width: $grid * 6;
+			height: 1px;
+			margin-bottom: $grid;
+			border-top: 1px solid $color-black;
+		}
 	}
 }
 
