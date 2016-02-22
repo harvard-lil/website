@@ -26,18 +26,28 @@
 	    </nav>
 	    <div class="sleeve">
 		    <h1 class="intro-title"><span>Sketch:</span> {{ sketch.name }}</h1>
+		    {% if sketch.project_website | length %}
+			    <div class="slice">
+				    <h3 class="slice-hook">Where can I find {{ sketch.name }}?</h3>
+				    <div class="slice-main">
+					    <a class="link-project" href="{{ sketch.project_website }}">{{ sketch.project_website }}</a>
+					</div>
+				</div>
+			{% endif %}
 		    <div class="slice _what">
 			    <h3 class="slice-hook">What does {{ sketch.name }} do?</h3>
 			    <div class="slice-main">
 				    <p>{{ sketch.logline }}</p>
 				</div>
 			</div>
-		    <div class="slice _why">
-			    <h3 class="slice-hook">Why does {{ sketch.name }} exist?</h3>
-			    <div class="slice-main">
-				    {{ sketch.description }}
+			{% if sketch.description | length %}
+			    <div class="slice _why">
+				    <h3 class="slice-hook">Why does {{ sketch.name }} exist?</h3>
+				    <div class="slice-main">
+					    {{ sketch.description }}
+					</div>
 				</div>
-			</div>
+			{% endif %}
 			{% if sketch.github_repo is not empty %}
 			 	<a href="{{ sketch.github_repo }}" role="button" class="github-button" aria-label="{{ sketch.name }} on Github"><span class="github-label">{{ sketch.name }} on Github</span></a>
 		 	{% endif %}
