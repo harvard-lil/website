@@ -1,6 +1,9 @@
 # Set the default handler.
 DirectoryIndex index.php index.html index.htm
 
+RedirectMatch 301 ^/about\.html$ /about
+RedirectMatch 301 ^/projects\.html$ /projects
+
 # Prevent directory listing
 Options -Indexes
 
@@ -23,7 +26,7 @@ Options -Indexes
   RewriteEngine on
 
   RewriteRule cache/ - [F]
-
+  
   # Some servers require the RewriteBase to be set. If so, set to the correct folder.
   # RewriteBase /
 
