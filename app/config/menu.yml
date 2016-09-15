@@ -11,6 +11,9 @@ main:
   - label: Sketches
     path: sketches/
     class: _navsketches
+  - label: Fellows
+    path: fellows
+    class: _navfellows
   - label: Blog
     link: http://librarylab.law.harvard.edu/blog
     class: _navblog
